@@ -10,6 +10,6 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Medoo\\' => array($vendorDir . '/catfan/medoo/src'),
-    'LyApi\\' => array($baseDir . '/LyApi'),
+    'LyApi\\' => array($vendorDir . '/lyapi/lyapi-core/src'),
     'APP\\' => array($baseDir . '/app'),
 );

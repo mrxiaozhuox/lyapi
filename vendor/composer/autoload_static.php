@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit616ec0212bae7f713dabf96b3927cc25
+class ComposerStaticInit49d1e97817fc0f3135ff26341105d729
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
@@ -49,7 +49,7 @@ class ComposerStaticInit616ec0212bae7f713dabf96b3927cc25
         ),
         'LyApi\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/LyApi',
+            0 => __DIR__ . '/..' . '/lyapi/lyapi-core/src',
         ),
         'APP\\' => 
         array (
@@ -70,9 +70,9 @@ class ComposerStaticInit616ec0212bae7f713dabf96b3927cc25
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit616ec0212bae7f713dabf96b3927cc25::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit616ec0212bae7f713dabf96b3927cc25::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit616ec0212bae7f713dabf96b3927cc25::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit49d1e97817fc0f3135ff26341105d729::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit49d1e97817fc0f3135ff26341105d729::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit49d1e97817fc0f3135ff26341105d729::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

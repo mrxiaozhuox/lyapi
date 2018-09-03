@@ -2,7 +2,8 @@
 
 define('LyApi',dirname(__FILE__) . '/..');
 
-require_once LyApi . "/vendor/autoload.php";
+require_once LyApi . '/vendor/autoload.php';
+
 
 //判读是否打开Whoops
 

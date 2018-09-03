@@ -12,7 +12,13 @@
             "type": "zip",
             "url": "https://api.github.com/repos/catfan/Medoo/zipball/8d90cba0e8ff176028847527d0ea76fe41a06ecf",
             "reference": "8d90cba0e8ff176028847527d0ea76fe41a06ecf",
-            "shasum": ""
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
         },
         "require": {
             "ext-pdo": "*",
@@ -73,7 +79,13 @@
             "type": "zip",
             "url": "https://api.github.com/repos/filp/whoops/zipball/e79cd403fb77fc8963a99ecc30e80ddd885b3311",
             "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311",
-            "shasum": ""
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
         },
         "require": {
             "php": "^5.5.9 || ^7.0",
@@ -124,6 +136,59 @@
         ]
     },
     {
+        "name": "lyapi/lyapi-core",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wwsg18/LyApi-Core.git",
+            "reference": "c8bf04e28f35d1bbaca81a4aad33a477aab724d1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/wwsg18/LyApi-Core/zipball/c8bf04e28f35d1bbaca81a4aad33a477aab724d1",
+            "reference": "c8bf04e28f35d1bbaca81a4aad33a477aab724d1",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "catfan/medoo": "dev-master",
+            "filp/whoops": "^2.2@dev",
+            "mashape/unirest-php": "dev-master",
+            "predis/predis": "^2.0@dev"
+        },
+        "time": "2018-09-03T08:06:05+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "LyApi\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "xiaozhuox",
+                "email": "mrxzx@wwsg18.top"
+            }
+        ],
+        "description": "LyApi core code",
+        "keywords": [
+            "Lolly",
+            "api",
+            "core",
+            "lyapi"
+        ]
+    },
+    {
         "name": "mashape/unirest-php",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -136,7 +201,13 @@
             "type": "zip",
             "url": "https://api.github.com/repos/Mashape/unirest-php/zipball/14aa9aa6919e4b70c59cd20722ac113c0ffeb45b",
             "reference": "14aa9aa6919e4b70c59cd20722ac113c0ffeb45b",
-            "shasum": ""
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
         },
         "require": {
             "ext-curl": "*",
@@ -184,7 +255,13 @@
             "type": "zip",
             "url": "https://api.github.com/repos/nrk/predis/zipball/d72f0678bade78af953605622760fe262d82eb58",
             "reference": "d72f0678bade78af953605622760fe262d82eb58",
-            "shasum": ""
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
         },
         "require": {
             "php": ">=5.3.9"
@@ -241,7 +318,13 @@
             "type": "zip",
             "url": "https://api.github.com/repos/php-fig/log/zipball/3490ba5925e6dcbe6de950c5c6b8dce9f6e96eda",
             "reference": "3490ba5925e6dcbe6de950c5c6b8dce9f6e96eda",
-            "shasum": ""
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
         },
         "require": {
             "php": ">=5.3.0"

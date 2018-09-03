@@ -1,5 +1,6 @@
 <?php
 
+
 require 'init.php';
 
 \LyApi\LyApi::output();
