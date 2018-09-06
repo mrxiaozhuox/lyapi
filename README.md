@@ -83,6 +83,14 @@ Q Q:1373962439
 
 GitHub: https://github.com/xiaozhuox/LyApi
 
+## 已知问题
+
+问题1：Composer创建的项目报错：
+
+解决方法：删除vendor文件夹，重新install即可
+
+> 如发现更多问题请 发布Issue 或 加群反馈 
+
 [1]: http://lyapi.wwsg18.com/trial.html
 [2]: https://packagist.org/users/wwsg18/
 [3]: https://mit-license.org
