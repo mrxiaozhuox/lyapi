@@ -9,16 +9,16 @@
 使用Composer构建LyApi项目:
 
     $ composer create-project mrxzx/lyapi
-    
+
 ## 简单Demo
 
     // ./app/api/Demo.php
     <?php
-    
+
     namespace APP\api;
-    
+
     use LyApi\core\API;
-    
+
     class Demo extends API{
         public function User(){
             return array(
@@ -27,7 +27,7 @@
             );
         }
     }
-   
+
 #### 运行结果:
 
     {
@@ -52,7 +52,7 @@
 LyAPI将会不断的更新拓展类库：
 - array2xml 数组转XML数据
 - visit-stats 接口访问数量统计
-- [更多拓展请前往packagist查看][2] 
+- [更多拓展请前往packagist查看][2]
 
 #### 类库安装
 
@@ -72,6 +72,16 @@ LyAPI不属于任何人，它属于我们所有人！
 ## 开源协议
 
 LyAPI使用MIT协议，更多信息请查看[MIT协议官网][3]
+
+## 联系作者
+
+作者:Mr小卓X
+
+Q Q:1373962439
+
+交流群:769094015
+
+GitHub: https://github.com/xiaozhuox/LyApi
 
 [1]: http://lyapi.wwsg18.com/trial.html
 [2]: https://packagist.org/users/wwsg18/
