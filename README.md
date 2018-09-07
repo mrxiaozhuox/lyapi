@@ -39,6 +39,11 @@
         "msg":""
     }
 
+## 图片演示
+
+![avatar](http://wwsg-img.bj.bcebos.com/project%2Flyapi%2Freadme%2FLyAPI1.png)
+![avatar](http://wwsg-img.bj.bcebos.com/project%2Flyapi%2Freadme%2FLyAPI2.png)
+
 ## 在线体验
 
 不想下载？你可以使用[在线体验][1]功能！
@@ -52,6 +57,7 @@
 LyAPI将会不断的更新拓展类库：
 - array2xml 数组转XML数据
 - visit-stats 接口访问数量统计
+- ladoc 在线生成接口文档
 - [更多拓展请前往packagist查看][2]
 
 #### 类库安装
