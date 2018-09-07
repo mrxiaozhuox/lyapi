@@ -1,7 +1,7 @@
 # LyAPI
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.0-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.2.1-orange.svg)](http://lyapi.wwsg18.com)
 [![Travis](https://img.shields.io/badge/Core_Version-V1.5.2-blue.svg)](http://lyapi.wwsg18.com)
 
 ## 安装方法
@@ -69,7 +69,6 @@ LyAPI将会不断的更新拓展类库：
 
 ## 参与贡献
 
-LyAPI不属于任何人，它属于我们所有人！
 1. Fork代码到你的仓库
 2. 增加功能并自行测试
 3. 发起Pull Requests
@@ -81,7 +80,7 @@ LyAPI使用MIT协议，更多信息请查看[MIT协议官网][3]
 
 ## 联系作者
 
-作者:Mr小卓X
+作者:mr小卓X
 
 Q Q:1373962439
 
@@ -94,6 +93,10 @@ GitHub: https://github.com/xiaozhuox/LyApi
 问题1：Composer创建的项目报错：
 
 解决方法：删除vendor文件夹，重新install即可
+
+问题2：FileCahce和Log无法正常使用：
+
+解决方法：在根目录新建data文件夹，里面再建cahce和log文件夹
 
 > 如发现更多问题请 发布Issue 或 加群反馈 
 
