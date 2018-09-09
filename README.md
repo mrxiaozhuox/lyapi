@@ -2,7 +2,7 @@
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
 [![Travis](https://img.shields.io/badge/Version-V1.2.1-orange.svg)](http://lyapi.wwsg18.com)
-[![Travis](https://img.shields.io/badge/Core_Version-V1.5.2-blue.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Core_Version-V1.5.3-blue.svg)](http://lyapi.wwsg18.com)
 
 ## 安装方法
 
@@ -52,6 +52,12 @@
 
 想深入了解LyAPI？快来看看[在线文档][4]吧！
 
+## 最近更新
+
+- Core V1.5.3：增加视图类、init、after函数
+- Core V1.5.2：修复Linux命名空间区分大小写问题
+
+
 ## 拓展类库
 
 LyAPI将会不断的更新拓展类库：
@@ -97,6 +103,7 @@ GitHub: https://github.com/xiaozhuox/LyApi
 问题2：FileCahce和Log无法正常使用：
 
 解决方法：在根目录新建data文件夹，里面再建cahce和log文件夹
+
 
 > 如发现更多问题请 发布Issue 或 加群反馈 
 
