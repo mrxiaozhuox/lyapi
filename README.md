@@ -90,7 +90,7 @@ LyAPI使用MIT协议，更多信息请查看[MIT协议官网][3]
 
 Q Q:1373962439
 
-交流群:769094015
+交流群:769094015(加群提问)
 
 GitHub: https://github.com/xiaozhuox/LyApi
 
