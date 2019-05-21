@@ -1,8 +1,8 @@
 # LyAPI
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.2.1-orange.svg)](http://lyapi.wwsg18.com)
-[![Travis](https://img.shields.io/badge/Core_Version-V1.5.3-blue.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.2.3-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Core_Version-V1.5.5-blue.svg)](http://lyapi.wwsg18.com)
 
 ## 安装方法
 
@@ -54,9 +54,11 @@
 
 ## 最近更新
 
+- Core V1.5.5：增加单独删除缓存的函数、优先输出参数
 - Core V1.5.3：增加视图类、init、after函数
 - Core V1.5.2：修复Linux命名空间区分大小写问题
 
+- 框架更新请前往update.txt查看更新
 
 ## 拓展类库
 

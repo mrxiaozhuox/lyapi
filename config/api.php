@@ -10,5 +10,6 @@ return array(
         'data' => '$data',
         'msg' => '$msg'
     ),
-    'DEFAULT_SERVCIE' => 'service'          //服务参数名
+    'DEFAULT_SERVCIE' => 'service',         //服务参数名
+    'PRIORITY_OUTPUT' => ''                 //优先输出内容（可为HTML代码）
 );

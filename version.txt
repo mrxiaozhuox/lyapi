@@ -1,0 +1,8 @@
+FrameWork Version : 1.2.3
+FrameWork Log :
+1.2.3 :
+    1. 修复了Debug配置Whoops关闭无效的问题
+    2. 在API配置增加"PRIORITY_OUTPUT"选项用于优先输出
+    3. 增加Version.txt文件，用来记录更新
+    4. 增加部分注释
+    5. 同时更新框架版本：1.5.5 具体信息请前往Lyapi-Core下的version.txt中查看

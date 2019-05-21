@@ -6,12 +6,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/catfan/Medoo.git",
-            "reference": "8d90cba0e8ff176028847527d0ea76fe41a06ecf"
+            "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/catfan/Medoo/zipball/8d90cba0e8ff176028847527d0ea76fe41a06ecf",
-            "reference": "8d90cba0e8ff176028847527d0ea76fe41a06ecf",
+            "url": "https://api.github.com/repos/catfan/Medoo/zipball/53a02b300d673f716cb06bf0e24fd774ec53939f",
+            "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f",
             "shasum": "",
             "mirrors": [
                 {
@@ -33,7 +33,7 @@
             "ext-pdo_sqlite": "For SQLite database",
             "ext-pdo_sqlsrv": "For MSSQL database"
         },
-        "time": "2018-06-14T18:59:08+00:00",
+        "time": "2018-12-08T20:24:23+00:00",
         "type": "framework",
         "installation-source": "source",
         "autoload": {
@@ -68,17 +68,17 @@
     },
     {
         "name": "filp/whoops",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "2.3.1",
+        "version_normalized": "2.3.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/filp/whoops.git",
-            "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311"
+            "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/filp/whoops/zipball/e79cd403fb77fc8963a99ecc30e80ddd885b3311",
-            "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311",
+            "url": "https://api.github.com/repos/filp/whoops/zipball/bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
+            "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
             "shasum": "",
             "mirrors": [
                 {
@@ -100,7 +100,7 @@
             "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
             "whoops/soap": "Formats errors as SOAP responses"
         },
-        "time": "2018-06-30T13:14:06+00:00",
+        "time": "2018-10-23T09:00:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -142,12 +142,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/wwsg18/LyApi-Core.git",
-            "reference": "8493b8c39fcff08c176b4f55e416d897a55c4521"
+            "reference": "c4989b455bafc176afb3aff11c11ea822d4666f7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/wwsg18/LyApi-Core/zipball/8493b8c39fcff08c176b4f55e416d897a55c4521",
-            "reference": "8493b8c39fcff08c176b4f55e416d897a55c4521",
+            "url": "https://api.github.com/repos/wwsg18/LyApi-Core/zipball/c4989b455bafc176afb3aff11c11ea822d4666f7",
+            "reference": "c4989b455bafc176afb3aff11c11ea822d4666f7",
             "shasum": "",
             "mirrors": [
                 {
@@ -162,7 +162,7 @@
             "mashape/unirest-php": "dev-master",
             "predis/predis": "^2.0@dev"
         },
-        "time": "2018-09-09T15:30:57+00:00",
+        "time": "2019-05-21T10:39:18+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -312,12 +312,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "3490ba5925e6dcbe6de950c5c6b8dce9f6e96eda"
+            "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/3490ba5925e6dcbe6de950c5c6b8dce9f6e96eda",
-            "reference": "3490ba5925e6dcbe6de950c5c6b8dce9f6e96eda",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+            "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
             "shasum": "",
             "mirrors": [
                 {
@@ -329,11 +329,11 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2018-04-03T15:59:15+00:00",
+        "time": "2018-11-21T13:42:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0.x-dev"
+                "dev-master": "1.1.x-dev"
             }
         },
         "installation-source": "source",

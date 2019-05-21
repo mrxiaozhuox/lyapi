@@ -1,11 +1,11 @@
 <?php
 
+// 程序运行出现问题请先运行check.php文件！检测框架是否完整！！！
 
 require 'init.php';
 
-\LyApi\LyApi::output();
+$config = require LyApi . "/config/api.php";
 
-/* */
-$whoops = new \Whoops\Run();
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops->register();
+$priority_output = $config["PRIORITY_OUTPUT"];
+
+\LyApi\LyApi::output($priority_output);

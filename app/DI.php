@@ -4,6 +4,7 @@ namespace APP;
 
 use LyApi\cache\FileCache;
 use LyApi\cache\RedisCache;
+use LyApi\core\request\Cookie;
 use LyApi\Logger\Logger;
 use LyApi\model\TParty;
 use LyApi\tools\CurlUtils;
@@ -41,6 +42,16 @@ class DI{
     //Unirest
     public static function Unirest(){
         return new Request();
+    }
+
+    //Cookie
+    public static function Cookie($path=null,$domain=null,$secure=false,$httponly=false){
+        return new Cookie($path,$domain,$secure,$httponly);
+    }
+
+    //Request
+    public static function Request(){
+        return new \LyApi\core\request\Request();
     }
 
     /*        DI自定义函数        */
