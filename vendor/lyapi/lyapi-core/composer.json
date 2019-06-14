@@ -1,0 +1,25 @@
+{
+    "name": "lyapi/lyapi-core",
+    "description": "LyApi core code",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["api","core","lyapi","lolly"],
+    "authors": [
+        {
+            "name": "xiaozhuox",
+            "email": "mrxzx@wwsg18.top"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "catfan/medoo": "dev-master",
+        "predis/predis": "^2.0@dev",
+        "filp/whoops": "^2.2@dev",
+        "mashape/unirest-php": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "LyApi\\": "src"
+        }
+    }
+}
