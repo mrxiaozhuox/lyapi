@@ -12,13 +12,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/catfan/Medoo/zipball/53a02b300d673f716cb06bf0e24fd774ec53939f",
             "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "ext-pdo": "*",
@@ -35,7 +29,7 @@
         },
         "time": "2018-12-08T20:24:23+00:00",
         "type": "framework",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Medoo\\": "/src"
@@ -79,13 +73,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/filp/whoops/zipball/bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
             "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "php": "^5.5.9 || ^7.0",
@@ -107,7 +95,7 @@
                 "dev-master": "2.2-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Whoops\\": "src/Whoops/"
@@ -142,19 +130,13 @@
         "source": {
             "type": "git",
             "url": "https://github.com/wwsg18/LyApi-Core.git",
-            "reference": "c4989b455bafc176afb3aff11c11ea822d4666f7"
+            "reference": "5cd6aa8dbfc797460d1d437a86a997fdb49d08a5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/wwsg18/LyApi-Core/zipball/c4989b455bafc176afb3aff11c11ea822d4666f7",
-            "reference": "c4989b455bafc176afb3aff11c11ea822d4666f7",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "url": "https://api.github.com/repos/wwsg18/LyApi-Core/zipball/5cd6aa8dbfc797460d1d437a86a997fdb49d08a5",
+            "reference": "5cd6aa8dbfc797460d1d437a86a997fdb49d08a5",
+            "shasum": ""
         },
         "require": {
             "catfan/medoo": "dev-master",
@@ -162,9 +144,9 @@
             "mashape/unirest-php": "dev-master",
             "predis/predis": "^2.0@dev"
         },
-        "time": "2019-05-21T10:39:18+00:00",
+        "time": "2019-06-14T15:24:00+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "LyApi\\": "src"
@@ -201,13 +183,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/Mashape/unirest-php/zipball/14aa9aa6919e4b70c59cd20722ac113c0ffeb45b",
             "reference": "14aa9aa6919e4b70c59cd20722ac113c0ffeb45b",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "ext-curl": "*",
@@ -222,7 +198,7 @@
         },
         "time": "2017-02-24T17:06:01+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Unirest\\": "src/"
@@ -255,13 +231,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/nrk/predis/zipball/d72f0678bade78af953605622760fe262d82eb58",
             "reference": "d72f0678bade78af953605622760fe262d82eb58",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "php": ">=5.3.9"
@@ -280,7 +250,7 @@
                 "dev-master": "2.0-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Predis\\": "src/"
@@ -318,13 +288,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
             "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
@@ -336,7 +300,7 @@
                 "dev-master": "1.1.x-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Psr\\Log\\": "Psr/Log/"

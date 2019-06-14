@@ -1,4 +1,4 @@
-FrameWork Version : 1.2.3
+FrameWork Version : 1.2.4
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题
@@ -6,3 +6,6 @@ FrameWork Log :
     3. 增加Version.txt文件，用来记录更新
     4. 增加部分注释
     5. 同时更新框架版本：1.5.5 具体信息请前往Lyapi-Core下的version.txt中查看
+1.2.4 :
+    1. 删除所有语言配置文件，改为json格式
+    2. 同时更新框架版本：1.5.6 具体信息请前往Lyapi-Core下的version.txt中查看
