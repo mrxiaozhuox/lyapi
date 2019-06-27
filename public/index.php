@@ -7,5 +7,12 @@ require 'init.php';
 $config = require LyApi . "/config/api.php";
 
 $priority_output = $config["PRIORITY_OUTPUT"];
+$http_status_set = $config["HTTP_STATUS_SET"];
 
-\LyApi\LyApi::output($priority_output);
+// ------可以在这里进行一些前置操作------//
+
+// print("Hello World");
+
+//------可以在这里进行一些前置操作------//
+
+\LyApi\LyApi::output($priority_output,$http_status_set);

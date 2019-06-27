@@ -1,8 +1,8 @@
 # LyAPI
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.2.4-orange.svg)](http://lyapi.wwsg18.com)
-[![Travis](https://img.shields.io/badge/Core_Version-V1.5.6-blue.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.2.5-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Core_Version-V1.5.7-blue.svg)](http://lyapi.wwsg18.com)
 
 ## 安装方法
 
