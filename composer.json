@@ -1,0 +1,23 @@
+{
+    "name": "mrxzx/lyapi",
+    "description": "一款轻量级API开发框架",
+    "type": "project",
+    "keywords": ["api","framework"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xiaozhuox",
+            "email": "mrxzx@wwsg18.top"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">= 5.4.0",
+        "lyapi/lyapi-core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "APP\\": "app/"
+        }
+    }
+}
