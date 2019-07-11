@@ -5,11 +5,15 @@ namespace LyApi;
 use LyApi\core\error\ClientException;
 use LyApi\core\error\CustomException;
 use LyApi\core\error\ServerException;
+use LyApi\core\error\OtherException;
 
 class LyApi{
     
+    //LyAPI信息：
+    public static $version = "1.5.8";
+
     //输出接口程序最终的数据
-    public static function output($priority_output=""){
+    public static function output($other_data=array(),$priority_output="",$http_status_set=true){
 
         //优先输出 用于在接口数据返回前输出一些数据
         if ($priority_output != ''){
@@ -34,7 +38,7 @@ class LyApi{
                 $class = new $namespace;
 
                 if(is_subclass_of($class,'LyApi\core\API')){
-                    self::httpStatus(200);
+                    self::httpStatus(200,$http_status_set);
                     $RS = array(
                         'code' => '200',
                         'data' => null,
@@ -52,7 +56,7 @@ class LyApi{
                          if(in_array($func,$methods)){
                              $RS['data'] = $class->$func();
                          }else{
-                             self::httpStatus(400);
+                            self::httpStatus(400,$http_status_set);
                              echo self::CreateRs($RESPONSE,array(
                                  'code' => '400',
                                  'data' => array(),
@@ -60,18 +64,24 @@ class LyApi{
                              ));
                              return;
                          }
+                     //捕获异常
                      }catch(ClientException $e){
-                         self::httpStatus($e->ErrorCode());
+                         self::httpStatus($e->ErrorCode(),$http_status_set);
                          $RS['code'] = $e->ErrorCode();
                          $RS['msg'] = $e->ErrorMsg();
                          $RS['data'] = array();
                      }catch(ServerException $e){
-                         self::httpStatus($e->ErrorCode());
+                         self::httpStatus($e->ErrorCode(),$http_status_set);
+                         $RS['code'] = $e->ErrorCode();
+                         $RS['msg'] = $e->ErrorMsg();
+                         $RS['data'] = array();
+                     }catch(OtherException $e){
+                         self::httpStatus($e->ErrorCode(),$http_status_set);
                          $RS['code'] = $e->ErrorCode();
                          $RS['msg'] = $e->ErrorMsg();
                          $RS['data'] = array();
                      }catch(CustomException $e){
-                         self::httpStatus(200);
+                         self::httpStatus(200,$http_status_set);
                          echo $e->getMessage();
                          return;
                      }
@@ -103,7 +113,7 @@ class LyApi{
 
                     return;
                 }else{
-                    self::httpStatus(400);
+                    self::httpStatus(400,$http_status_set);
                     echo self::CreateRs($RESPONSE,array(
                         'code' => '400',
                         'data' => array(),
@@ -112,7 +122,7 @@ class LyApi{
                     return;
                 }
             }else{
-                self::httpStatus(400);
+                self::httpStatus(400,$http_status_set);
                 echo self::CreateRs($RESPONSE,array(
                     'code' => '400',
                     'data' => array(),
@@ -121,7 +131,7 @@ class LyApi{
                 return;
             }
         }else{
-            self::httpStatus(400);
+            self::httpStatus(400,$http_status_set);
             echo self::CreateRs($RESPONSE,array(
                 'code' => '400',
                 'data' => array(),
@@ -131,22 +141,32 @@ class LyApi{
         }
     }
 
-    private static function CreateRs($response,$value){
+    private static function CreateRs($response,$value,$other=array()){
         foreach($response as $key => $val){
             if($val == '$data') {
                 $response[$key] = $value['data'];
+            }else if($val == '$code'){
+                $response[$key] = $value['code'];
+            }else if($val == '$msg'){
+                $response[$key] = $value['msg'];
             }else{
-                $RS = $val;
-                $RS = str_replace('$code',$value['code'],$RS);
-                $RS = str_replace('$msg',$value['msg'],$RS);
-                $response[$key] = $RS;
+                if(array_key_exists(substr($val,1),$other)){
+                    $response[$key] = $other[substr($val,1)];                  
+                }else{
+                    $response[$key] = $val;
+                }
             }
         }
         return json_encode($response,JSON_UNESCAPED_UNICODE);
     }
 
     //处理接口返回的状态码
-    private static function httpStatus($num){
+    private static function httpStatus($num,$use_header=true){
+
+        if(! $use_header){
+            return;
+        }
+
         static $http = array (
             100 => "HTTP/1.1 100 Continue",
             101 => "HTTP/1.1 101 Switching Protocols",

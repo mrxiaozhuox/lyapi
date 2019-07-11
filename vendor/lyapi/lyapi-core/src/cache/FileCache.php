@@ -68,10 +68,8 @@ class FileCache{
     }
 
     public function delete($key){
-        if($this->set($key,"","")){
-            return true;
-        }
-        return false;
+        $filename = $this->dir . '/' . md5($key) . '.lyc';
+        return unlink($filename);
     }
 
     public function clean(){

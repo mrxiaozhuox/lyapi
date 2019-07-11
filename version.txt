@@ -1,4 +1,4 @@
-FrameWork Version : 1.2.5
+FrameWork Version : 1.2.6
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -14,3 +14,7 @@ FrameWork Log :
     2. 增加"HTTP_STATUS_SET"配置，用于开关HTTP状态码功能。
     3. 对medoo配置文件进行修改。
     4. 同时更新框架版本：1.5.7 具体信息请前往Lyapi-Core下的version.txt中查看。
+1.2.6 : 
+    1. 增加"CUSTOM_DATA"配置，用于自定义数据。
+    2. 对接口配置文件进行修改。
+    3. 同时更新框架版本：1.5.8 具体信息请前往Lyapi-Core下的version.txt中查看。

@@ -62,17 +62,17 @@
     },
     {
         "name": "filp/whoops",
-        "version": "2.3.1",
-        "version_normalized": "2.3.1.0",
+        "version": "2.4.1",
+        "version_normalized": "2.4.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/filp/whoops.git",
-            "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7"
+            "reference": "6fb502c23885701a991b0bba974b1a8eb6673577"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/filp/whoops/zipball/bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
-            "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
+            "url": "https://api.github.com/repos/filp/whoops/zipball/6fb502c23885701a991b0bba974b1a8eb6673577",
+            "reference": "6fb502c23885701a991b0bba974b1a8eb6673577",
             "shasum": ""
         },
         "require": {
@@ -88,7 +88,7 @@
             "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
             "whoops/soap": "Formats errors as SOAP responses"
         },
-        "time": "2018-10-23T09:00:00+00:00",
+        "time": "2019-07-04T09:00:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -129,13 +129,13 @@
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/wwsg18/LyApi-Core.git",
-            "reference": "5cd6aa8dbfc797460d1d437a86a997fdb49d08a5"
+            "url": "https://github.com/DawnThingCB/LyApi-Core.git",
+            "reference": "b0a6762ba98b7b0e8aac59a014e8aa0c2655738f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/wwsg18/LyApi-Core/zipball/5cd6aa8dbfc797460d1d437a86a997fdb49d08a5",
-            "reference": "5cd6aa8dbfc797460d1d437a86a997fdb49d08a5",
+            "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/b0a6762ba98b7b0e8aac59a014e8aa0c2655738f",
+            "reference": "b0a6762ba98b7b0e8aac59a014e8aa0c2655738f",
             "shasum": ""
         },
         "require": {
@@ -144,9 +144,9 @@
             "mashape/unirest-php": "dev-master",
             "predis/predis": "^2.0@dev"
         },
-        "time": "2019-06-14T15:24:00+00:00",
+        "time": "2019-07-11T03:49:43+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "LyApi\\": "src"
