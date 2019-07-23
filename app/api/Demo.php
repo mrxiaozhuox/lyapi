@@ -23,10 +23,11 @@ class Demo extends API {
 
 
     /**
-     * service Demo.Cahce
+     * service Demo.Cache
      * introduce 设置缓存并读取
      */
     public function Cache(){
+
         $cache = DI::FileCache('Demo');
         //设置缓存
         $cache->set('username','mrxzx');

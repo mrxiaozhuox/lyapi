@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/catfan/Medoo.git",
-                "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f"
+                "reference": "b9dfce4046f3eb48a647ef72991bb65012f99376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/catfan/Medoo/zipball/53a02b300d673f716cb06bf0e24fd774ec53939f",
-                "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f",
+                "url": "https://api.github.com/repos/catfan/Medoo/zipball/b9dfce4046f3eb48a647ef72991bb65012f99376",
+                "reference": "b9dfce4046f3eb48a647ef72991bb65012f99376",
                 "shasum": ""
             },
             "require": {
@@ -31,7 +31,7 @@
                 "ext-pdo_oci8": "For Oracle version 8 database",
                 "ext-pdo_pqsql": "For PostgreSQL database",
                 "ext-pdo_sqlite": "For SQLite database",
-                "ext-pdo_sqlsrv": "For MSSQL database"
+                "ext-pdo_sqlsrv": "For MSSQL database on both Window/Liunx platform"
             },
             "type": "framework",
             "autoload": {
@@ -49,10 +49,11 @@
                     "email": "angel@catfan.me"
                 }
             ],
-            "description": "The lightest PHP database framework to accelerate development",
+            "description": "The lightweight PHP database framework to accelerate development",
             "homepage": "https://medoo.in",
             "keywords": [
                 "database",
+                "database library",
                 "lightweight",
                 "mariadb",
                 "mssql",
@@ -63,7 +64,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2018-12-08T20:24:23+00:00"
+            "time": "2019-07-13T14:52:50+00:00"
         },
         {
             "name": "filp/whoops",
@@ -132,12 +133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-                "reference": "b0a6762ba98b7b0e8aac59a014e8aa0c2655738f"
+                "reference": "50ebe2f7a9d635b22c5b7b108d71e824aadd50bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/b0a6762ba98b7b0e8aac59a014e8aa0c2655738f",
-                "reference": "b0a6762ba98b7b0e8aac59a014e8aa0c2655738f",
+                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/50ebe2f7a9d635b22c5b7b108d71e824aadd50bf",
+                "reference": "50ebe2f7a9d635b22c5b7b108d71e824aadd50bf",
                 "shasum": ""
             },
             "require": {
@@ -169,7 +170,7 @@
                 "core",
                 "lyapi"
             ],
-            "time": "2019-07-11T03:49:43+00:00"
+            "time": "2019-07-23T02:34:53+00:00"
         },
         {
             "name": "mashape/unirest-php",

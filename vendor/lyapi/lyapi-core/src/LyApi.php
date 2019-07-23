@@ -10,7 +10,7 @@ use LyApi\core\error\OtherException;
 class LyApi{
     
     //LyAPI信息：
-    public static $version = "1.5.8";
+    public static $version = "1.6.1";
 
     //输出接口程序最终的数据
     public static function output($other_data=array(),$priority_output="",$http_status_set=true){
@@ -21,12 +21,13 @@ class LyApi{
         }
 
         $Api_Config = require LyApi . '/config/api.php';
+        
 
-        $SERVCIE = $Api_Config['DEFAULT_SERVCIE'];
+        $SERVICE = $Api_Config['DEFAULT_SERVICE'];
         $RESPONSE = $Api_Config['DEFAULT_RESPONSE'];
 
-        if(isset($_GET[$SERVCIE])){
-            $service = $_GET[$SERVCIE];
+        if(isset($_GET[$SERVICE])){
+            $service = $_GET[$SERVICE];
 
             $nsps = explode('.',$service);
             $func =  $nsps[sizeof($nsps) - 1];
@@ -57,11 +58,7 @@ class LyApi{
                              $RS['data'] = $class->$func();
                          }else{
                             self::httpStatus(400,$http_status_set);
-                             echo self::CreateRs($RESPONSE,array(
-                                 'code' => '400',
-                                 'data' => array(),
-                                 'msg' => 'Invalid Request: Function does not exist'
-                             ));
+                             echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['function_not_find']);
                              return;
                          }
                      //捕获异常
@@ -114,29 +111,17 @@ class LyApi{
                     return;
                 }else{
                     self::httpStatus(400,$http_status_set);
-                    echo self::CreateRs($RESPONSE,array(
-                        'code' => '400',
-                        'data' => array(),
-                        'msg' => 'Invalid Request: Class does not extend API'
-                    ));
+                    echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_extend']);
                     return;
                 }
             }else{
                 self::httpStatus(400,$http_status_set);
-                echo self::CreateRs($RESPONSE,array(
-                    'code' => '400',
-                    'data' => array(),
-                    'msg' => 'Invalid Request: Class does not exist'
-                ));
+                echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_find']);
                 return;
             }
         }else{
             self::httpStatus(400,$http_status_set);
-            echo self::CreateRs($RESPONSE,array(
-                'code' => '400',
-                'data' => array(),
-                'msg' => 'Invalid Request: Service does not exist'
-            ));
+            echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['service_not_find']);
             return;
         }
     }

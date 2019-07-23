@@ -1,8 +1,8 @@
 # LyAPI
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.2.6-orange.svg)](http://lyapi.wwsg18.com)
-[![Travis](https://img.shields.io/badge/Core_Version-V1.5.8-blue.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.2.8-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Core_Version-V1.6.1-blue.svg)](http://lyapi.wwsg18.com)
 
 ## 安装方法
 
@@ -86,7 +86,7 @@ LyAPI使用MIT协议，更多信息请查看[MIT协议官网][3]
 
 作者:mr小卓X
 
-Q Q:1373962439
+Q Q:3507952990
 
 交流群:769094015(加群提问)
 

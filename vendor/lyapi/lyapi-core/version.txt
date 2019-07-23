@@ -1,4 +1,4 @@
-Core Version : 1.5.8
+Core Version : 1.6.1
 Core Log :
 1.5.5 :
     1. 增加Version.txt文件，用于记录Lyapi_Core版本。
@@ -24,3 +24,6 @@ Core Log :
     1. 增加除code、data、msg外的自定义数据（只更新核心需在output函数的最前面加上数组）
     2. 额外增加Extend.EasyExtend类，用于简化拓展开发。
     3. 编辑README文件。
+1.6.1 : 
+    1. 增加自定义错误返回内容设置
+    2. 增加Config工具类，可直接获取和修改配置
