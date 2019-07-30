@@ -9,6 +9,7 @@ return array(
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
+    'Plugin\\' => array($baseDir . '/plugin'),
     'Medoo\\' => array($vendorDir . '/catfan/medoo/src'),
     'LyApi\\' => array($vendorDir . '/lyapi/lyapi-core/src'),
     'APP\\' => array($baseDir . '/app'),

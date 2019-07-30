@@ -21,7 +21,6 @@ class Demo extends API {
         return 'Hello World';
     }
 
-
     /**
      * service Demo.Cache
      * introduce 设置缓存并读取
@@ -112,6 +111,28 @@ class Demo extends API {
         }else{
             throw new ClientException('参数不完整',0);
         }
+    }
+
+    /**
+     * service Demo.Plugin
+     * introduce 插件测试
+     */
+    public function Plugin(){
+        //使用DI下的PluginClass函数可以动态获取对象
+        $demo = DI::PluginClass('Template','Template');
+        return $demo->GetPluginName();
+    }
+
+    /**
+     * service Demo.Plugin
+     * introduce 自定义数据测试
+     */
+    public function CustomMsg(){
+        return array(
+            '#code' => 201,
+            '#msg' => 'Hello Lyapi',
+            'Title' => 'Lyapi'
+        );
     }
 
     /**

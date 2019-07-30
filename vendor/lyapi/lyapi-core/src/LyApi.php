@@ -10,7 +10,7 @@ use LyApi\core\error\OtherException;
 class LyApi{
     
     //LyAPI信息：
-    public static $version = "1.6.1";
+    public static $version = "1.6.2";
 
     //输出接口程序最终的数据
     public static function output($other_data=array(),$priority_output="",$http_status_set=true){
@@ -55,7 +55,23 @@ class LyApi{
 
                      try{
                          if(in_array($func,$methods)){
-                             $RS['data'] = $class->$func();
+                             $Func_Return = $class->$func();
+                             if(is_array($Func_Return)){
+
+                                $Cust_Code = array_search('$code',$RESPONSE);
+                                $Cust_Message = array_search('$msg',$RESPONSE);
+
+                                if(array_key_exists('#' . $Cust_Code,$Func_Return)){
+                                    $RS['code'] = $Func_Return['#' . $Cust_Code];
+                                    unset($Func_Return['#' . $Cust_Code]);
+                                }
+                                
+                                if(array_key_exists('#' . $Cust_Message,$Func_Return)){
+                                    $RS['msg'] = $Func_Return['#' . $Cust_Message];
+                                    unset($Func_Return['#' . $Cust_Message]);
+                                }
+                            }
+                             $RS['data'] = $Func_Return;
                          }else{
                             self::httpStatus(400,$http_status_set);
                              echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['function_not_find']);

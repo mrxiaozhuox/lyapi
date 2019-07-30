@@ -54,6 +54,17 @@ class DI{
         return new \LyApi\core\request\Request();
     }
 
+    //动态使用插件类
+    public static function PluginClass($plugin,$class,...$args){
+        $object = null;
+
+        $class_path = '\\Plugin\\' . $plugin . '\\' . $class;
+        if(class_exists($class_path)){
+            eval('$object = new $class_path(' . implode(",",$args) . ');');
+        }
+        return $object;
+    }
+
     /*        DI自定义函数        */
 
 }

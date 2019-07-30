@@ -1,4 +1,4 @@
-FrameWork Version : 1.2.8
+FrameWork Version : 1.3.0
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -19,7 +19,12 @@ FrameWork Log :
     2. 对接口配置文件进行修改。
     3. 同时更新框架版本：1.5.8 具体信息请前往Lyapi-Core下的version.txt中查看。
 1.2.8 : 
-    1. 修改一些错别字（发现自己打错的单词有好多啊...）
-    2. 增加错误信息自定义，自定义程序错误时的内容
-    3. 增加custom配置文件目录，可自定义配置文件
+    1. 修改一些错别字（发现自己打错的单词好多啊...）。
+    2. 增加错误信息自定义，自定义程序错误时的内容。
+    3. 增加custom配置文件目录，可自定义配置文件。
     4. 同时更新框架版本：1.6.1 具体信息请前往Lyapi-Core下的version.txt中查看。
+1.3.0 : 
+    1. LyApi-Docs已更新到最新版本
+    2. 增加Plugin系统（测试版）
+    3. 增加请求成功返回Code和Message，使用方法: return array( "#code" => '201', "#msg" => '这是成功的Message', //其他信息 );
+    

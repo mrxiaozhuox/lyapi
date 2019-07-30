@@ -15,6 +15,7 @@ class ComposerStaticInitb2b0396edf9348585680fc3e7d62e063
         array (
             'Psr\\Log\\' => 8,
             'Predis\\' => 7,
+            'Plugin\\' => 7,
         ),
         'M' => 
         array (
@@ -42,6 +43,10 @@ class ComposerStaticInitb2b0396edf9348585680fc3e7d62e063
         'Predis\\' => 
         array (
             0 => __DIR__ . '/..' . '/predis/predis/src',
+        ),
+        'Plugin\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/plugin',
         ),
         'Medoo\\' => 
         array (
