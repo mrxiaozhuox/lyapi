@@ -19,13 +19,14 @@ class Logger{
         self::add($type,$msg);
     }
 
-    private static function add($type,$msg){
-        $dir = LyApi . '/data/log/' . date('Ym');
+    private static function add($type,$msg,$group="Default"){
+        $dir = LyApi . '/data/log/' . $group .  '/' . date('Ym');
         if(! is_dir($dir)){
             mkdir($dir);
         }
         $file = $dir . '/' . date('Ymd') . '.log';
         $log = sprintf("%s[%s]%s\n",date('Y-m-d H:i:s'),$type,$msg);
+
         if(! is_file($file)){
             file_put_contents($file,$log);
         }else{

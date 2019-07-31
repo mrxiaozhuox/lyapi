@@ -13,7 +13,7 @@ class LyApi{
     public static $version = "1.6.2";
 
     //输出接口程序最终的数据
-    public static function output($other_data=array(),$priority_output="",$http_status_set=true){
+    public static function output($other_data=[],$priority_output="",$http_status_set=true){
 
         //优先输出 用于在接口数据返回前输出一些数据
         if ($priority_output != ''){
