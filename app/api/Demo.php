@@ -118,9 +118,12 @@ class Demo extends API {
      * introduce 插件测试
      */
     public function Plugin(){
+        
         //使用DI下的PluginClass函数可以动态获取对象
         $demo = DI::PluginClass('Template','Template');
-        return $demo->GetPluginName();
+        return array(
+            '插件名' => $demo->GetPluginName()
+        );
     }
 
     /**

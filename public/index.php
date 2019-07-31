@@ -7,8 +7,8 @@ require 'init.php';
 
 // ------------- 框架信息 ------------- //
 
-$LyAPI_Version      = "1.3.0";
-$LyAPI_Core_Verison = LyApi::$version;
+define('LyAPI_Version','1.3.0');
+define('LyAPI_Core_Verison',LyApi::$version);
 
 // ------------- 框架信息 ------------- //
 

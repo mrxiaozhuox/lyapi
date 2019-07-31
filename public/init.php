@@ -6,6 +6,7 @@ define('LyApi',dirname(__FILE__) . '/..');
 
 require_once LyApi . '/vendor/autoload.php';
 
+session_start();
 
 //判读是否打开
 
