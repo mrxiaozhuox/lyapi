@@ -10,6 +10,7 @@ use LyApi\core\API;
 use LyApi\core\error\ClientException;
 use LyApi\core\request\Cookie;
 use LyApi\core\request\Request;
+use LyApi\tools\Config;
 
 class Demo extends API {
 
@@ -124,7 +125,7 @@ class Demo extends API {
     }
 
     /**
-     * service Demo.Plugin
+     * service Demo.CustomMsg
      * introduce 自定义数据测试
      */
     public function CustomMsg(){
@@ -133,6 +134,14 @@ class Demo extends API {
             '#msg' => 'Hello Lyapi',
             'Title' => 'Lyapi'
         );
+    }
+
+    /**
+     * service Demo.CustomConfig
+     * introduce 自定义配置文件测试
+     */
+    public function CustomConfig(){
+        return Config::getConfig('Test');
     }
 
     /**
