@@ -55,7 +55,7 @@ class DI{
     }
 
     //动态使用插件类
-    public static function PluginClass($plugin,$class,...$args){
+    public static function PluginDyn($plugin,$class,...$args){
         $object = null;
 
         $class_path = '\\Plugin\\' . $plugin . '\\' . $class;

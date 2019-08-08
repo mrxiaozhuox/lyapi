@@ -14,11 +14,11 @@
 
     // ./app/api/Demo.php
     <?php
-
+    
     namespace APP\api;
-
+    
     use LyApi\core\API;
-
+    
     class Demo extends API{
         public function User(){
             return array(
@@ -64,12 +64,16 @@ LyAPI将会不断的更新拓展类库：
 - ladoc 在线生成接口文档
 - [更多拓展请前往packagist查看][2]
 
-#### 类库安装
+#### 插件安装
 
-    composer require lyapi\ExtendName
+下载地址推荐: 
 
-#### 类库使用
-所有类库都是放在命名空间: LyApi\extend 下的
+- 万物论坛: [插件专区][5]
+- 框架交流群: [快速加入][6]
+
+#### 插件使用
+所有插件都在命名空间: plugin 下的
+PS: 快速引入函数：DI::PluginDyn(插件名,获取类,参数...);
 
 ## 参与贡献
 
@@ -84,13 +88,19 @@ LyAPI使用MIT协议，更多信息请查看[MIT协议官网][3]
 
 ## 联系作者
 
-作者:mr小卓X
+作者: mr小卓X
 
-Q Q:3507952990
+Q Q: 3507952990
 
-交流群:769094015(加群提问)
+交流群: 769094015 (加群提问)
+
+个人博客: http://blog.wwsg18.com
+
+Gitee: https://gitee.com/mrxzx/LyApi
 
 GitHub: https://github.com/xiaozhuox/LyApi
+
+PS: 任何问题直接联系我就行，我会第一时间解决问题。
 
 ## 已知问题
 
@@ -109,3 +119,5 @@ GitHub: https://github.com/xiaozhuox/LyApi
 [2]: https://packagist.org/users/wwsg18/
 [3]: https://mit-license.org
 [4]: https://wwsg18.gitee.io/lyapi-docs/#/
+[5]: http://bbs.wwsg18.com/forum.php?mod=forumdisplay&fid=41&filter=typeid&typeid=1&sortid=2
+[6]: //shang.qq.com/wpa/qunwpa?idkey=06e2f22cef00613b68463dda8983f689395d90e358115b76f912e7afc8854878

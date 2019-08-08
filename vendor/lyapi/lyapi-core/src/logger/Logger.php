@@ -22,7 +22,7 @@ class Logger{
     private static function add($type,$msg){
         $dir = LyApi . '/data/log/' . date('Ym');
         if(! is_dir($dir)){
-            mkdir($dir);
+            mkdir($dir,0777,true);
         }
         $file = $dir . '/' . date('Ymd') . '.log';
         $log = sprintf("%s[%s]%s\n",date('Y-m-d H:i:s'),$type,$msg);

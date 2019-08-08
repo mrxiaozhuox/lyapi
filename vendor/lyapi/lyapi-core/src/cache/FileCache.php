@@ -10,7 +10,7 @@ class FileCache{
         }
         $dir = LyApi . '/data/cache/' . $group;
         if(! is_dir($dir)){
-            if(! mkdir($dir)){
+            if(! mkdir($dir,0777,true)){
                 return false;
             }
         }
