@@ -56,13 +56,12 @@
 
 - 框架更新请前往version.txt查看更新
 
-## 拓展类库
+## 插件拓展
 
-LyAPI将会不断的更新拓展类库：
-- array2xml 数组转XML数据
-- visit-stats 接口访问数量统计
-- ladoc 在线生成接口文档
-- [更多拓展请前往packagist查看][2]
+LyAPI将会不断的更新插件拓展：
+- PConfig 插件配置文件系统
+- VisitRecord 接口访问数量统计
+- [更多插件请前往论坛查看][5]
 
 #### 插件安装
 
