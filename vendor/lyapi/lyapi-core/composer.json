@@ -13,6 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "catfan/medoo": "dev-master",
+        "vrana/notorm": "dev-master",
         "predis/predis": "^2.0@dev",
         "filp/whoops": "^2.2@dev",
         "mashape/unirest-php": "dev-master"

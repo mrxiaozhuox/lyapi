@@ -1,4 +1,4 @@
-Core Version : 1.6.2
+Core Version : 1.6.3
 Core Log :
 1.5.5 :
     1. 增加Version.txt文件，用于记录Lyapi_Core版本。
@@ -30,3 +30,6 @@ Core Log :
 1.6.2 :
     1. 增加程序在返回正常数据时自定义code和msg内容
     2. 增加插件系统，详情见框架本体version.txt文件
+1.6.3(待定) : 
+    1. 对TParty类进行优化
+    2. 增加NotORM功能，可在TParty中获取对象

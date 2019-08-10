@@ -63,17 +63,17 @@
     },
     {
         "name": "filp/whoops",
-        "version": "2.4.1",
-        "version_normalized": "2.4.1.0",
+        "version": "2.5.0",
+        "version_normalized": "2.5.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/filp/whoops.git",
-            "reference": "6fb502c23885701a991b0bba974b1a8eb6673577"
+            "reference": "cde50e6720a39fdacb240159d3eea6865d51fd96"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/filp/whoops/zipball/6fb502c23885701a991b0bba974b1a8eb6673577",
-            "reference": "6fb502c23885701a991b0bba974b1a8eb6673577",
+            "url": "https://api.github.com/repos/filp/whoops/zipball/cde50e6720a39fdacb240159d3eea6865d51fd96",
+            "reference": "cde50e6720a39fdacb240159d3eea6865d51fd96",
             "shasum": ""
         },
         "require": {
@@ -89,7 +89,7 @@
             "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
             "whoops/soap": "Formats errors as SOAP responses"
         },
-        "time": "2019-07-04T09:00:00+00:00",
+        "time": "2019-08-07T09:00:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -109,8 +109,8 @@
         "authors": [
             {
                 "name": "Filipe Dobreira",
-                "homepage": "https://github.com/filp",
-                "role": "Developer"
+                "role": "Developer",
+                "homepage": "https://github.com/filp"
             }
         ],
         "description": "php error handling for cool kids",
@@ -131,21 +131,22 @@
         "source": {
             "type": "git",
             "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-            "reference": "50ebe2f7a9d635b22c5b7b108d71e824aadd50bf"
+            "reference": "1ab25d46c35e3407c9cef92cb0caadbbfb1bce10"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/50ebe2f7a9d635b22c5b7b108d71e824aadd50bf",
-            "reference": "50ebe2f7a9d635b22c5b7b108d71e824aadd50bf",
+            "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/1ab25d46c35e3407c9cef92cb0caadbbfb1bce10",
+            "reference": "1ab25d46c35e3407c9cef92cb0caadbbfb1bce10",
             "shasum": ""
         },
         "require": {
             "catfan/medoo": "dev-master",
             "filp/whoops": "^2.2@dev",
             "mashape/unirest-php": "dev-master",
-            "predis/predis": "^2.0@dev"
+            "predis/predis": "^2.0@dev",
+            "vrana/notorm": "dev-master"
         },
-        "time": "2019-07-23T02:34:53+00:00",
+        "time": "2019-08-09T23:57:05+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -199,7 +200,7 @@
         },
         "time": "2017-02-24T17:06:01+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Unirest\\": "src/"
@@ -251,7 +252,7 @@
                 "dev-master": "2.0-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Predis\\": "src/"
@@ -301,7 +302,7 @@
                 "dev-master": "1.1.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Psr\\Log\\": "Psr/Log/"
@@ -323,6 +324,47 @@
             "log",
             "psr",
             "psr-3"
+        ]
+    },
+    {
+        "name": "vrana/notorm",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/vrana/notorm.git",
+            "reference": "e49d5d2f1bfe440dc82b61f46172635dfcb6f6dd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/vrana/notorm/zipball/e49d5d2f1bfe440dc82b61f46172635dfcb6f6dd",
+            "reference": "e49d5d2f1bfe440dc82b61f46172635dfcb6f6dd",
+            "shasum": ""
+        },
+        "time": "2014-10-30T16:55:08+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "NotORM.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0",
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Jakub Vrana",
+                "homepage": "http://www.vrana.cz/"
+            }
+        ],
+        "description": "NotORM is a PHP library for simple working with data in the database.",
+        "homepage": "http://www.notorm.com/",
+        "keywords": [
+            "database",
+            "dbal"
         ]
     }
 ]

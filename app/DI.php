@@ -15,9 +15,19 @@ class DI{
     /*        DI默认函数        */
 
     //获取Medoo连接
-    public static function Medoo(){
-        return TParty::Medoo();
+    public static function Medoo($ConfigSelect = 0){
+        return TParty::Medoo($ConfigSelect);
     }
+
+    //获取NotORM连接
+    public static function NotORM($AutoLoad = null,$PdoObject = null){
+        return TParty::NotORM($AutoLoad,$PdoObject);
+    }
+
+    //获取PDO连接
+    public static function PDO($AutoLoad = null,$DSN = null){
+        return TParty::PDO($AutoLoad,$DSN);
+    } 
 
     //获取文件缓存
     public static function FileCache($group=null){

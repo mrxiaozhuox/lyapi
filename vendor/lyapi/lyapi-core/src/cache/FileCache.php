@@ -50,7 +50,7 @@ class FileCache{
                 if($datas['duetime'] > time()){
                     return $datas['data'];
                 }else{
-                    unlink($filename);
+                    @unlink($filename);
                     return '';
                 }
             }else{
@@ -69,7 +69,7 @@ class FileCache{
 
     public function delete($key){
         $filename = $this->dir . '/' . md5($key) . '.lyc';
-        return unlink($filename);
+        return @unlink($filename);
     }
 
     public function clean(){

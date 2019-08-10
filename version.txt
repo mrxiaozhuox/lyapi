@@ -26,5 +26,12 @@ FrameWork Log :
 1.3.0 : 
     1. LyApi-Docs已更新到最新版本
     2. 增加Plugin系统（测试版）
-    3. 增加请求成功返回Code和Message，使用方法: return array( "#code" => '201', "#msg" => '这是成功的Message', //其他信息 );
-    
+    3. 增加请求成功返回Code和Message，使用方法: 
+        return array( 
+            "#code" => '201', 
+            "#msg" => '这是成功的Message', //其他信息 
+        );
+1.3.1(待定) : 
+    1. 增加PDO配置，可快速获取PDO对象
+    2. 增加NotORM库，可在DI直接获取
+    3. 同时更新框架版本：1.6.3(待定) 具体信息请前往Lyapi-Core下的version.txt中查看。
