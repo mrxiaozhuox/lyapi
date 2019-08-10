@@ -11,6 +11,7 @@ use LyApi\core\error\ClientException;
 use LyApi\core\request\Cookie;
 use LyApi\core\request\Request;
 use LyApi\tools\Config;
+use LyApi\Logger\Logger;
 
 class Demo extends API {
 
@@ -112,6 +113,22 @@ class Demo extends API {
         }else{
             throw new ClientException('参数不完整',0);
         }
+    }
+
+    /**
+     * service Demo.Logger
+     * introduce 日志测试
+     */
+
+    public function Logger(){
+        $logger = new Logger();
+        $logger->SetLogger([
+            'time' => date('Y-m-d'),
+            'typs' => 'Test',
+            'message' => '这是一条测试日志，通过Demo.Logger函数写入。'
+        ]);
+
+        return $logger->GetLastLogger();
     }
 
     /**

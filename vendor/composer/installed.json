@@ -131,12 +131,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-            "reference": "1ab25d46c35e3407c9cef92cb0caadbbfb1bce10"
+            "reference": "6bc39745f732dfc2248c9d8aae889f70ddb15da6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/1ab25d46c35e3407c9cef92cb0caadbbfb1bce10",
-            "reference": "1ab25d46c35e3407c9cef92cb0caadbbfb1bce10",
+            "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/6bc39745f732dfc2248c9d8aae889f70ddb15da6",
+            "reference": "6bc39745f732dfc2248c9d8aae889f70ddb15da6",
             "shasum": ""
         },
         "require": {
@@ -146,7 +146,7 @@
             "predis/predis": "^2.0@dev",
             "vrana/notorm": "dev-master"
         },
-        "time": "2019-08-09T23:57:05+00:00",
+        "time": "2019-08-10T03:21:27+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
