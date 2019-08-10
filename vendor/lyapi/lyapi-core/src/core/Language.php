@@ -24,7 +24,7 @@ class Language{
 
     //设置（或创建）一个语言配置文件
     public static function SetLanguage($lang,$value,$increase=false){
-        $file = LyApi . '/language/' . $language . '.json';
+        $file = LyApi . '/language/' . $lang . '.json';
         if($increase){
             $ary = this::GetLanguage($lang);
             $returns = array_merge($ary,$value);
@@ -35,7 +35,7 @@ class Language{
 
     //获取一个语言配置文件
     public static function GetLanguage($lang){
-        $file = LyApi . '/language/' . $language . '.json';
+        $file = LyApi . '/language/' . $lang . '.json';
         if(is_file($file)){
             $data = json_decode(file_get_contents($file),true);
             return $data;

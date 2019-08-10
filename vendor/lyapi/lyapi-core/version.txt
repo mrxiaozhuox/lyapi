@@ -33,3 +33,6 @@ Core Log :
 1.6.3(待定) : 
     1. 对TParty类进行优化
     2. 增加NotORM功能，可在TParty中获取对象
+    3. 增加Register(注册树)类，可快速存放和获取Object
+    4. Language、FileCache Bug修复
+    5. 对日志系统进行重写，增加一些简单的功能
