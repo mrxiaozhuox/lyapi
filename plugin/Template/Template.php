@@ -5,7 +5,7 @@ namespace Plugin\Template;
 use Plugin\Core\Core;
 
 /**
- * Name: Core.Core
+ * Name: Core.Template
  * Author: LyAPI
  * ModifyTime: 2019/07/29
  * Purpose: 插件开发模板

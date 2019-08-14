@@ -4,6 +4,19 @@ namespace LyApi\core;
 
 class API{
 
+    //储存函数数据
+    public $API_Function_Data = [];
+
+    //设置函数数据
+    public function SetFuncData($funcname,$data){
+        $this->API_Function_Data[$funcname] = $data;
+    }
+
+    //读取函数数据
+    public function GetFuncData($funcname){
+        return $this->API_Function_Data[$funcname];
+    }
+
     //获取各种数据
     public static function GET($type,$key){
         $t = '_' . $type;
@@ -16,6 +29,11 @@ class API{
         }else{
             return null;
         }
+    }
+
+    //设置头文件
+    public static function SetHeader($string, $replace = true, $http_response_code = null){
+        header($string,$replace,$http_response_code);
     }
 
     //渲染页面

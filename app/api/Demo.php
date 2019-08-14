@@ -162,6 +162,20 @@ class Demo extends API {
     }
 
     /**
+     * service Demo.FuncData
+     */
+    public function FuncData(){
+
+        $this->SetFuncData('FuncData',[
+            'code' => 233,
+            'msg' => 'Hello Demo.FuncData'
+        ]);
+
+
+        return 'Hello LyApi';
+    }
+
+    /**
      * service Demo.Test
      * introduce 自行测试代码
      */

@@ -6,11 +6,12 @@ use LyApi\core\error\ClientException;
 use LyApi\core\error\CustomException;
 use LyApi\core\error\ServerException;
 use LyApi\core\error\OtherException;
+use LyApi\tools\Config;
 
 class LyApi{
     
     //LyAPI信息：
-    public static $version = "1.6.2";
+    public static $version = "1.6.5";
 
     //输出接口程序最终的数据
     public static function output($other_data=array(),$priority_output="",$http_status_set=true){
@@ -55,21 +56,48 @@ class LyApi{
 
                      try{
                          if(in_array($func,$methods)){
-                             $Func_Return = $class->$func();
-                             if(is_array($Func_Return)){
+
+                             @$Func_Return = $class->$func();
+                             if(true){
 
                                 $Cust_Code = array_search('$code',$RESPONSE);
                                 $Cust_Message = array_search('$msg',$RESPONSE);
 
-                                if(array_key_exists('#' . $Cust_Code,$Func_Return)){
-                                    $RS['code'] = $Func_Return['#' . $Cust_Code];
-                                    unset($Func_Return['#' . $Cust_Code]);
+                                //处理自定义函数数据
+                                if(array_key_exists('FUNCITON_SET_DATA',$Func_Config)){
+                                    
+                                    $Func_SetData = $Func_Config['FUNCITON_SET_DATA'];
+
+                                    $Func_SetCode = $Func_SetData['CUSTON_SUCCESS_CODE'];
+                                    $Func_SetMessage = $Func_SetData['CUSTON_SUCCESS_MESSAGE'];
+
+                                    //通过各种数据来设置code 和 msg
+                                    if(array_key_exists($func,$class->API_Function_Data)){
+                                        if(is_array($class->API_Function_Data[$func])){
+                                            if(array_key_exists($Func_SetCode,$class->API_Function_Data[$func])){
+                                                $RS['code'] = $class->API_Function_Data[$func][$Func_SetCode];
+                                            }
+        
+                                            if(array_key_exists($Func_SetMessage,$class->API_Function_Data[$func])){
+                                                $RS['msg'] = $class->API_Function_Data[$func][$Func_SetMessage];
+                                            }
+                                        }
+                                    }
+
                                 }
-                                
-                                if(array_key_exists('#' . $Cust_Message,$Func_Return)){
-                                    $RS['msg'] = $Func_Return['#' . $Cust_Message];
-                                    unset($Func_Return['#' . $Cust_Message]);
+
+                                if(is_array($Func_Return)){
+                                    if(array_key_exists('#' . $Cust_Code,$Func_Return)){
+                                        $RS['code'] = $Func_Return['#' . $Cust_Code];
+                                        unset($Func_Return['#' . $Cust_Code]);
+                                    }
+                                    
+                                    if(array_key_exists('#' . $Cust_Message,$Func_Return)){
+                                        $RS['msg'] = $Func_Return['#' . $Cust_Message];
+                                        unset($Func_Return['#' . $Cust_Message]);
+                                    }
                                 }
+
                             }
                              $RS['data'] = $Func_Return;
                          }else{

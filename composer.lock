@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/catfan/Medoo.git",
-                "reference": "b9dfce4046f3eb48a647ef72991bb65012f99376"
+                "reference": "113519d8032044a1d7b0852740e8f8d210b4dee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/catfan/Medoo/zipball/b9dfce4046f3eb48a647ef72991bb65012f99376",
-                "reference": "b9dfce4046f3eb48a647ef72991bb65012f99376",
+                "url": "https://api.github.com/repos/catfan/Medoo/zipball/113519d8032044a1d7b0852740e8f8d210b4dee2",
+                "reference": "113519d8032044a1d7b0852740e8f8d210b4dee2",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2019-07-13T14:52:50+00:00"
+            "time": "2019-08-14T13:47:48+00:00"
         },
         {
             "name": "filp/whoops",
@@ -133,12 +133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-                "reference": "fbdef088e195563ff5d955719bcfa68f882dc03d"
+                "reference": "b5f982534001aa89ea03723bd80d6cecbc029cd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/fbdef088e195563ff5d955719bcfa68f882dc03d",
-                "reference": "fbdef088e195563ff5d955719bcfa68f882dc03d",
+                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/b5f982534001aa89ea03723bd80d6cecbc029cd3",
+                "reference": "b5f982534001aa89ea03723bd80d6cecbc029cd3",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "core",
                 "lyapi"
             ],
-            "time": "2019-08-10T08:07:35+00:00"
+            "time": "2019-08-14T15:35:18+00:00"
         },
         {
             "name": "mashape/unirest-php",

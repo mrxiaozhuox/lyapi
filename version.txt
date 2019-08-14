@@ -1,4 +1,4 @@
-FrameWork Version : 1.3.0
+FrameWork Version : 1.3.3
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -36,3 +36,7 @@ FrameWork Log :
     2. 增加NotORM库，可在DI直接获取
     3. 增加Register(注册树)类
     4. 同时更新框架版本：1.6.3 具体信息请前往Lyapi-Core下的version.txt中查看。
+1.3.3 :
+    1. 增加接口函数内一键设置 code 和 msg
+    2. 增加Demo函数: Demo.FuncData
+    3. 增加func.php配置文件内容（具体前往博客查看）
