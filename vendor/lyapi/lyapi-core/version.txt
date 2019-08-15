@@ -39,3 +39,4 @@ Core Log :
 1.6.5 : 
     1. 增加 this->SetFuncData 函数，可快速设置code和msg(优先级低于#code #msg)
     2. 增加 self::SetHeader 函数，可快速设置头文件（前提是没有使用优先输出）
+    3. 自定义数据返回已支持自定义接口结构。

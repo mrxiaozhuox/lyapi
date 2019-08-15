@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbd6ea06bb7c55f4e34f3ee6e8ceed8f",
+    "content-hash": "a6a21b5d17023145a9035e72cfa1d761",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -133,12 +133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-                "reference": "b5f982534001aa89ea03723bd80d6cecbc029cd3"
+                "reference": "8d30d5e31154dcb47f3b2563ab2cd31a319d7ad4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/b5f982534001aa89ea03723bd80d6cecbc029cd3",
-                "reference": "b5f982534001aa89ea03723bd80d6cecbc029cd3",
+                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/8d30d5e31154dcb47f3b2563ab2cd31a319d7ad4",
+                "reference": "8d30d5e31154dcb47f3b2563ab2cd31a319d7ad4",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "core",
                 "lyapi"
             ],
-            "time": "2019-08-14T15:35:18+00:00"
+            "time": "2019-08-15T15:02:52+00:00"
         },
         {
             "name": "mashape/unirest-php",
@@ -368,7 +368,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">= 5.4.0"
+        "php": ">= 5.5.0"
     },
     "platform-dev": []
 }

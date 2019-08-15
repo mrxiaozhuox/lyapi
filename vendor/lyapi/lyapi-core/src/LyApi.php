@@ -69,9 +69,10 @@ class LyApi{
                                     $Func_SetData = $Func_Config['FUNCITON_SET_DATA'];
 
                                     $Func_SetCode = $Func_SetData['CUSTON_SUCCESS_CODE'];
+                                    $Func_SetDatas = $Func_SetData['CUSTON_SUCCESS_DATA'];
                                     $Func_SetMessage = $Func_SetData['CUSTON_SUCCESS_MESSAGE'];
 
-                                    //通过各种数据来设置code 和 msg
+                                    //通过各种数据来设置code 和 msg 优先级 (2)
                                     if(array_key_exists($func,$class->API_Function_Data)){
                                         if(is_array($class->API_Function_Data[$func])){
                                             if(array_key_exists($Func_SetCode,$class->API_Function_Data[$func])){
@@ -81,12 +82,18 @@ class LyApi{
                                             if(array_key_exists($Func_SetMessage,$class->API_Function_Data[$func])){
                                                 $RS['msg'] = $class->API_Function_Data[$func][$Func_SetMessage];
                                             }
+
+                                            if(array_key_exists($Func_SetDatas,$class->API_Function_Data[$func])){
+                                                $RS['data'] = $class->API_Function_Data[$func][$Func_SetDatas];
+                                            }
                                         }
                                     }
 
                                 }
 
+                                // 处理返回数组的一些特别信息 优先级（1）
                                 if(is_array($Func_Return)){
+
                                     if(array_key_exists('#' . $Cust_Code,$Func_Return)){
                                         $RS['code'] = $Func_Return['#' . $Cust_Code];
                                         unset($Func_Return['#' . $Cust_Code]);
@@ -96,10 +103,27 @@ class LyApi{
                                         $RS['msg'] = $Func_Return['#' . $Cust_Message];
                                         unset($Func_Return['#' . $Cust_Message]);
                                     }
+
+                                    foreach($Func_Return as $Return_Key => $Return_Val){
+                                        if(substr($Return_Key,0,1) == '#'){
+                                            $Custom_DValue = '$' . substr($Return_Key,1);
+                                            if(in_array($Custom_DValue,$RESPONSE)){
+                                                $Custom_DataOne = array_search($Custom_DValue,$RESPONSE);
+                                                $RS[$Custom_DataOne] = $Return_Val;
+                                                unset($Func_Return[$Return_Key]);
+                                            }
+                                        }
+                                    }
+
                                 }
 
                             }
-                             $RS['data'] = $Func_Return;
+
+                            //处理返回值为NULL的情况 优先级 (0)
+                            if($Func_Return != null){
+                                $RS['data'] = $Func_Return;
+                            }
+
                          }else{
                             self::httpStatus(400,$http_status_set);
                              echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['function_not_find']);
@@ -126,6 +150,7 @@ class LyApi{
                          echo $e->getMessage();
                          return;
                      }
+
                      echo self::CreateRs($RESPONSE,$RS);
 
                     //调用结束函数
@@ -171,6 +196,7 @@ class LyApi{
     }
 
     private static function CreateRs($response,$value,$other=array()){
+        
         foreach($response as $key => $val){
             if($val == '$data') {
                 $response[$key] = $value['data'];
@@ -181,6 +207,8 @@ class LyApi{
             }else{
                 if(array_key_exists(substr($val,1),$other)){
                     $response[$key] = $other[substr($val,1)];                  
+                }elseif(array_key_exists($key,$value)){
+                    $response[$key] = $value[$key];
                 }else{
                     $response[$key] = $val;
                 }

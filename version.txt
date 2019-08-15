@@ -40,3 +40,4 @@ FrameWork Log :
     1. 增加接口函数内一键设置 code 和 msg
     2. 增加Demo函数: Demo.FuncData
     3. 增加func.php配置文件内容（具体前往博客查看）
+    4, 同时更新框架版本：1.6.5 具体信息请前往Lyapi-Core下的version.txt中查看。
