@@ -126,7 +126,7 @@ class LyApi{
 
                          }else{
                             self::httpStatus(400,$http_status_set);
-                             echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['function_not_find']);
+                             echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['function_not_find'],Config::getConfig('api','')['CUSTOM_DATA']);
                              return;
                          }
                      //捕获异常
@@ -151,7 +151,7 @@ class LyApi{
                          return;
                      }
 
-                     echo self::CreateRs($RESPONSE,$RS);
+                     echo self::CreateRs($RESPONSE,$RS,Config::getConfig('api','')['CUSTOM_DATA']);
 
                     //调用结束函数
                     if(in_array($Func_Config['AFTER_FUNC'],$methods)){
@@ -180,17 +180,17 @@ class LyApi{
                     return;
                 }else{
                     self::httpStatus(400,$http_status_set);
-                    echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_extend']);
+                    echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_extend'],Config::getConfig('api','')['CUSTOM_DATA']);
                     return;
                 }
             }else{
                 self::httpStatus(400,$http_status_set);
-                echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_find']);
+                echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_find'],Config::getConfig('api','')['CUSTOM_DATA']);
                 return;
             }
         }else{
             self::httpStatus(400,$http_status_set);
-            echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['service_not_find']);
+            echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['service_not_find'],Config::getConfig('api','')['CUSTOM_DATA']);
             return;
         }
     }
@@ -205,10 +205,10 @@ class LyApi{
             }else if($val == '$msg'){
                 $response[$key] = $value['msg'];
             }else{
-                if(array_key_exists(substr($val,1),$other)){
-                    $response[$key] = $other[substr($val,1)];                  
-                }elseif(array_key_exists($key,$value)){
+                if(array_key_exists($key,$value)){
                     $response[$key] = $value[$key];
+                }elseif(array_key_exists(substr($val,1),$other)){
+                    $response[$key] = $other[substr($val,1)];                  
                 }else{
                     $response[$key] = $val;
                 }
