@@ -3,13 +3,14 @@
 namespace Plugin\Core;
 
 use APP\DI;
+use Plugin\Core\tools\Save;
 use Unirest\Request;
 use Unirest\Exception;
 
 /**
  * Name: Core.Core
  * Author: LyAPI
- * ModifyTime: 2019/07/29
+ * ModifyTime: 2019/07/31
  * Purpose: 提供其他插件引用，使插件开发更简单。
  */
 
@@ -66,9 +67,32 @@ class Core{
         }
     }
 
+    //当对象被当作字符串输出时
+    public function __toString(){
+        return array(
+            'PluginName' => $this->Plugin_Name,
+            'PluginVersion' => $this->Plugin_Version,
+            'PluginAuthor' => $this->Plugin_Author,
+            'PluginAbout' => $this->Plugin_About
+        );
+    }
+
+    //被当作函数调用时，自动调用某个函数
+    public function __invoke($function,...$args){
+        $ret = null;
+
+        eval('$ret = $this->$function(' . implode(",",$args) . ');');
+        return $ret;
+    }
+
     //插件缓存设置
     protected function PluginCache(){
         return DI::FileCache('Plugin_' . $this->Plugin_Name);
+    }
+
+    //插件数据IO
+    protected function PluginSave(){
+        return new Save($this->Plugin_Name);
     }
 
     //插件信息获取

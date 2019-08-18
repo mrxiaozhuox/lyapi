@@ -1,7 +1,8 @@
 <?php
-use LyApi\LyApi;
 
 // 程序运行出现问题请先运行check.php文件！检测框架是否完整！！！
+
+use LyApi\LyApi;
 
 require 'init.php';
 
@@ -24,4 +25,15 @@ $custom_data =     $config["CUSTOM_DATA"];
 
 //------可以在这里进行一些前置操作------//
 
-\LyApi\LyApi::output($custom_data,$priority_output,$http_status_set);
+
+// return_http_code 返回的是本次程序运行最终的HTTP状态码
+$return_http_code =  LyApi::output($custom_data,$priority_output,$http_status_set);
+
+
+// ------可以在这里进行一些后置操作------//
+
+// if($return_http_code != 200){
+//     return '程序运行出现错误...';
+// }
+
+//------可以在这里进行一些后置操作------//

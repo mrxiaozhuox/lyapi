@@ -127,7 +127,7 @@ class LyApi{
                          }else{
                             self::httpStatus(400,$http_status_set);
                              echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['function_not_find'],Config::getConfig('api','')['CUSTOM_DATA']);
-                             return;
+                             return 400;
                          }
                      //捕获异常
                      }catch(ClientException $e){
@@ -135,20 +135,23 @@ class LyApi{
                          $RS['code'] = $e->ErrorCode();
                          $RS['msg'] = $e->ErrorMsg();
                          $RS['data'] = array();
+                         return $e->ErrorCode();
                      }catch(ServerException $e){
                          self::httpStatus($e->ErrorCode(),$http_status_set);
                          $RS['code'] = $e->ErrorCode();
                          $RS['msg'] = $e->ErrorMsg();
                          $RS['data'] = array();
+                         return $e->ErrorCode();
                      }catch(OtherException $e){
                          self::httpStatus($e->ErrorCode(),$http_status_set);
                          $RS['code'] = $e->ErrorCode();
                          $RS['msg'] = $e->ErrorMsg();
                          $RS['data'] = array();
+                         return $e->ErrorCode();
                      }catch(CustomException $e){
                          self::httpStatus(200,$http_status_set);
                          echo $e->getMessage();
-                         return;
+                         return 200;
                      }
 
                      echo self::CreateRs($RESPONSE,$RS,Config::getConfig('api','')['CUSTOM_DATA']);
@@ -158,7 +161,7 @@ class LyApi{
                         @$class->$Func_Config['AFTER_FUNC']();
                     }
 
-                     return;
+                     return 200;
                 }elseif(is_subclass_of($class, 'LyApi\core\VIEW')){
                     $methods = get_class_methods($namespace);
                     $Func_Config = require LyApi . '/config/func.php';
@@ -177,21 +180,21 @@ class LyApi{
                         @$class->$Func_Config['AFTER_FUNC']($func);
                     }
 
-                    return;
+                    return 200;
                 }else{
                     self::httpStatus(400,$http_status_set);
                     echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_extend'],Config::getConfig('api','')['CUSTOM_DATA']);
-                    return;
+                    return 400;
                 }
             }else{
                 self::httpStatus(400,$http_status_set);
                 echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['class_not_find'],Config::getConfig('api','')['CUSTOM_DATA']);
-                return;
+                return 400;
             }
         }else{
             self::httpStatus(400,$http_status_set);
             echo self::CreateRs($RESPONSE,$Api_Config['ERROR_MESSAGE']['service_not_find'],Config::getConfig('api','')['CUSTOM_DATA']);
-            return;
+            return 400;
         }
     }
 
