@@ -179,10 +179,10 @@ class Demo extends API
     public function FuncData()
     {
 
-        $this->SetFuncData('FuncData', [
+        $this->SetFuncData([
             'code' => 233,
             'msg' => 'Hello Demo.FuncData'
-        ]);
+        ],'FuncData');
 
 
         return 'Hello LyApi';
