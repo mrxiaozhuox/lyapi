@@ -135,6 +135,6 @@ PS: 任何问题直接联系我就行，我会第一时间解决问题。
 [1]: http://lyapi.wwsg18.com/trial.html
 [2]: https://packagist.org/users/wwsg18/
 [3]: https://mit-license.org
-[4]: https://wwsg18.gitee.io/lyapi-docs/#/
+[4]: https://mrxzx.gitee.io/lyapi-docs/#/
 [5]: http://bbs.wwsg18.com/forum.php?mod=forumdisplay&fid=41&filter=typeid&typeid=1&sortid=2
 [6]: //shang.qq.com/wpa/qunwpa?idkey=06e2f22cef00613b68463dda8983f689395d90e358115b76f912e7afc8854878
