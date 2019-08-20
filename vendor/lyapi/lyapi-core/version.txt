@@ -1,10 +1,10 @@
-Core Version : 1.6.5
+Core Version : 1.7.0
 Core Log :
 1.5.5 :
     1. 增加Version.txt文件，用于记录Lyapi_Core版本。
     2. 增加FileCache的单个缓存删除功能。
     3. 在"output"处增加"priority_output"参数，用于在接口数据返回前输出内容。
-1.5.6 (测试版本：如有任何问题请更换到1.5.5): 
+1.5.6 : 
     1. 增加Core代码的注释，可以让使用者更好的理解框架运行原理。
     2. 在API父类增加 : Render,FPrint函数
         FPrint函数 : 用于输出内容（和echo用处一样）。
@@ -40,3 +40,11 @@ Core Log :
     1. 增加 this->SetFuncData 函数，可快速设置code和msg(优先级低于#code #msg)
     2. 增加 self::SetHeader 函数，可快速设置头文件（前提是没有使用优先输出）
     3. 自定义数据返回已支持自定义接口结构。
+1.7.0 : 
+    1. output函数增加返回值，可获取运行接口状态。
+    2. 全面优化框架主程序，减少BUG出现率。
+    3. 增加Launch对象，支持直接访问接口代码。
+    4. 修复Language对象下的(SetLanguage)函数。
+    5. 批量整理框架代码 使用工具(VSCODE)。
+    6. 暂时关闭前置输出功能，防止header无法使用。
+    7. 修改部分命名空间地址（项目文档已更新）

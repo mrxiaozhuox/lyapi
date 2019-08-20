@@ -1,4 +1,4 @@
-FrameWork Version : 1.3.3
+FrameWork Version : 1.4.0
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -24,20 +24,27 @@ FrameWork Log :
     3. 增加custom配置文件目录，可自定义配置文件。
     4. 同时更新框架版本：1.6.1 具体信息请前往Lyapi-Core下的version.txt中查看。
 1.3.0 : 
-    1. LyApi-Docs已更新到最新版本
-    2. 增加Plugin系统（测试版）
+    1. LyApi-Docs已更新到最新版本。
+    2. 增加Plugin系统（测试版）。
     3. 增加请求成功返回Code和Message，使用方法: 
         return array( 
             "#code" => '201', 
             "#msg" => '这是成功的Message', //其他信息 
         );
 1.3.1 : 
-    1. 增加PDO配置，可快速获取PDO对象
-    2. 增加NotORM库，可在DI直接获取
-    3. 增加Register(注册树)类
+    1. 增加PDO配置，可快速获取PDO对象。
+    2. 增加NotORM库，可在DI直接获取。
+    3. 增加Register(注册树)类。
     4. 同时更新框架版本：1.6.3 具体信息请前往Lyapi-Core下的version.txt中查看。
 1.3.3 :
-    1. 增加接口函数内一键设置 code 和 msg
-    2. 增加Demo函数: Demo.FuncData
-    3. 增加func.php配置文件内容（具体前往博客查看）
-    4, 同时更新框架版本：1.6.5 具体信息请前往Lyapi-Core下的version.txt中查看。
+    1. 增加接口函数内一键设置 code 和 msg。
+    2. 增加Demo函数: Demo.FuncData。
+    3. 增加func.php配置文件内容（具体前往博客查看）。
+    4. 同时更新框架版本：1.6.5 具体信息请前往Lyapi-Core下的version.txt中查看。
+1.4.0 : 
+    1. 增加output返回值，可获取接口的执行状态。
+    2. 全面优化框架主程序，减少BUG出现率。
+    4. 修复Language对象下的(SetLanguage)函数。
+    5. 批量整理框架代码 使用工具(VSCODE)。
+    6. 暂时关闭前置输出功能，防止header无法使用。
+    7. 同时更新框架版本：1.7.0 具体信息请前往Lyapi-Core下的version.txt中查看。

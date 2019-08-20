@@ -4,15 +4,18 @@ namespace LyApi\core\error;
 
 use Exception;
 
-class ClientException extends Exception{
-    public function ErrorMsg(){
+class ClientException extends Exception
+{
+    public function ErrorMsg()
+    {
         return $this->getMessage();
     }
-    public function ErrorCode(){
+    public function ErrorCode()
+    {
         $code = $this->getCode();
-        if($code >= 100){
+        if ($code >= 100) {
             return 400;
-        }else{
+        } else {
             return 400 + $code;
         }
     }

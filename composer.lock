@@ -133,12 +133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-                "reference": "34d907444cb5b7e81cd07161c533397fac1710cc"
+                "reference": "41abd014aa8383168a3034e2ffb519d96723b851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/34d907444cb5b7e81cd07161c533397fac1710cc",
-                "reference": "34d907444cb5b7e81cd07161c533397fac1710cc",
+                "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/41abd014aa8383168a3034e2ffb519d96723b851",
+                "reference": "41abd014aa8383168a3034e2ffb519d96723b851",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "core",
                 "lyapi"
             ],
-            "time": "2019-08-18T13:09:34+00:00"
+            "time": "2019-08-20T07:34:01+00:00"
         },
         {
             "name": "mashape/unirest-php",

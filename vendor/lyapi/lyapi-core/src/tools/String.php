@@ -2,10 +2,12 @@
 
 namespace LyApi\tools;
 
-class String{
+class String
+{
 
     //文字转拼音
-    public static function pinyin($str, $ret_format = 'all', $placeholder = '_', $allow_chars = '/[a-zA-Z\d ]/') {
+    public static function pinyin($str, $ret_format = 'all', $placeholder = '_', $allow_chars = '/[a-zA-Z\d ]/')
+    {
         static $pinyins = null;
 
         if (null === $pinyins) {
@@ -14,7 +16,7 @@ class String{
             $rows = explode('|', $data);
 
             $pinyins = array();
-            foreach($rows as $v) {
+            foreach ($rows as $v) {
                 list($py, $vals) = explode(':', $v);
                 $chars = explode(',', $vals);
 
@@ -53,10 +55,11 @@ class String{
     }
 
     //获取随机字符
-    public static function RandStr($len){
+    public static function RandStr($len)
+    {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        mt_srand(10000000*(double)microtime());
-        for ($i = 0, $str = '', $lc = strlen($chars)-1; $i < $len; $i++) {
+        mt_srand(10000000 * (float) microtime());
+        for ($i = 0, $str = '', $lc = strlen($chars) - 1; $i < $len; $i++) {
             $str .= $chars[mt_rand(0, $lc)];
         }
         return $str;

@@ -1,10 +1,26 @@
 # LyAPI
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.3.3-orange.svg)](http://lyapi.wwsg18.com)
-[![Travis](https://img.shields.io/badge/Core_Version-V1.6.5-blue.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.4.0-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Core_Version-V1.7.0-blue.svg)](http://lyapi.wwsg18.com)
 
 LyAPI是一款轻量级的PHP 接口开发框架，可快速开发出易维护、高性能的API接口。内置缓存、日志、数据库操作、国际化等功能。
+
+## 支持功能
+
+- 数据格式：通过配置文件修改数据格式。
+- 国际化操作：返回不同语言的数据。
+- 文件缓存：内置文件缓存功能。
+- 日志记录：简单的日志记录功能。
+- 数据库操作：使用第三方库 Medoo、NotORM。
+- 注册树：将对象存入注册树，并在任何地方取出。
+- 自定义配置：可创建自定义配置，方便程序调用。
+- CURL：封装CURL操作，方便请求数据。
+- 内部启动：在程序中直接调用接口函数获取数据。
+- Cookie：对Cookie进行简单封装。
+- 视图渲染：支持渲染HTML页面。
+- 插件管理：可安装插件，使用插件完成快速开发。
+- 框架项目持续更新中...
 
 ## 安装方法
 

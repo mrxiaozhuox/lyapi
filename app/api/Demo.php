@@ -6,20 +6,23 @@
 namespace APP\api;
 
 use APP\DI;
-use LyApi\core\API;
+use LyApi\core\classify\API;
 use LyApi\core\error\ClientException;
+use LyApi\tools\Launch;
 use LyApi\core\request\Cookie;
 use LyApi\core\request\Request;
 use LyApi\tools\Config;
 use LyApi\Logger\Logger;
 
-class Demo extends API {
+class Demo extends API
+{
 
     /**
      * service Demo.Hello
      * introduce 简单的Hello World
      */
-    public function Hello(){
+    public function Hello()
+    {
         return 'Hello World';
     }
 
@@ -27,12 +30,13 @@ class Demo extends API {
      * service Demo.Cache
      * introduce 设置缓存并读取
      */
-    public function Cache(){
+    public function Cache()
+    {
 
         $cache = DI::FileCache('Demo');
         //设置缓存
-        $cache->set('username','mrxzx');
-        $cache->set('password','123456');
+        $cache->set('username', 'mrxzx');
+        $cache->set('password', '123456');
         //读取缓存
         $username = $cache->get('username');
         $password = $cache->get('password');
@@ -49,11 +53,12 @@ class Demo extends API {
      * service Demo.Cookie
      * introduce 设置cookie并读取
      */
-    public function Cookie(){
+    public function Cookie()
+    {
         $cookie = new Cookie('/');
         //设置Cookie
-        $cookie->Set('username','mrxzx');
-        $cookie->Set('password','123456');
+        $cookie->Set('username', 'mrxzx');
+        $cookie->Set('password', '123456');
         //获取Cookie
         $username = $cookie->Get('username');
         $password = $cookie->Get('password');
@@ -68,27 +73,28 @@ class Demo extends API {
      * service Demo.Register
      * introduce 模拟简单注册
      */
-    public function Register(){
+    public function Register()
+    {
         //获取Get数据
         $username = Request::Get('username');
         $password = Request::Get('password');
 
-        if($username != '' && $password != ''){
+        if ($username != '' && $password != '') {
             //使用缓存来做简单的注册
             $cache = DI::FileCache('Demo');
             $data = $cache->get('user');
             //判断缓存中是否有用户数据
-            if($data != null){
+            if ($data != null) {
                 //如果有则加入数据
                 $data[$username] = $password;
-                $cache->set('user',$data);
-            }else{
+                $cache->set('user', $data);
+            } else {
                 //没有则直接存入数据
-                $cache->set('user',[$username => $password]);
+                $cache->set('user', [$username => $password]);
             }
             return true;
-        }else{
-            throw new ClientException('参数不完整',0);
+        } else {
+            throw new ClientException('参数不完整', 0);
         }
     }
 
@@ -96,22 +102,23 @@ class Demo extends API {
      * service Demo.Login
      * introduce 模拟简单登录
      */
-    public function Login(){
+    public function Login()
+    {
         //获取Get数据
         $username = Request::Get('username');
         $password = Request::Get('password');
 
-        if($username != '' && $password != ''){
+        if ($username != '' && $password != '') {
             //读取缓存
             $cache = DI::FileCache('Demo');
             $data = $cache->get('user');
-            if(isset($data[$username]) && $data[$username] == $password){
+            if (isset($data[$username]) && $data[$username] == $password) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
-        }else{
-            throw new ClientException('参数不完整',0);
+        } else {
+            throw new ClientException('参数不完整', 0);
         }
     }
 
@@ -120,7 +127,8 @@ class Demo extends API {
      * introduce 日志测试
      */
 
-    public function Logger(){
+    public function Logger()
+    {
         $logger = new Logger();
         $logger->SetLogger([
             'time' => date('Y-m-d'),
@@ -135,9 +143,10 @@ class Demo extends API {
      * service Demo.Plugin
      * introduce 插件测试
      */
-    public function Plugin(){
+    public function Plugin()
+    {
         //使用DI下的PluginClass函数可以动态获取对象
-        $demo = DI::PluginClass('Template','Template');
+        $demo = DI::PluginClass('Template', 'Template');
         return $demo->GetPluginName();
     }
 
@@ -145,7 +154,8 @@ class Demo extends API {
      * service Demo.CustomMsg
      * introduce 自定义数据测试
      */
-    public function CustomMsg(){
+    public function CustomMsg()
+    {
         return array(
             '#code' => 201,
             '#msg' => 'Hello Lyapi',
@@ -157,16 +167,19 @@ class Demo extends API {
      * service Demo.CustomConfig
      * introduce 自定义配置文件测试
      */
-    public function CustomConfig(){
+    public function CustomConfig()
+    {
         return Config::getConfig('Test');
     }
 
     /**
      * service Demo.FuncData
+     * introduce 自定义 Code 和 Message
      */
-    public function FuncData(){
+    public function FuncData()
+    {
 
-        $this->SetFuncData('FuncData',[
+        $this->SetFuncData('FuncData', [
             'code' => 233,
             'msg' => 'Hello Demo.FuncData'
         ]);
@@ -176,10 +189,39 @@ class Demo extends API {
     }
 
     /**
+     * service Demo.HiddenKey
+     * introduce 隐藏某个Key的显示
+     */
+    public function HiddenKey()
+    {
+        //仅隐藏HiddenKey
+        $this->HiddenKeys('msg', 'HiddenKey');
+
+        //隐藏所有函数的显示（这种方法需要写在 构造函数 或 初始函数 中）
+        // $this->HiddenKeys('msg');
+
+        return 'Message is Hidden';
+    }
+
+    /**
+     * service Demo.RunApi
+     * introduce 内部启动接口代码
+     */
+    public function RunApi()
+    {
+        // 当前功能自定义数据仅支持 Retunrn 方法
+        return Launch::LaunchApi('APP\api\Demo','CustomMsg');
+        
+        // 如果是FuncData式，则不会处理
+        // return Launch::LaunchApi('APP\api\Demo','FuncData');   
+    }
+
+    /**
      * service Demo.Test
      * introduce 自行测试代码
      */
-    public function Test(){
+    public function Test()
+    {
         // Write your code ......
     }
 }

@@ -15,7 +15,7 @@ return array(
     'PRIORITY_OUTPUT' => '',                //优先输出内容（可为HTML代码）
     'HTTP_STATUS_SET' => true,              //接口是否使用Header返回状态码
     'CUSTOM_DATA' =>     array(             //其他数据（用于抓RESONSE）
-        //usi => "Hello World"              //自定义数据内容
+        // 'usi' => "Hello World"              //自定义数据内容
     ),
     'ERROR_MESSAGE' => array(               //自定义错误信息
         'service_not_find' => array(            //service找不到时的返回数据

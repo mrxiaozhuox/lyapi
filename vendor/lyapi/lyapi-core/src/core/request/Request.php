@@ -2,76 +2,86 @@
 
 namespace LyApi\core\request;
 
-class Request{
+class Request
+{
 
-    public static function Get($key){
-        if(isset($_GET[$key])){
+    public static function Get($key)
+    {
+        if (isset($_GET[$key])) {
             return $_GET[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Post($key){
-        if(isset($_POST[$key])){
+    public static function Post($key)
+    {
+        if (isset($_POST[$key])) {
             return $_POST[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Request($key){
-        if(isset($_REQUEST[$key])){
+    public static function Request($key)
+    {
+        if (isset($_REQUEST[$key])) {
             return $_REQUEST[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Files($key){
-        if(isset($_FILES[$key])){
+    public static function Files($key)
+    {
+        if (isset($_FILES[$key])) {
             return $_FILES[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Env($key){
-        if(isset($_ENV[$key])){
+    public static function Env($key)
+    {
+        if (isset($_ENV[$key])) {
             return $_ENV[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Globals($key){
-        if(isset($GLOBALS[$key])){
+    public static function Globals($key)
+    {
+        if (isset($GLOBALS[$key])) {
             return $GLOBALS[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Cookie($key){
-        if(isset($_COOKIE[$key])){
+    public static function Cookie($key)
+    {
+        if (isset($_COOKIE[$key])) {
             return $_COOKIE[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Session($key){
-        if(isset($_SESSION[$key])){
+    public static function Session($key)
+    {
+        if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
-        }else{
+        } else {
             return '';
         }
     }
 
-    public static function Server($key){
-        if(isset($_SERVER[$key])){
+    public static function Server($key)
+    {
+        if (isset($_SERVER[$key])) {
             return $_SERVER[$key];
-        }else{
+        } else {
             return '';
         }
     }

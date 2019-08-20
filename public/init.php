@@ -6,10 +6,11 @@ define('LyApi',dirname(__FILE__) . '/..');
 
 require_once LyApi . '/vendor/autoload.php';
 
+use LyApi\tools\Config;
 
 //判读是否打开
 
-$debug_config = require LyApi . "/config/debug.php";
+$debug_config = Config::getConfig('debug','');
 
 if($debug_config['OPEN_WHOOPS']){
     $whoops = new \Whoops\Run();
