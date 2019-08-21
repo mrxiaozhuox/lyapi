@@ -13,12 +13,12 @@
             "path": "/config/custom"
         }
     ],
-    "success_url": "/public/index.php",
+    "run_path": "/public",
+    "success_url": "/index.php",
     "php_versions": "55,56,70,71,72,73",
     "db_config": "",
     "admin_username": "",
     "admin_password": "",
-    "run_path": "",
     "remove_file": [],
     "enable_functions": ["system", "exec"]
 }
