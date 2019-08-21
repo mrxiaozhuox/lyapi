@@ -20,5 +20,5 @@
     "admin_username": "",
     "admin_password": "",
     "remove_file": [],
-    "enable_functions": ["system", "exec"]
+    "enable_functions": []
 }
