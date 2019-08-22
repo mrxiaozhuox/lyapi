@@ -28,6 +28,10 @@ LyAPI是一款轻量级的PHP 接口开发框架，可快速开发出易维护�
 
     $ composer create-project mrxzx/lyapi
 
+使用宝塔面板一键部署LyApi项目:
+
+    详细教程: http://blog.wwsg18.com/index.php/archives/48/
+
 ## 简单Demo
 
     // ./app/api/Demo.php
