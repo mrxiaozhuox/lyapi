@@ -52,7 +52,7 @@ class LyApi
                     $Func_Config = require LyApi . '/config/func.php';
 
                     //调用初始函数
-                    if (in_array($Func_Config['AFTER_FUNC'], $methods)) {
+                    if (in_array($Func_Config['INIT_FUNC'], $methods)) {
                         @$class->$Func_Config['INIT_FUNC']($func);
                     }
 
@@ -260,6 +260,35 @@ class LyApi
             echo self::CreateRs($RESPONSE, $service_not_find, $other_data);
             return $service_not_find['code'];
         }
+    }
+
+    // 普通对象函数
+    private $APP_Config = [];
+    private $Response_Code = 400;
+
+    public function __construct($Config = [])
+    {
+        // 对配置进行处理
+        if(! array_key_exists("Priority_Output",$Config)){
+            $Config['Priority_Output'] = '';
+        }
+        if(! array_key_exists("Http_Status_Set",$Config)){
+            $Config['Http_Status_Set'] = true;
+        }
+        if(! array_key_exists("Other_Data",$Config)){
+            $Config['Other_Data'] = [];
+        }
+
+        $this->APP_Config = $Config;
+
+    }
+
+    // 输出渲染页面
+    public function OutPutData(){
+        $Config = $this->APP_Config;
+        $RespCode = self::output($Config['Other_Data'],$Config['Priority_Output'],$Config['Http_Status_Set']);
+        $this->Response_Code = $RespCode;
+        return $RespCode;
     }
 
     private static function CreateRs($response, $value, $other = array())

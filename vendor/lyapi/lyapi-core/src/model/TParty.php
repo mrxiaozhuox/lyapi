@@ -3,6 +3,7 @@
 namespace LyApi\model;
 
 use Medoo\Medoo;
+use NotORM;
 use PDO;
 
 //快速获取数据库连接

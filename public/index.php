@@ -20,6 +20,12 @@ $priority_output = $config["PRIORITY_OUTPUT"];
 $http_status_set = $config["HTTP_STATUS_SET"];
 $custom_data =     $config["CUSTOM_DATA"];
 
+$LyAPI = new LyApi([
+    'Priority_Output' =>    $priority_output,
+    'Http_Status_Set' =>    $http_status_set,
+    'Other_Data' =>         $custom_data
+]);
+
 // ------可以在这里进行一些前置操作------//
 
 // 千万不要输出数据！防止header设置出现错误！
@@ -29,8 +35,9 @@ $custom_data =     $config["CUSTOM_DATA"];
 //------可以在这里进行一些前置操作------//
 
 
+
 // return_http_code 返回的是本次程序运行最终的HTTP状态码
-$return_http_code =  LyApi::output($custom_data, $priority_output, $http_status_set);
+$return_http_code = $LyAPI->OutPutData();
 
 // ------可以在这里进行一些后置操作------//
 
