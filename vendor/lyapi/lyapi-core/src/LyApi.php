@@ -15,7 +15,7 @@ class LyApi
     public static $version = "1.7.0";
 
     //输出接口程序最终的数据
-    public static function output($other_data = array(), $priority_output = "", $http_status_set = true)
+    private static function output($other_data = array(), $priority_output = "", $http_status_set = true)
     {
 
         //优先输出 用于在接口数据返回前输出一些数据 (慎用)
@@ -111,6 +111,7 @@ class LyApi
                                             }
                                         }
                                     } elseif (array_key_exists('all', $class->API_Function_Data)) {
+                                        // 处理全局函数数据
                                         if (is_array($class->API_Function_Data['all'])) {
                                             if (array_key_exists($Func_SetCode, $class->API_Function_Data['all'])) {
                                                 $RS['code'] = $class->API_Function_Data['all'][$Func_SetCode];
@@ -262,35 +263,6 @@ class LyApi
         }
     }
 
-    // 普通对象函数
-    private $APP_Config = [];
-    private $Response_Code = 400;
-
-    public function __construct($Config = [])
-    {
-        // 对配置进行处理
-        if(! array_key_exists("Priority_Output",$Config)){
-            $Config['Priority_Output'] = '';
-        }
-        if(! array_key_exists("Http_Status_Set",$Config)){
-            $Config['Http_Status_Set'] = true;
-        }
-        if(! array_key_exists("Other_Data",$Config)){
-            $Config['Other_Data'] = [];
-        }
-
-        $this->APP_Config = $Config;
-
-    }
-
-    // 输出渲染页面
-    public function OutPutData(){
-        $Config = $this->APP_Config;
-        $RespCode = self::output($Config['Other_Data'],$Config['Priority_Output'],$Config['Http_Status_Set']);
-        $this->Response_Code = $RespCode;
-        return $RespCode;
-    }
-
     private static function CreateRs($response, $value, $other = array())
     {
         // var_dump($value); 
@@ -369,5 +341,38 @@ class LyApi
             header("HTTP/1.1 " . (string) $num . " Undefined");
         }
         return;
+    }
+
+    // 普通对象函数
+    private $APP_Config = [];
+    private $Response_Code = 400;
+
+    public function __construct($Config = [])
+    {
+        // 对配置进行处理
+        if (!array_key_exists("Priority_Output", $Config)) {
+            $Config['Priority_Output'] = '';
+        }
+        if (!array_key_exists("Http_Status_Set", $Config)) {
+            $Config['Http_Status_Set'] = true;
+        }
+        if (!array_key_exists("Other_Data", $Config)) {
+            $Config['Other_Data'] = [];
+        }
+
+        $this->APP_Config = $Config;
+    }
+
+    public function xxx(){
+
+    }
+
+    // 运行接口程序
+    public function Run()
+    {
+        $Config = $this->APP_Config;
+        $RespCode = self::output($Config['Other_Data'], $Config['Priority_Output'], $Config['Http_Status_Set']);
+        $this->Response_Code = $RespCode;
+        return $RespCode;
     }
 }

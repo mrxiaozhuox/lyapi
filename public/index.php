@@ -37,7 +37,7 @@ $LyAPI = new LyApi([
 
 
 // return_http_code 返回的是本次程序运行最终的HTTP状态码
-$return_http_code = $LyAPI->OutPutData();
+$return_http_code = $LyAPI->Run();
 
 // ------可以在这里进行一些后置操作------//
 
