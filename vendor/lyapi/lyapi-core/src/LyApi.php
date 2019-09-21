@@ -12,7 +12,7 @@ class LyApi
 {
 
     //LyAPI信息：
-    public static $version = "1.7.0";
+    public static $version = "1.8.0";
 
     //输出接口程序最终的数据
     private static function output($other_data = array(), $priority_output = "", $http_status_set = true)
@@ -26,18 +26,42 @@ class LyApi
         $Api_Config = require LyApi . '/config/api.php';
 
 
-        $SERVICE = $Api_Config['DEFAULT_SERVICE'];
+        $SERVICE = $Api_Config['GET_METHOD_SETTING']['DEFAULT_SERVICE'];
         $RESPONSE = $Api_Config['DEFAULT_RESPONSE'];
+        $METHODS = $Api_Config['ACCESS_METHODS'];
 
-        if (isset($_GET[$SERVICE])) {
-            $service = $_GET[$SERVICE];
+        if (isset($_REQUEST[$SERVICE]) || $METHODS == 'URL') {
 
-            $nsps = explode('.', $service);
+            $nsps = array();
+
+            if ($METHODS != 'URL') {
+                $service = $_REQUEST[$SERVICE];
+                $nsps = explode($Api_Config['GET_METHOD_SETTING']['SERVICE_SEGMENTATION'], $service);
+            } else {
+                //处理路由，解析URL
+
+                $AccessUri =  $_SERVER['REQUEST_URI'];
+                
+                $AccessUri = substr($AccessUri,strripos($AccessUri,"?") + 1);
+                $AccessArray = explode("/",$AccessUri);
+                $AccessArray = array_filter($AccessArray);
+                $DelNum = $Api_Config['URL_METHOD_SETTING']['EFFECTIVE_POSITION'];
+                array_splice($AccessArray,0,$DelNum);
+                
+                if(sizeof($AccessArray) == 0){
+                   array_push($nsps,$Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'],$Api_Config['URL_METHOD_SETTING']['INDEX_FUNCTION']);
+                }elseif(sizeof($AccessArray) == 1){
+                    array_push($nsps,$Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'],$AccessArray[0]);
+                }else{
+                    $nsps = $AccessArray;
+                }
+                // var_dump($nsps);
+            }
+
             $func =  $nsps[sizeof($nsps) - 1];
             array_pop($nsps);
 
             $namespace = "APP\\api\\" . join('\\', $nsps);
-
             if (class_exists($namespace)) {
                 $class = new $namespace;
 
@@ -228,7 +252,23 @@ class LyApi
                     }
 
                     if (in_array($func, $methods)) {
-                        echo $class->$func('API', $_REQUEST);
+                        try{
+                            echo $class->$func('API', $_REQUEST);
+                        }catch(ClientException $e){
+                            echo self::ShowError($e->ErrorCode());
+                        }catch(ServerException $e){
+                            echo self::ShowError($e->ErrorCode());
+                        }catch(OtherException $e){
+                            echo self::ShowError($e->ErrorCode());
+                        }catch(CustomException $e){
+                            echo json_encode([
+                                'code' => 200,
+                                'data' => $e->ErrorMsg(),
+                                'msg' => ''
+                            ]);
+                        }
+                    }else{
+                        echo self::ShowError(404);
                     }
 
                     //调用结束函数
@@ -343,6 +383,16 @@ class LyApi
         return;
     }
 
+    private static function ShowError($code = 404){
+        $DirPath = LyApi . '/app/view/error/';
+        if(is_file($DirPath . $code . '.html')){
+            return file_get_contents($DirPath . $code . '.html');
+        }else{
+            return file_get_contents($DirPath . 'default.html');
+        }
+        
+    }
+
     // 普通对象函数
     private $APP_Config = [];
     private $Response_Code = 400;
@@ -361,10 +411,6 @@ class LyApi
         }
 
         $this->APP_Config = $Config;
-    }
-
-    public function xxx(){
-
     }
 
     // 运行接口程序

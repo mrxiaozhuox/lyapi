@@ -11,29 +11,38 @@ return array(
         'msg' => '$msg'
         // 'using' => '$usi'                // 目前支持自定义数据（数据放在CUSTOM_DATA处）
     ),
-    'DEFAULT_SERVICE' => 'service',         //服务参数名
-    'PRIORITY_OUTPUT' => '',                //优先输出内容（可为HTML代码）
-    'HTTP_STATUS_SET' => true,              //接口是否使用Header返回状态码
-    'CUSTOM_DATA' =>     array(             //其他数据（用于抓RESONSE）
-        // 'usi' => "Hello World"              //自定义数据内容
+    'ACCESS_METHODS' => 'URL',              // 服务获取类型（ URL 或 GET ）
+    'URL_METHOD_SETTING' => [               // 当上方类型选择为 URL 时的配置（ GET请无视 ）
+        'EFFECTIVE_POSITION' => 3,          // URL从第几个开始解析（ 生产环境填 0 即可 ）
+        'DEFAULT_CLASS' => 'Root',          // 默认使用对象
+        'INDEX_FUNCTION' => 'Index'         // 默认 / 页面对应的函数名
+    ],
+    'GET_METHOD_SETTING' => [               // 当上方类型选择为 GET 时的配置（ URL请无视 ）
+        'DEFAULT_SERVICE' => 'service',     // 服务参数名
+        'SERVICE_SEGMENTATION' => '.',      // 类与函数之间的间隔符（ 默认 . ）
+    ],
+    'PRIORITY_OUTPUT' => '',                // 优先输出内容（ 可为HTML代码 ）
+    'HTTP_STATUS_SET' => true,              // 接口是否使用Header返回状态码
+    'CUSTOM_DATA' =>     array(             // 其他数据（ 用于抓RESONSE ）
+        // 'usi' => "Hello World"              // 自定义数据内容
     ),
-    'ERROR_MESSAGE' => array(               //自定义错误信息
-        'service_not_find' => array(            //service找不到时的返回数据
+    'ERROR_MESSAGE' => array(               // 自定义错误信息
+        'service_not_find' => array(            // service找不到时的返回数据
             'code' => '400',
             'data' => array(),
             'msg' => 'Invalid Request: Service does not exist'
         ),
-        'class_not_extend' => array(            //class未继承时的返回数据
+        'class_not_extend' => array(            // class未继承时的返回数据
             'code' => '400',
             'data' => array(),
             'msg' => 'Invalid Request: Class does not extend API'
         ),
-        'class_not_find' => array(              //class找不到时的返回数据
+        'class_not_find' => array(              // class找不到时的返回数据
             'code' => '400',
             'data' => array(),
             'msg' => 'Invalid Request: Class does not exist'
         ),
-        'function_not_find' => array(           //function找不到时的返回数据
+        'function_not_find' => array(           // function找不到时的返回数据
             'code' => '400',
             'data' => array(),
             'msg' => 'Invalid Request: Function does not exist'

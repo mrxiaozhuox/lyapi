@@ -2,7 +2,7 @@
 
 namespace LyApi\core\classify;
 
-class VIEW
+class VIEW extends BASIC
 {
 
     //设置头文件

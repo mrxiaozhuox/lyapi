@@ -1,4 +1,4 @@
-FrameWork Version : 1.4.0
+FrameWork Version : 1.6.0
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -50,5 +50,11 @@ FrameWork Log :
     7. 同时更新框架版本：1.7.0 具体信息请前往Lyapi-Core下的version.txt中查看。
 1.5.1 : 
     1. 更新框架启动方法为LyApi->Run()。
-1.5.1( 更新计划 ) : 
-    1. 增加命令行工具
+1.6.0 : 
+    1. 增加第二种访问方式：URL。
+    2. 对VIEW进行更新，增加功能。
+    3. 完全支持普通的页面开发。
+    4. 增加对ERROR页面渲染支持（如404, 400, 500）
+    5. 更新默认配置文件，启用之前的方法需重新配置。
+    6. 新增 测试页面 方便调试程序。
+    7. 同时更新框架版本：1.8.0 具体信息请前往Lyapi-Core下的version.txt中查看。

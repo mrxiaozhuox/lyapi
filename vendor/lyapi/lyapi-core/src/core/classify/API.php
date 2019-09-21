@@ -2,7 +2,7 @@
 
 namespace LyApi\core\classify;
 
-class API
+class API extends BASIC
 {
 
     //储存函数数据

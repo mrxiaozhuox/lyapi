@@ -1,6 +1,6 @@
 <?php
 
-namespace LyApi\script;
+namespace LyApi\core\script;
 
 class LyScript
 {
