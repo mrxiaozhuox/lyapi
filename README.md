@@ -2,7 +2,7 @@
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
 [![Travis](https://img.shields.io/badge/Version-V1.6.0-orange.svg)](http://lyapi.wwsg18.com)
-[![Travis](https://img.shields.io/badge/Core_Version-V1.8.0-blue.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Core_Version-V1.8.1-blue.svg)](http://lyapi.wwsg18.com)
 
 LyAPI是一款轻量级的PHP 接口开发框架，可快速开发出易维护、高性能的API接口。内置缓存、日志、数据库操作、国际化等功能。
 

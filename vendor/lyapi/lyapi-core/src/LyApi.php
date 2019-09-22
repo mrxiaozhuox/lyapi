@@ -12,7 +12,7 @@ class LyApi
 {
 
     //LyAPI信息：
-    public static $version = "1.8.0";
+    public static $version = "1.8.1";
 
     //输出接口程序最终的数据
     private static function output($other_data = array(), $priority_output = "", $http_status_set = true)
@@ -42,12 +42,13 @@ class LyApi
 
                 $AccessUri =  $_SERVER['REQUEST_URI'];
                 
-                $AccessUri = substr($AccessUri,strripos($AccessUri,"?") + 1);
+                if(strrpos($AccessUri,"?") != false){
+                    $AccessUri = substr($AccessUri,0,strrpos($AccessUri,"?"));
+                }
                 $AccessArray = explode("/",$AccessUri);
                 $AccessArray = array_filter($AccessArray);
                 $DelNum = $Api_Config['URL_METHOD_SETTING']['EFFECTIVE_POSITION'];
                 array_splice($AccessArray,0,$DelNum);
-                
                 if(sizeof($AccessArray) == 0){
                    array_push($nsps,$Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'],$Api_Config['URL_METHOD_SETTING']['INDEX_FUNCTION']);
                 }elseif(sizeof($AccessArray) == 1){

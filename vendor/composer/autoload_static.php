@@ -74,6 +74,13 @@ class ComposerStaticInit762a8ffcc428d65e5c4da9da44586128
                 0 => __DIR__ . '/..' . '/mashape/unirest-php/src',
             ),
         ),
+        'M' => 
+        array (
+            'Mustache' => 
+            array (
+                0 => __DIR__ . '/..' . '/mustache/mustache/src',
+            ),
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)

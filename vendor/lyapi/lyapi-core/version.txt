@@ -1,4 +1,4 @@
-Core Version : 1.7.0
+Core Version : 1.8.1
 Core Log :
 1.5.5 :
     1. 增加Version.txt文件，用于记录Lyapi_Core版本。
@@ -56,3 +56,7 @@ Core Log :
     5. 增加BASIC类，用于封装API和VIEW通用的函数
     6. 优化VIEW视图处理函数，支持异常捕获。
     7. 支持错误页面设置（如404, 400, 500）
+1.8.1 : 
+    1. 支持Mustache模板引擎渲染。
+    2. 增加Template类，快速渲染 模板引擎, JSON 和 XML 数据。
+    3. 修复核心代码 URL 解析问题。

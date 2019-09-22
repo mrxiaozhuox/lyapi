@@ -9,6 +9,7 @@ use LyApi\core\error\ClientException;
 use LyApi\core\request\Request;
 use LyApi\LyApi;
 use LyApi\tools\Launch;
+use LyApi\tools\Template;
 
 class Root extends VIEW
 {
@@ -62,8 +63,8 @@ class Root extends VIEW
 
                     <h3>当前启动模式：" . self::GetMethod() . "</h3>                
                     <h3>参数传递测试：" . $ChangeNow . "&nbsp <a href='?Mode=Test&Test=" . $ChangeTo . "'>切换</a> </h3>
-                    <h3>运行地址获取：" . json_encode(self::GetParam()) . "</h3>
-                    <h3>接口交互测试：" . json_encode($launchData) . " </h3>
+                    <h3>运行地址获取：" . Template::RenderJson(self::GetParam()) . "</h3>
+                    <h3>接口交互测试：" . Template::RenderJson($launchData) . " </h3>
                     <h3>AJAX请求测试： <button onclick='ajaxTest()' class='buttons'>获取数据</button> </h3>
 
                     <h3><a href='?Mode=Index'>返回主页</a></h3>
