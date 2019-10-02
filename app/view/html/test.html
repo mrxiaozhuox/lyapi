@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LyApi - Welcome</title>
+    <link rel="stylesheet" href="Resource?type=bootstrap&location=css">
+    <script src="Resource?type=bootstrap&location=js"></script>
+</head>
+
+<body>
+    <style>
+        .buttons {
+            /* 按钮美化 */
+            width: 100px;
+            /* 宽度 */
+            height: 26px;
+            /* 高度 */
+            border-width: 0px;
+            /* 边框宽度 */
+            border-radius: 3px;
+            /* 边框半径 */
+            background: #1E90FF;
+            /* 背景颜色 */
+            cursor: pointer;
+            /* 鼠标移入按钮范围时出现手势 */
+            outline: none;
+            /* 不显示轮廓线 */
+            font-family: Microsoft YaHei;
+            /* 设置字体 */
+            color: white;
+            /* 字体颜色 */
+            font-size: 17px;
+            /* 字体大小 */
+        }
+
+        .buttons:hover {
+            /* 鼠标移入按钮范围时改变颜色 */
+            background: #5599FF;
+        }
+
+        .container {
+            width: 60%;
+            margin: 10% auto 0;
+            background-color: #f0f0f0;
+            padding: 2% 5%;
+            border-radius: 10px
+        }
+    </style>
+
+    <center class='container'>
+        <h1>LyApi {{LyApi_Version}} 功能测试</h1>
+
+        <h3>当前启动模式：{{Launch_Mode}}</h3>
+        <h3>参数传递测试：{{Change_Now}}&nbsp <a href='?Mode=Test&Test={{Change_To}}'>切换</a> </h3>
+        <h3>运行地址获取：{{Launch_Path}}</h3>
+        <h3>接口交互测试：{{Launch_Data}} </h3>
+        <h3>AJAX请求测试： <button onclick='ajaxTest()' class='buttons'>获取数据</button> </h3>
+
+        <h3><a href='?Mode=Index'>返回主页</a></h3>
+        <p style='color:#a2a2a2;'>测试框架的部分功能，稳定性测试...</p>
+    </center>
+
+    <script>
+        function ajaxTest() {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.open('GET', 'Demo/Hello', true);
+            xmlHttp.send(null);
+
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    alert(xmlHttp.responseText);
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
