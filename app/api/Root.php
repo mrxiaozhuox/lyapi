@@ -51,15 +51,15 @@ class Root extends VIEW
         $type = Request::Get('type');
         $location = Request::Get('location');
 
-        if($type == 'bootstrap'){
-            if($location == 'js'){
+        if($location == 'bootstrap'){
+            if($type == 'js'){
                 return file_get_contents(LyApi . '/app/view/static/bootstrap/js/bootstrap.min.js');
-            }elseif($location == 'css'){
+            }elseif($type == 'css'){
                 return file_get_contents(LyApi . '/app/view/static/bootstrap/css/bootstrap.min.css');
             }else{
                 return '';
             }
-        }elseif($type == 'jquery'){
+        }elseif($location == 'jquery'){
             return file_get_contents(LyApi . '/app/view/static/jquery-3.4.1.min.js');
         }else{
             return '';
