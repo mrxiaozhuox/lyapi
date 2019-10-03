@@ -13,12 +13,18 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">= 5.5.0",
-        "lyapi/lyapi-core": "*"
+        "catfan/medoo": "dev-master",
+        "vrana/notorm": "dev-master",
+        "predis/predis": "^2.0@dev",
+        "filp/whoops": "^2.2@dev",
+        "mashape/unirest-php": "dev-master",
+        "mustache/mustache": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "APP\\": "app/",
-            "Plugin\\": "plugin/"
+            "Plugin\\": "plugin/",
+            "LyApi\\": "lyapi/"
         }
     }
 }

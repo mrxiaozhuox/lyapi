@@ -9,8 +9,7 @@ use LyApi\tools\Config;
 
 // ------------- 框架信息 ------------- //
 
-$LyAPI_Version      = "1.6.0";
-$LyAPI_Core_Verison = LyApi::$version;
+$LyAPI_Version = LyApi::$version;
 
 // ------------- 框架信息 ------------- //
 
