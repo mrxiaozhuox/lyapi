@@ -145,8 +145,8 @@ class Demo extends API
      */
     public function Plugin()
     {
-        //使用DI下的PluginClass函数可以动态获取对象
-        $demo = DI::PluginClass('Template', 'Template');
+        //使用DI下的PluginDyn函数可以动态获取对象
+        $demo = DI::PluginDyn('Template', 'Template');
         return $demo->GetPluginName();
     }
 
