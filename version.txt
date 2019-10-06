@@ -60,3 +60,5 @@ FrameWork Log :
     7. 同时更新框架版本：1.8.0 具体信息请前往Lyapi-Core下的version.txt中查看。
 1.6.5 : 
     1. 将核心代码放入框架中，不再分离开发和发布。
+1.6.6 : 
+    1. 更新 Template 对象的 XML 生成函数

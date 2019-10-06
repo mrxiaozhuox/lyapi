@@ -31,7 +31,7 @@ class Template
     /**
      * @About: 生成XML代码
      */
-    public function RenderXML($context)
+    public static function RenderXML($context)
     {
         if (is_array($context)) {
             $xml = "<xml>";

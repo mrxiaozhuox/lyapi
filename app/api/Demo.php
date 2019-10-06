@@ -13,6 +13,7 @@ use LyApi\core\request\Cookie;
 use LyApi\core\request\Request;
 use LyApi\tools\Config;
 use LyApi\Logger\Logger;
+use LyApi\tools\Language;
 
 class Demo extends API
 {
@@ -47,6 +48,17 @@ class Demo extends API
             'username' => $username,
             'password' => $password
         );
+    }
+
+    /**
+     * service Demo.Language
+     * introduce 语言翻译功能测试
+     */
+    public function Language()
+    {
+        $language = Request::Get('lang');
+
+        return Language::Translation('Hello World', $language);
     }
 
     /**
@@ -182,7 +194,7 @@ class Demo extends API
         $this->SetFuncData([
             'code' => 233,
             'msg' => 'Hello Demo.FuncData'
-        ],'FuncData');
+        ], 'FuncData');
 
 
         return 'Hello LyApi';
@@ -210,8 +222,8 @@ class Demo extends API
     public function RunApi()
     {
         // 当前功能自定义数据仅支持 Retunrn 方法
-        return Launch::LaunchApi('APP\api\Demo','CustomMsg');
-        
+        return Launch::LaunchApi('APP\api\Demo', 'CustomMsg');
+
         // 如果是FuncData式，则不会处理
         // return Launch::LaunchApi('APP\api\Demo','FuncData');   
     }
