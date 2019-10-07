@@ -1,42 +1,72 @@
 <?php
 
+use LyApi\LyApi;
+
 include "init.php";
 
 /**
  * 快速检查和修复程序问题
  */
 
-echo '<h1>项目目录结构检查</h1>';
 
-
-echo '<h2>数据文件夹:';
 if(is_dir('../data')){
-    echo ' 已存在</h2>';
+    $data_dir = '已存在';
 }else{
     mkdir('../data');
-    echo ' 已修复</h2>';
+    $data_dir = '已修复';
 }
 
-echo '<h2>缓存文件夹:';
 if(is_dir('../data/cache')){
-    echo ' 已存在</h2>';
+    $cache_dir = '已存在';
 }else{
     mkdir('../data/cache');
-    echo ' 已修复</h2>';
+    $cache_dir = '已修复';
 }
 
-echo '<h2>日志文件夹:';
 if(is_dir('../data/log')){
-    echo ' 已存在</h2>';
+    $logger_dir = '已存在';
 }else{
     mkdir('../data/log');
-    echo ' 已修复</h2>';
+    $logger_dir = '已修复';
 }
 
-echo '<h2>核心代码:';
 if(class_exists('\LyApi\LyApi')){
-    echo ' 已引入</h2>';
+    $core_code = '已引入';
 }else{
-    echo ' 请修复</h2>';
+    $core_code = '待修复';
 }
-echo '<h4>核心修复方法:重新使用composer安装拓展</h4>';
+
+
+$html = "
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>LyApi - 框架检查</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            width: 60%;
+            margin: 10% auto 0;
+            background-color: #f0f0f0;
+            padding: 2% 5%;
+            border-radius: 10px
+        }
+    </style>
+    <center class='container'>
+        <h1>LyApi " . LyApi::$version . " - 框架检查<h1>
+        <h2>数据文件夹: $data_dir</h2>
+        <h2>缓存文件夹: $cache_dir</h2>
+        <h2>日志文件夹: $logger_dir</h2>
+        <h2>核心代码: $core_code</h2>
+    </center>
+</body>
+
+</html>
+";
+
+echo $html;
