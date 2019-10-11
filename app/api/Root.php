@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 你可以随时删除本文件
+ * 本Class默认渲染主页面，可自行更改。
  */
 
 namespace APP\api;
