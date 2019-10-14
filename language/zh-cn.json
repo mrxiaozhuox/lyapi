@@ -1,4 +1,5 @@
 {
     "Hello World" : "你好世界",
-    "Test Language" : "测试语言"
+    "Test Language" : "测试语言",
+    "Test Variable" : "你好：$Name"
 }

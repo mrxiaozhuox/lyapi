@@ -1,4 +1,5 @@
 {
     "Hello World" : "Hello World",
-    "Test Language" : "Test Language"
+    "Test Language" : "Test Language",
+    "Test Variable" : "Hello: $Name"
 }
