@@ -13,7 +13,7 @@ return array(
     ),
     'ACCESS_METHODS' => 'URL',              // 服务获取类型（ URL 或 GET ）
     'URL_METHOD_SETTING' => [               // 当上方类型选择为 URL 时的配置（ GET请无视 ）
-        'EFFECTIVE_POSITION' => 0,          // URL从第几个开始解析（ 生产环境填 0 即可 ）
+        'EFFECTIVE_POSITION' => 3,          // URL从第几个开始解析（ 生产环境填 0 即可 ）
         'DEFAULT_CLASS' => 'Root',          // 默认使用对象
         'INDEX_FUNCTION' => 'Index'         // 默认 / 页面对应的函数名
     ],

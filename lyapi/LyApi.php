@@ -238,6 +238,11 @@ class LyApi
                         return 200;
                     }
 
+                    if($Using_ECore){
+                        $Tmp_FinalExamine_Data = $ECore->FinalExamine($RESPONSE, $RS);
+                        $RESPONSE = $Tmp_FinalExamine_Data['structure'];
+                        $RS = $Tmp_FinalExamine_Data['data'];
+                    }
                     self::httpStatus($RS['code'], $http_status_set);
                     echo self::CreateRs($RESPONSE, $RS, $other_data);
 
