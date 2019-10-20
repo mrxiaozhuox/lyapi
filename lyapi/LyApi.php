@@ -2,6 +2,7 @@
 
 namespace LyApi;
 
+use APP\program\Ecore;
 use LyApi\core\error\ClientException;
 use LyApi\core\error\CustomException;
 use LyApi\core\error\ServerException;
@@ -24,11 +25,16 @@ class LyApi
         }
 
         $Api_Config = require LyApi . '/config/api.php';
+        $Using_ECore = Config::getConfig('func','')['USING_ECORE'];
 
+        if($Using_ECore){
+            $ECore = new Ecore();
+        }
 
         $SERVICE = $Api_Config['GET_METHOD_SETTING']['DEFAULT_SERVICE'];
         $RESPONSE = $Api_Config['DEFAULT_RESPONSE'];
         $METHODS = $Api_Config['ACCESS_METHODS'];
+
 
         if (isset($_REQUEST[$SERVICE]) || $METHODS == 'URL') {
 
@@ -252,6 +258,7 @@ class LyApi
                         @$class->$Func_Config['INIT_FUNC']($func);
                     }
 
+                    // 处理VIEW视图的异常
                     if (in_array($func, $methods)) {
                         try{
                             echo $class->$func('API', $_REQUEST);
@@ -262,11 +269,12 @@ class LyApi
                         }catch(OtherException $e){
                             echo self::ShowError($e->ErrorCode());
                         }catch(CustomException $e){
-                            echo json_encode([
+                            self::httpStatus(200, $http_status_set);
+                            echo self::CreateRs($RESPONSE, [
                                 'code' => 200,
-                                'data' => $e->ErrorMsg(),
+                                'data' => $e->getMessage(),
                                 'msg' => ''
-                            ]);
+                            ], $other_data);
                         }
                     }else{
                         echo self::ShowError(404);
