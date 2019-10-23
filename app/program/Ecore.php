@@ -13,7 +13,9 @@ class Ecore
     public function FinalExamine($respnse_structure = [],$respnse_data = [])
     {
         // 这个函数会在数据正常输出前把结构和内容交给你做最后一次检查，你可以在这里进行处理。
-        $respnse_structure = [];
+        
+        // $respnse_structure = [];
+
         return [
             'structure' => $respnse_structure,
             'data' => $respnse_data

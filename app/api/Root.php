@@ -16,7 +16,8 @@ use LyApi\tools\Template;
 
 class Root extends VIEW
 {
-    
+
+    // 主页面渲染：处理程序
     public function Index()
     {
         $ModeNow = Request::Get('Mode');
@@ -45,7 +46,7 @@ class Root extends VIEW
         }
     }
 
-
+    // 资源文件渲染：程序需要的页面
     public function Resource()
     {
         $type = Request::Get('type');
