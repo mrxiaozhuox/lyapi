@@ -11,7 +11,7 @@ use PDO;
 class TParty
 {
 
-    //获取Medoo连接
+    // 获取Medoo连接
     public static function Medoo($ConfigSelect = 0)
     {
         $config = require LyApi . "/config/model/medoo.php";
@@ -19,7 +19,7 @@ class TParty
         return new Medoo($Medoo_config);
     }
 
-    //获取NotORM连接
+    // 获取NotORM连接
     public static function NotORM($AutoLoad = null, $PdoObject = null)
     {
         if ($AutoLoad != null) {
@@ -33,7 +33,7 @@ class TParty
         }
     }
 
-    //获取PDO连接
+    // 获取PDO连接
     public static function PDO($AutoLoad = null, $DSN = null)
     {
         if ($AutoLoad != null) {
