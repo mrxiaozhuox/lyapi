@@ -13,7 +13,7 @@ class LyApi
 {
 
     //LyAPI信息：
-    public static $version = "1.6.5";
+    public static $version = "1.6.6";
 
     //输出接口程序最终的数据
     private static function output($other_data = array(), $priority_output = "", $http_status_set = true)
@@ -25,9 +25,9 @@ class LyApi
         }
 
         $Api_Config = require LyApi . '/config/api.php';
-        $Using_ECore = Config::getConfig('func','')['USING_ECORE'];
+        $Using_ECore = Config::getConfig('func', '')['USING_ECORE'];
 
-        if($Using_ECore){
+        if ($Using_ECore) {
             $ECore = new Ecore();
         }
 
@@ -40,38 +40,44 @@ class LyApi
 
             $nsps = array();
 
+            // 判断启动类型
             if ($METHODS != 'URL') {
+
+                // 获取选择的服务
                 $service = $_REQUEST[$SERVICE];
                 $nsps = explode($Api_Config['GET_METHOD_SETTING']['SERVICE_SEGMENTATION'], $service);
             } else {
-                //处理路由，解析URL
 
+                //处理路由，解析URL
                 $AccessUri =  $_SERVER['REQUEST_URI'];
-                
-                if(strrpos($AccessUri,"?") != false){
-                    $AccessUri = substr($AccessUri,0,strrpos($AccessUri,"?"));
+
+                if (strrpos($AccessUri, "?") != false) {
+                    $AccessUri = substr($AccessUri, 0, strrpos($AccessUri, "?"));
                 }
-                $AccessArray = explode("/",$AccessUri);
+                $AccessArray = explode("/", $AccessUri);
                 $AccessArray = array_filter($AccessArray);
                 $DelNum = $Api_Config['URL_METHOD_SETTING']['EFFECTIVE_POSITION'];
-                array_splice($AccessArray,0,$DelNum);
-                if(sizeof($AccessArray) == 0){
-                   array_push($nsps,$Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'],$Api_Config['URL_METHOD_SETTING']['INDEX_FUNCTION']);
-                }elseif(sizeof($AccessArray) == 1){
-                    array_push($nsps,$Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'],$AccessArray[0]);
-                }else{
+                array_splice($AccessArray, 0, $DelNum);
+                if (sizeof($AccessArray) == 0) {
+                    array_push($nsps, $Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'], $Api_Config['URL_METHOD_SETTING']['INDEX_FUNCTION']);
+                } elseif (sizeof($AccessArray) == 1) {
+                    array_push($nsps, $Api_Config['URL_METHOD_SETTING']['DEFAULT_CLASS'], $AccessArray[0]);
+                } else {
                     $nsps = $AccessArray;
                 }
                 // var_dump($nsps);
             }
 
+
             $func =  $nsps[sizeof($nsps) - 1];
             array_pop($nsps);
 
+            // 拼接命名空间，以便后面调用
             $namespace = "APP\\api\\" . join('\\', $nsps);
             if (class_exists($namespace)) {
                 $class = new $namespace;
 
+                // 判断类型（接口 或 视图）
                 if (is_subclass_of($class, 'LyApi\core\classify\API')) {
                     self::httpStatus(200, $http_status_set);
                     $RS = array(
@@ -87,6 +93,7 @@ class LyApi
                         @$class->$Func_Config['INIT_FUNC']($func);
                     }
 
+                    // 开始调用主函数
                     try {
                         if (in_array($func, $methods)) {
 
@@ -238,7 +245,7 @@ class LyApi
                         return 200;
                     }
 
-                    if($Using_ECore){
+                    if ($Using_ECore) {
                         $Tmp_FinalExamine_Data = $ECore->FinalExamine($RESPONSE, $RS);
                         $RESPONSE = $Tmp_FinalExamine_Data['structure'];
                         $RS = $Tmp_FinalExamine_Data['data'];
@@ -265,15 +272,15 @@ class LyApi
 
                     // 处理VIEW视图的异常
                     if (in_array($func, $methods)) {
-                        try{
+                        try {
                             echo $class->$func('API', $_REQUEST);
-                        }catch(ClientException $e){
+                        } catch (ClientException $e) {
                             echo self::ShowError($e->ErrorCode());
-                        }catch(ServerException $e){
+                        } catch (ServerException $e) {
                             echo self::ShowError($e->ErrorCode());
-                        }catch(OtherException $e){
+                        } catch (OtherException $e) {
                             echo self::ShowError($e->ErrorCode());
-                        }catch(CustomException $e){
+                        } catch (CustomException $e) {
                             self::httpStatus(200, $http_status_set);
                             echo self::CreateRs($RESPONSE, [
                                 'code' => 200,
@@ -281,7 +288,7 @@ class LyApi
                                 'msg' => ''
                             ], $other_data);
                         }
-                    }else{
+                    } else {
                         echo self::ShowError(404);
                     }
 
@@ -293,6 +300,7 @@ class LyApi
                     return 200;
                 } else {
 
+                    // ERROR：对象未继承的情况下
                     $class_not_extend = $Api_Config['ERROR_MESSAGE']['class_not_extend'];
 
                     self::httpStatus($class_not_extend['code'], $http_status_set);
@@ -301,6 +309,7 @@ class LyApi
                 }
             } else {
 
+                // ERROR：对象不存在的情况下
                 $class_not_find = $Api_Config['ERROR_MESSAGE']['class_not_find'];
 
                 self::httpStatus($class_not_find['code'], $http_status_set);
@@ -309,6 +318,7 @@ class LyApi
             }
         } else {
 
+            // ERROR：服务不存在的情况下
             $service_not_find = $Api_Config['ERROR_MESSAGE']['service_not_find'];
 
             self::httpStatus($service_not_find['code'], $http_status_set);
@@ -317,27 +327,41 @@ class LyApi
         }
     }
 
+    // 创建返回数据函数
     private static function CreateRs($response, $value, $other = array())
     {
-        // var_dump($value); 
-        foreach ($response as $key => $val) {
-            if ($val == '$data') {
-                $response[$key] = $value['data'];
-            } else if ($val == '$code') {
-                $response[$key] = $value['code'];
-            } else if ($val == '$msg') {
-                $response[$key] = $value['msg'];
-            } else {
-                if (array_key_exists($key, $value)) {
-                    $response[$key] = $value[$key];
-                } elseif (array_key_exists(substr($val, 1), $other)) {
-                    $response[$key] = $other[substr($val, 1)];
+
+        $Using_ECore = Config::getConfig('func', '')['USING_ECORE'];
+
+        $new_response = null;
+
+        if ($Using_ECore) {
+            $ECore = new Ecore();
+            $new_response = $ECore->CreateResult($response, $value, $other);
+        }
+
+
+        if ($new_response == null) {
+            foreach ($response as $key => $val) {
+                if ($val == '$data') {
+                    $new_response[$key] = $value['data'];
+                } else if ($val == '$code') {
+                    $new_response[$key] = $value['code'];
+                } else if ($val == '$msg') {
+                    $new_response[$key] = $value['msg'];
                 } else {
-                    $response[$key] = $val;
+                    if (array_key_exists($key, $value)) {
+                        $new_response[$key] = $value[$key];
+                    } elseif (array_key_exists(substr($val, 1), $other)) {
+                        $new_response[$key] = $other[substr($val, 1)];
+                    } else {
+                        $new_response[$key] = $val;
+                    }
                 }
             }
         }
-        return json_encode($response, JSON_UNESCAPED_UNICODE);
+
+        return json_encode($new_response, JSON_UNESCAPED_UNICODE);
     }
 
     //处理接口返回的状态码
@@ -397,14 +421,14 @@ class LyApi
         return;
     }
 
-    private static function ShowError($code = 404){
+    private static function ShowError($code = 404)
+    {
         $DirPath = LyApi . '/app/view/error/';
-        if(is_file($DirPath . $code . '.html')){
+        if (is_file($DirPath . $code . '.html')) {
             return file_get_contents($DirPath . $code . '.html');
-        }else{
+        } else {
             return file_get_contents($DirPath . 'default.html');
         }
-        
     }
 
     // 普通对象函数

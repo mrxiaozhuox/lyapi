@@ -14,6 +14,7 @@ use LyApi\core\request\Request;
 use LyApi\tools\Config;
 use LyApi\Logger\Logger;
 use LyApi\tools\Language;
+use Plugin\Core\Core;
 
 class Demo extends API
 {
