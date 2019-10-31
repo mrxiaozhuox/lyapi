@@ -25,7 +25,7 @@ class Demo extends API
      */
     public function Hello()
     {
-        return 'Hello LyApi - ' . LyApi::$version;
+        return 'Hello LyApi ' . LyApi::$version;
     }
 
     /**
