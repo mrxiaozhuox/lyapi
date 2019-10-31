@@ -61,7 +61,7 @@ class Ecore
         ];
     }
 
-    public function InitPlugin()
+    public function InitPlugin($plugin_name = '',$plugin_version = '')
     {
         // 这个函数会在所有插件被初始化时调用，你可以在这里进行前置操作
 

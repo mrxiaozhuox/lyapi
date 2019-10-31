@@ -36,7 +36,7 @@ class Core
 
             // 调用初始化插件函数
             $Ecore = new Ecore();
-            $Result = $Ecore->InitPlugin();
+            $Result = $Ecore->InitPlugin($this->Plugin_Name,$this->Plugin_Version);
 
             if (is_array($Result)) {
                 array_merge($this->Tmp_Data, $Result);

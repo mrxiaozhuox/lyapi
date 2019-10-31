@@ -71,6 +71,8 @@
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                     alert(xmlHttp.responseText);
+                }else if(xmlHttp.status == 404){
+                    alert("404 Not Find ...");
                 }
             }
 

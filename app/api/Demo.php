@@ -13,8 +13,8 @@ use LyApi\core\request\Cookie;
 use LyApi\core\request\Request;
 use LyApi\tools\Config;
 use LyApi\Logger\Logger;
+use LyApi\LyApi;
 use LyApi\tools\Language;
-use Plugin\Core\Core;
 
 class Demo extends API
 {
@@ -25,7 +25,7 @@ class Demo extends API
      */
     public function Hello()
     {
-        return 'Hello World';
+        return 'Hello LyApi - ' . LyApi::$version;
     }
 
     /**
