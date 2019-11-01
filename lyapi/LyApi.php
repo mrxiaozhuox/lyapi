@@ -74,6 +74,22 @@ class LyApi
 
             // 拼接命名空间，以便后面调用
             $namespace = "APP\\api\\" . join('\\', $nsps);
+
+            $class = null;
+            $rewrite_func = null;
+
+            // 处理重写函数
+            if ($Using_ECore) {
+
+                $Target_Result = $ECore->TargetFinding($namespace, $func);
+
+                $namespace = $Target_Result['namespace'];
+                $func = $Target_Result['function'];
+                if (isset($Target_Result['rewrite'])) {
+                    $rewrite_func = $Target_Result['rewrite'];
+                }
+            }
+
             if (class_exists($namespace)) {
                 $class = new $namespace;
 
@@ -97,7 +113,12 @@ class LyApi
                     try {
                         if (in_array($func, $methods)) {
 
-                            @$Func_Return = $class->$func('API', $_REQUEST);
+                            if ($rewrite_func == null) {
+                                @$Func_Return = $class->$func('API', $_REQUEST);
+                            } else {
+                                @$Func_Return = $rewrite_func('API', $_REQUEST);
+                            }
+
                             if (true) {
 
                                 $Cust_Code = array_search('$code', $RESPONSE);
@@ -273,7 +294,11 @@ class LyApi
                     // 处理VIEW视图的异常
                     if (in_array($func, $methods)) {
                         try {
-                            echo $class->$func('API', $_REQUEST);
+                            if ($rewrite_func == null) {
+                                echo $class->$func('API', $_REQUEST);
+                            } else {
+                                echo $rewrite_func('API', $_REQUEST);
+                            }
                         } catch (ClientException $e) {
                             echo self::ShowError($e->ErrorCode());
                         } catch (ServerException $e) {

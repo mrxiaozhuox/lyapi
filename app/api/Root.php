@@ -47,6 +47,7 @@ class Root extends VIEW
     }
 
     // 资源文件渲染：程序需要的页面
+    // PS: 已废弃，程序更新了新的解决方案
     public function Resource()
     {
         $type = Request::Get('type');

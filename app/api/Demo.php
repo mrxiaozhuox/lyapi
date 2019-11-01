@@ -25,7 +25,7 @@ class Demo extends API
      */
     public function Hello()
     {
-        return 'Hello LyApi ' . LyApi::$version;
+        return 'Hello LyApi';
     }
 
     /**
@@ -125,6 +125,7 @@ class Demo extends API
             //读取缓存
             $cache = DI::FileCache('Demo');
             $data = $cache->get('user');
+            
             if (isset($data[$username]) && $data[$username] == $password) {
                 return true;
             } else {

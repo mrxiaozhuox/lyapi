@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="http://lyapi.wwsg18.com/static/favicon.ico" type="image/x-icon">
     <title>LyApi - Welcome</title>
-    <link rel="stylesheet" href="Resource?type=bootstrap&location=css">
-    <script src="Resource?type=bootstrap&location=js"></script>
+    <script src="Resource/jquery.min.js"></script>
+    <script src="Resource/layer/layer.js"></script>
 </head>
 
 <body>
@@ -56,26 +57,52 @@
         <h3>参数传递测试：{{Change_Now}}&nbsp <a href='?Mode=Test&Test={{Change_To}}'>切换</a> </h3>
         <h3>运行地址获取：{{Launch_Path}}</h3>
         <h3>接口交互测试：{{Launch_Data}} </h3>
-        <h3>AJAX请求测试： <button onclick='ajaxTest()' class='buttons'>获取数据</button> </h3>
-
+        <h3>AJAX请求测试： <button onclick='ajaxTest()' class='buttons'>获取数据</button> &nbsp;OR&nbsp; Demo接口访问： <button onclick='demoTest()' class='buttons'>测试请求</button></h3>
         <h3><a href='?Mode=Index'>返回主页</a></h3>
         <p style='color:#a2a2a2;'>测试框架的部分功能，稳定性测试...</p>
     </center>
-
     <script>
+
+        function demoTest() {
+            layer.prompt({
+                title: '请输入要访问的函数', 
+                formType: 0,
+                value: ""
+            }, function(service, index){
+                layer.close(index);
+                layer.prompt({
+                    title: '请输入传入的GET参数(用&分割)', 
+                    formType: 2,
+                    value: ''
+                }, function(args, index){
+                    var url = "Demo/" + service + '?' + args;
+                    $.ajax({
+                        url: url,
+                        async: false,
+                        success: function(result){
+                            layer.close(index);   
+                            layer.msg(result);                         
+                        },
+                        error: function(err){
+                            layer.close(index);
+                            layer.msg(err.responseText);
+                        }
+                    })
+                });
+            });
+        }
+
         function ajaxTest() {
-            xmlHttp = new XMLHttpRequest();
-            xmlHttp.open('GET', 'Demo/Hello', true);
-            xmlHttp.send(null);
-
-            xmlHttp.onreadystatechange = function () {
-                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                    alert(xmlHttp.responseText);
-                }else if(xmlHttp.status == 404){
-                    alert("404 Not Find ...");
+            $.ajax({
+                url: "Demo/Hello",
+                async: false,
+                success: function (result) {
+                    layer.msg(result);
+                },
+                error: function (err) {
+                    layer.msg("请求错误代码：" + err.status);
                 }
-            }
-
+            });
         }
     </script>
 </body>
