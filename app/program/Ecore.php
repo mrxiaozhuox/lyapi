@@ -61,34 +61,34 @@ class Ecore
 
         // ---------- 这边给出Demo以供参考 ---------- //
 
-        // $all_path = explode('\\',$using_namespace . '\\' . $using_function);
-        // $first_path = $all_path[2];
+        $all_path = explode('\\',$using_namespace . '\\' . $using_function);
+        $first_path = $all_path[2];
 
-        // if($using_function == 'Resource' || $first_path == 'Resource'){
-        //     return [
-        //         'namespace' => 'APP\api\Demo',
-        //         'function' => 'Hello',
-        //         'rewrite' => function(){
+        if($using_function == 'Resource' || $first_path == 'Resource'){
+            return [
+                'namespace' => 'APP\api\Demo',
+                'function' => 'Hello',
+                'rewrite' => function(){
 
-        //             // 获取需要访问的文件
+                    // 获取需要访问的文件
 
-        //             $uri = $_SERVER['REQUEST_URI'];
+                    $uri = $_SERVER['REQUEST_URI'];
 
-        //             if (strrpos($uri, "?") != false) {
-        //                 $uri = substr($uri, 0, strrpos($uri, "?"));
-        //             }
+                    if (strrpos($uri, "?") != false) {
+                        $uri = substr($uri, 0, strrpos($uri, "?"));
+                    }
 
-        //             $path_list = array_filter(explode('/',$uri));
-        //             array_shift($path_list);
+                    $path_list = array_filter(explode('/',$uri));
+                    array_shift($path_list);
 
-        //             if(is_file(LyApi . '/app/view/static/' . implode('/',$path_list))){
-        //                 $file = file_get_contents(LyApi . '/app/view/static/' . implode('/',$path_list));
-        //                 throw new CustomException($file);
-        //             }
+                    if(is_file(LyApi . '/app/view/static/' . implode('/',$path_list))){
+                        $file = file_get_contents(LyApi . '/app/view/static/' . implode('/',$path_list));
+                        throw new CustomException($file);
+                    }
 
-        //         }
-        //     ];
-        // }
+                }
+            ];
+        }
 
         // ---------- 这边给出Demo以供参考 ---------- //
 
