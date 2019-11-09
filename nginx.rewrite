@@ -1,3 +1,5 @@
+# 宝塔一键部署时自动引入配置
+
 if (!-f $request_filename){
 	set $rule_0 1$rule_0;
 }
