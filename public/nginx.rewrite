@@ -1,5 +1,6 @@
-location / {
-	if (!-e $request_filename){
-		rewrite  ^(.*)$  /index.php?s=$1  last;   break;
-	}
+if (!-f $request_filename){
+	set $rule_0 1$rule_0;
+}
+if ($rule_0 = "1"){
+	rewrite ^/(.*)$ /index.php/$1 last;
 }
