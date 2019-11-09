@@ -11,6 +11,6 @@ return array(
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Plugin\\' => array($baseDir . '/plugin'),
     'Medoo\\' => array($vendorDir . '/catfan/medoo/src'),
-    'LyApi\\' => array($baseDir . '/LyApi', $vendorDir . '/lyapi/lyapi-core/src'),
+    'LyApi\\' => array($baseDir . '/lyapi', $vendorDir . '/lyapi/lyapi-core/src'),
     'APP\\' => array($baseDir . '/app'),
 );

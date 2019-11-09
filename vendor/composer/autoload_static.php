@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbc81ae5186d7aca782d50ae3c929903b
+class ComposerStaticInit3afce963f6d23d31771b09171b06bc27
 {
     public static $files = array (
         '17fd9fef37c97cfdc0c7794299a8423d' => __DIR__ . '/..' . '/vrana/notorm/NotORM.php',
@@ -58,7 +58,7 @@ class ComposerStaticInitbc81ae5186d7aca782d50ae3c929903b
         ),
         'LyApi\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/LyApi',
+            0 => __DIR__ . '/../..' . '/lyapi',
             1 => __DIR__ . '/..' . '/lyapi/lyapi-core/src',
         ),
         'APP\\' => 
@@ -87,9 +87,9 @@ class ComposerStaticInitbc81ae5186d7aca782d50ae3c929903b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbc81ae5186d7aca782d50ae3c929903b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbc81ae5186d7aca782d50ae3c929903b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitbc81ae5186d7aca782d50ae3c929903b::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3afce963f6d23d31771b09171b06bc27::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3afce963f6d23d31771b09171b06bc27::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3afce963f6d23d31771b09171b06bc27::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
