@@ -8,7 +8,7 @@ require_once LyApi . '/vendor/autoload.php';
 
 use LyApi\tools\Config;
 
-//判读是否打开
+//判读是否打开whoops
 
 $debug_config = Config::getConfig('debug','');
 
