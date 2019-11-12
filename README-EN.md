@@ -13,7 +13,7 @@ Lyapi is a PHP Web Development Framework, which can quickly develop an easy to m
 ## Functions
 
 - Data Pattern：Use config to change data pattern。
-- 18n：According different user to return different language。
+- Internationalization：According different user to return different language。
 - File Cache：The Framework built in File Cache object。
 - Other Cahce：Encapsulation PRedis object，you can use Redis system。
 - Logger Save：You can use logger save function。
