@@ -7,7 +7,7 @@ LyAPI是一款轻量级的PHP 接口开发框架，可快速开发出易维护�
 
 ## README 版本
 
-[English README](README-EN.md)
+[README - English](README-EN.md)
 
 ## 支持功能
 

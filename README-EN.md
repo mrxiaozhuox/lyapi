@@ -7,7 +7,7 @@ Lyapi is a PHP Web Development Framework, which can quickly develop an easy to m
 
 ## README Version
 
-[Chinese README](README.md)
+[README - Chinese](README.md)
 
 
 ## Functions
@@ -75,7 +75,7 @@ Our use BT Panel:
 
 ## Online Test
 
-Do not want to download？You can Use[Online Test][1]！
+Want Use it in online？You can Use [Online Trial][1]！
 
 ## Online Document
 
@@ -112,9 +112,9 @@ PS: You can use DI to get plugin：DI::PluginDyn(pluginName,pluginClass,paramete
 3. Create Pull Requests
 4. Wait administrator pass request
 
-## Open Source Protocol
+## Open Source License
 
-LyAPI Use MIT，More information: [MIT Website][3]
+LyAPI Use MIT，More information: [MIT License][3]
 
 ## Contact Author
 
