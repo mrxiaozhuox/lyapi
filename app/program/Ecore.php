@@ -2,7 +2,9 @@
 
 namespace APP\program;
 
+use LyApi\core\error\ClientException;
 use LyApi\core\error\CustomException;
+use LyApi\core\error\ServerException;
 
 /**
  * 框架内部直接调用的函数，可以根据需求自行修改
@@ -61,14 +63,19 @@ class Ecore
 
         // ---------- 这边给出Demo以供参考 ---------- //
 
+
+        // Demo首先对URL进行了简单对解析
         $all_path = explode('\\',$using_namespace . '\\' . $using_function);
         $first_path = $all_path[2];
 
+        // 判断当前访问对是不是静态资源页面
         if($using_function == 'Resource' || $first_path == 'Resource'){
+
+            // 返回更新后使用的对象与函数
             return [
-                'namespace' => 'APP\api\Demo',
-                'function' => 'Hello',
-                'rewrite' => function(){
+                'namespace' => 'APP\api\Demo',          // 转到的命名空间（包括对象）
+                'function' => 'Hello',                  // 转到的函数名
+                'rewrite' => function(){                // 重写需要运行的函数
 
                     // 获取需要访问的文件
 
@@ -81,18 +88,21 @@ class Ecore
                     $path_list = array_filter(explode('/',$uri));
                     array_shift($path_list);
 
-                    if(is_file(LyApi . '/app/view/static/' . implode('/',$path_list))){
-                        $file = file_get_contents(LyApi . '/app/view/static/' . implode('/',$path_list));
-                        throw new CustomException($file);
-                    }
+                    $file_path = implode('/',$path_list);
 
+                    if(is_file(LyApi . '/app/view/static/' . $file_path)){
+                        $file = file_get_contents(LyApi . '/app/view/static/' . $file_path);
+                        throw new CustomException($file);
+                    }else{
+                        throw new ClientException('Invalid Request: Resource file not found',4);
+                    }
                 }
             ];
         }
 
         // ---------- 这边给出Demo以供参考 ---------- //
 
-        // 返回需要使用的函数名
+        // 没有被特殊处理就正常运行
         return [
             'namespace' => $using_namespace,
             'function' => $using_function
