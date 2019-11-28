@@ -10,4 +10,13 @@ class CustomException extends Exception
     {
         return $this->getMessage();
     }
+    public function ErrorCode()
+    {
+        $code = $this->getCode();
+        if ($code == 0) {
+            return 200;
+        } else {
+            return $code;
+        }
+    }
 }

@@ -73,8 +73,8 @@ class Ecore
 
             // 返回更新后使用的对象与函数
             return [
-                'namespace' => 'APP\api\Demo',          // 转到的命名空间（包括对象）
-                'function' => 'Hello',                  // 转到的函数名
+                'namespace' => 'APP\api\Root',          // 转到的命名空间（包括对象）
+                'function' => 'Index',                  // 转到的函数名
                 'rewrite' => function(){                // 重写需要运行的函数
 
                     // 获取需要访问的文件
@@ -92,9 +92,9 @@ class Ecore
 
                     if(is_file(LyApi . '/app/view/static/' . $file_path)){
                         $file = file_get_contents(LyApi . '/app/view/static/' . $file_path);
-                        throw new CustomException($file);
+                        return $file;
                     }else{
-                        throw new ClientException('Invalid Request: Resource file not found',4);
+                        throw new CustomException('Invalid Request: Resource file not found');
                     }
                 }
             ];

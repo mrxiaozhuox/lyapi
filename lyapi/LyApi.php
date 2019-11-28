@@ -14,7 +14,7 @@ class LyApi
 
     //LyAPI信息：
     public static $version = "1.6.6";
-
+   
     //输出接口程序最终的数据
     private static function output($other_data = array(), $priority_output = "", $http_status_set = true)
     {
@@ -261,7 +261,7 @@ class LyApi
                         $RS['msg'] = $e->ErrorMsg();
                         $RS['data'] = array();
                     } catch (CustomException $e) {
-                        self::httpStatus(200, $http_status_set);
+                        $this->httpStatus($e->getCode(),$http_status_set);
                         echo $e->getMessage();
                         return 200;
                     }
@@ -306,7 +306,7 @@ class LyApi
                         } catch (OtherException $e) {
                             echo self::ShowError($e->ErrorCode());
                         } catch (CustomException $e) {
-                            self::httpStatus(200, $http_status_set);
+                            self::httpStatus($e->getCode(), $http_status_set);
                             echo self::CreateRs($RESPONSE, [
                                 'code' => 200,
                                 'data' => $e->getMessage(),
