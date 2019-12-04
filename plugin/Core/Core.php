@@ -31,19 +31,7 @@ class Core
     //核心代码构造函数
     public function __construct()
     {
-        $Using_ECore = Config::getConfig('func', '')['USING_ECORE'];
-        if ($Using_ECore) {
-
-            // 调用初始化插件函数
-            $Ecore = new Ecore();
-            $Result = $Ecore->InitPlugin($this->Plugin_Name,$this->Plugin_Version);
-
-            if (is_array($Result)) {
-                array_merge($this->Tmp_Data, $Result);
-            } else {
-                $this->Tmp_Data['init'] = $Result;
-            }
-        }
+        $this->InitPlugin();
     }
 
     //检查插件版本，当版本号不同返回False，相同返回True
@@ -105,6 +93,23 @@ class Core
 
         eval('$ret = $this->$function(' . implode(",", $args) . ');');
         return $ret;
+    }
+
+    // 插件初始化程序 ( 插件重写构造函数后依然可使用本函数 )
+    protected function InitPlugin(){
+        $Using_ECore = Config::getConfig('func', '')['USING_ECORE'];
+        if ($Using_ECore) {
+
+            // 调用初始化插件函数
+            $Ecore = new Ecore();
+            $Result = $Ecore->InitPlugin($this->Plugin_Name,$this->Plugin_Version);
+
+            if (is_array($Result)) {
+                array_merge($this->Tmp_Data, $Result);
+            } else {
+                $this->Tmp_Data['init'] = $Result;
+            }
+        }
     }
 
     //插件缓存设置

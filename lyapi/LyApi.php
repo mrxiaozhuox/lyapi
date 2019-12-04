@@ -233,7 +233,7 @@ class LyApi
                             }
 
                             //处理返回值为NULL的情况 优先级 (0)
-                            if ($Func_Return != null) {
+                            if (! is_null($Func_Return)) {
                                 $RS['data'] = $Func_Return;
                             }
                         } else {
