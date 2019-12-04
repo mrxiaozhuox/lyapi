@@ -49,13 +49,13 @@ class Ecore
         // ---------- 这边给出官方操作以供参考 ---------- //
 
 
-        // 如果继续使用官方生成系统，返回NULL即可
+        // 如果继续使用内部生成系统，返回NULL即可
         return null;
     }
 
     public function TargetFinding($using_namespace = '', $using_function = '')
     {
-        // 这个函数会在调用函数所使用前执行，你可以替换使用的函数
+        // 这个函数会在调用函数使用前执行，你可以替换使用的函数
 
         // 这里的 Demo 使用 namespace 和 function 进行判断，你也可以直接解析 URL
 
@@ -63,6 +63,7 @@ class Ecore
 
         // ---------- 这边给出Demo以供参考 ---------- //
 
+        // PS: 当你不需要本功能，删除下方所有程序，提升接口运行效率
 
         // Demo首先对URL进行了简单对解析
         $all_path = explode('\\',$using_namespace . '\\' . $using_function);
@@ -124,7 +125,7 @@ class Ecore
     public function InitPlugin($plugin_name = '', $plugin_version = '')
     {
         // 这个函数会在所有插件被初始化时调用，你可以在这里进行前置操作
-
+        
         // 返回的数据将存入对象的 Tmp_Data 数据下
         return [];
     }

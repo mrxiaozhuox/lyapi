@@ -57,6 +57,10 @@ class Save{
             mkdir($path,0777,true);
         }
 
+        if(! is_file($file)){
+            return null;
+        }
+
         if($postfix == 'json'){
             return json_decode(file_get_contents($file));
         }else{

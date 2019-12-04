@@ -13,7 +13,7 @@ class LyApi
 {
 
     //LyAPI信息：
-    public static $version = "1.6.6";
+    public static $version = "1.6.7";
    
     //输出接口程序最终的数据
     private static function output($other_data = array(), $priority_output = "", $http_status_set = true)

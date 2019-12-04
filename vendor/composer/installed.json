@@ -6,12 +6,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/catfan/Medoo.git",
-            "reference": "113519d8032044a1d7b0852740e8f8d210b4dee2"
+            "reference": "4b3194a526e7e0ace7efd3a6773f0805fd47bef9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/catfan/Medoo/zipball/113519d8032044a1d7b0852740e8f8d210b4dee2",
-            "reference": "113519d8032044a1d7b0852740e8f8d210b4dee2",
+            "url": "https://api.github.com/repos/catfan/Medoo/zipball/4b3194a526e7e0ace7efd3a6773f0805fd47bef9",
+            "reference": "4b3194a526e7e0ace7efd3a6773f0805fd47bef9",
             "shasum": ""
         },
         "require": {
@@ -27,7 +27,7 @@
             "ext-pdo_sqlite": "For SQLite database",
             "ext-pdo_sqlsrv": "For MSSQL database on both Window/Liunx platform"
         },
-        "time": "2019-08-14T13:47:48+00:00",
+        "time": "2019-10-26T06:27:51+00:00",
         "type": "framework",
         "installation-source": "source",
         "autoload": {
@@ -125,55 +125,6 @@
         ]
     },
     {
-        "name": "lyapi/lyapi-core",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/DawnThingCB/LyApi-Core.git",
-            "reference": "9e127700e57906633c5dff9961a439799f2273ef"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/DawnThingCB/LyApi-Core/zipball/9e127700e57906633c5dff9961a439799f2273ef",
-            "reference": "9e127700e57906633c5dff9961a439799f2273ef",
-            "shasum": ""
-        },
-        "require": {
-            "catfan/medoo": "dev-master",
-            "filp/whoops": "^2.2@dev",
-            "mashape/unirest-php": "dev-master",
-            "mustache/mustache": "dev-master",
-            "predis/predis": "^2.0@dev",
-            "vrana/notorm": "dev-master"
-        },
-        "time": "2019-09-22T01:46:32+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "LyApi\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "xiaozhuox",
-                "email": "mrxzx@wwsg18.top"
-            }
-        ],
-        "description": "LyApi core code",
-        "keywords": [
-            "Lolly",
-            "api",
-            "core",
-            "lyapi"
-        ]
-    },
-    {
         "name": "mashape/unirest-php",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -228,12 +179,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bobthecow/mustache.php.git",
-            "reference": "fe8fe72e9d580591854de404cc59a1b83ca4d19e"
+            "reference": "e95c5a008c23d3151d59ea72484d4f72049ab7f4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/fe8fe72e9d580591854de404cc59a1b83ca4d19e",
-            "reference": "fe8fe72e9d580591854de404cc59a1b83ca4d19e",
+            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/e95c5a008c23d3151d59ea72484d4f72049ab7f4",
+            "reference": "e95c5a008c23d3151d59ea72484d4f72049ab7f4",
             "shasum": ""
         },
         "require": {
@@ -243,7 +194,7 @@
             "friendsofphp/php-cs-fixer": "~1.11",
             "phpunit/phpunit": "~3.7|~4.0|~5.0"
         },
-        "time": "2017-07-11T12:54:05+00:00",
+        "time": "2019-11-23T21:40:31+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -333,18 +284,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0"
+            "reference": "5628725d0e4d687e29575eb41f9d5ee7de33a84c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
-            "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/5628725d0e4d687e29575eb41f9d5ee7de33a84c",
+            "reference": "5628725d0e4d687e29575eb41f9d5ee7de33a84c",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2018-11-21T13:42:00+00:00",
+        "time": "2019-11-12T16:45:05+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

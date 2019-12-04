@@ -59,7 +59,6 @@ class ComposerStaticInit3afce963f6d23d31771b09171b06bc27
         'LyApi\\' => 
         array (
             0 => __DIR__ . '/../..' . '/lyapi',
-            1 => __DIR__ . '/..' . '/lyapi/lyapi-core/src',
         ),
         'APP\\' => 
         array (

@@ -21,7 +21,7 @@ class Core
 {
 
     protected $Plugin_Name = "Core";                //插件名字信息，必须填写
-    protected $Plugin_Version = "V1.0.0";           //插件版本信息，必须填写
+    protected $Plugin_Version = "V1.0.1";           //插件版本信息，必须填写
     protected $Plugin_Author = "LyApi";             //插件作者信息，建议填写
     protected $Plugin_About = "LyApi Plugin Core";  //插件简单介绍，建议填写
     protected $Plugin_Examine = "";                 //检查插件版本的接口地址（留空则不检查）
