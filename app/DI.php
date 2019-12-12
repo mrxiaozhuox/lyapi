@@ -14,69 +14,69 @@ use Unirest\Request;
 class DI
 {
 
-    /*        DI默认函数        */
+    /*        DI Default Function        */
 
-    //获取Medoo连接
+    // Medoo DataBase Handle Library
     public static function Medoo($ConfigSelect = 0)
     {
         return TParty::Medoo($ConfigSelect);
     }
 
-    //获取NotORM连接
+    // NotORM DataBase Handle Library
     public static function NotORM($AutoLoad = null, $PdoObject = null)
     {
         return TParty::NotORM($AutoLoad, $PdoObject);
     }
 
-    //获取PDO连接
+    // PDO DataBase Handle Object
     public static function PDO($AutoLoad = null, $DSN = null)
     {
         return TParty::PDO($AutoLoad, $DSN);
     }
 
-    //获取文件缓存
+    // File Cache Handle System
     public static function FileCache($group = null)
     {
         return new FileCache($group);
     }
 
-    //获取Redis操作
+    // Redis Handle System
     public static function RedisCache($config)
     {
         return new RedisCache($config);
     }
 
-    //获取日志操作类
+    // Log Handle System
     public static function Logger()
     {
         return new Logger();
     }
 
-    //Curl工具类
+    // Curl Tool System
     public static function CurlUtils($url, $responseHeader = 0)
     {
         return new CurlUtils($url, $responseHeader);
     }
 
-    //Unirest
+    // Unirest Library Object
     public static function Unirest()
     {
         return new Request();
     }
 
-    //Cookie
+    // Cookie Handle System
     public static function Cookie($path = null, $domain = null, $secure = false, $httponly = false)
     {
         return new Cookie($path, $domain, $secure, $httponly);
     }
 
-    //Request
+    // Request Handle System
     public static function Request()
     {
         return new \LyApi\core\request\Request();
     }
 
-    //动态使用插件类
+    // Dynamic Plugin Call Function
     public static function PluginDyn($plugin, $class, ...$args)
     {
         $object = null;
@@ -88,6 +88,7 @@ class DI
         return $object;
     }
 
+    // Register Tree Object Save System
     public static function RegisterTree($name, $object = null)
     {
         if ($object == null) {
@@ -97,5 +98,5 @@ class DI
         }
     }
 
-    /*        DI自定义函数        */
+    /*        Custom Your DI Function        */
 }

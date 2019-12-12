@@ -13,7 +13,6 @@ use LyApi\core\request\Cookie;
 use LyApi\core\request\Request;
 use LyApi\tools\Config;
 use LyApi\Logger\Logger;
-use LyApi\LyApi;
 use LyApi\tools\Language;
 
 class Demo extends API
