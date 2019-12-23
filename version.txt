@@ -1,4 +1,4 @@
-FrameWork Version : 1.6.0
+FrameWork Version : 1.6.7
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -71,3 +71,4 @@ FrameWork Log :
     3. 更新 自定义异常 设置状态码功能。
     4. 更新 插件核心版本。
     5. 修复 返回 False 时结果为 Null 问题。
+    6. 最新内置插件: PConfig, OCore。

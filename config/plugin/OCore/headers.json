@@ -1,0 +1,11 @@
+{
+    "jpg": "Content-type: image/jpg",
+    "png": "Content-type: image/jpg",
+    "jpeg": "Content-type: image/jpg",
+    "js": "Content-type: text/javascript",
+    "css": "Content-type: text/css",
+    "json": "Content-type: application/json",
+    "zip": "Content-Type: application/zip",
+    "rar": "Content-Type: application/zip",
+    "pdf": "Content-Type: application/pdf"
+}

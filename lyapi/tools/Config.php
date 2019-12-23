@@ -38,14 +38,14 @@ class Config
         }
 
         if ($type == 'cover') {
-            return file_put_contents($path, json_encode($data));
+            return file_put_contents($path, json_encode($data,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
         } elseif ($type == 'modify') {
             if (file_exists($path)) {
                 $old_conifg_json = file_get_contents($path);
                 $old_config = json_decode($old_conifg_json, true);
 
                 $new_config_array = $old_config + $data;
-                return file_put_contents($path, json_encode($new_config_array));
+                return file_put_contents($path, json_encode($new_config_array,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
             } else {
                 return false;
             }
