@@ -14,6 +14,7 @@ use Unirest\Request;
 class DI
 {
 
+    
     /*        DI Default Function        */
 
     // Medoo DataBase Handle Library
