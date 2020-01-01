@@ -2,22 +2,23 @@
 
 namespace Plugin\OCore;
 
+use APP\DI;
 use LyApi\core\error\CustomException;
 use Plugin\Core\Core;
 use Plugin\PConfig\PConfig;
 
 /**
- * Name: Core.Template
+ * Name: OCore.OCore
  * Author: LyAPI
- * ModifyTime: 2019/07/29
- * Purpose: 插件开发模板
+ * ModifyTime: 2019/12/24
+ * Purpose: OCore主程序
  */
 
 class OCore extends Core{
 
     private $Plugin_Config;
 
-    //设置插件信息（请严格按照本模板编写代码）
+    //设置插件信息
     public function __construct(){
         $this->Plugin_Name = 'OCore';
         $this->Plugin_Version = 'V1.0.1';
@@ -26,6 +27,16 @@ class OCore extends Core{
         $this->Plugin_Examine = '';
 
         $this->Plugin_Config = new PConfig($this->Plugin_Name);
+
+        // 插件配置文件
+        $this->Plugin_Config->InitConfig("setting",array(
+            "FilteWord" => "fuck,shit,cnm,mmp,sb,cao",
+            "CacheMethod" => array(
+                "Type" => "File",
+                "Server" => array()
+            )
+        ));
+
 
         // 处理头文件
         $this->Plugin_Config->InitConfig("headers",array(
@@ -39,6 +50,13 @@ class OCore extends Core{
             "rar" => "Content-Type: application/zip",
             "pdf" => "Content-Type: application/pdf"
         ));
+
+        // 文件路径映射
+        $this->Plugin_Config->InitConfig("maps",array(
+            "Resource" => LyApi . "/app/view/static/",
+            "resource" => LyApi . "/app/view/static/",
+        ));
+
     }
 
     // 接管函数：插件返回数据
@@ -88,21 +106,33 @@ class OCore extends Core{
 
         // PS: 当你不需要本功能，删除下方所有程序，提升接口运行效率
 
+        // 获取 OCore 配置信息
+        $setting = $this->Plugin_Config->ReadConfig('setting');
+
         // Demo首先对URL进行了简单对解析
         $all_path = explode('\\',$using_namespace . '\\' . $using_function);
         $first_path = $all_path[2];
-
+        $maps = $this->Plugin_Config->ReadConfig('maps');
         // 判断当前访问对是不是静态资源页面
-        if($using_function == 'Resource' || $first_path == 'Resource'){
+        if(array_key_exists($using_function,$maps) || array_key_exists($first_path,$maps)){
+
+            if(array_key_exists($using_function,$maps)){
+                $nowmap = $maps[$using_function];
+            }else{
+                $nowmap = $maps[$first_path];
+            }
 
             // 返回更新后使用的对象与函数
             return [
-                'namespace' => 'APP\api\Root',          // 转到的命名空间（包括对象）
-                'function' => 'Index',                  // 转到的函数名
-                'rewrite' => function(){                // 重写需要运行的函数
+                'namespace' => 'APP\api\Root',                      // 转到的命名空间（包括对象）
+                'function' => 'Index',                              // 转到的函数名
+                'backval' => [                                      // 将数据传入处理函数，做第三个参数
+                    'map' => $nowmap                                // 当前使用的资源目录
+                ],
+                'rewrite' => function($type,$req,$backval){         // 重写需要运行的函数
 
                     // 获取需要访问的文件
-
+                    // var_dump($backval);
                     $uri = $_SERVER['REQUEST_URI'];
 
                     if (strrpos($uri, "?") != false) {
@@ -114,8 +144,12 @@ class OCore extends Core{
 
                     $file_path = implode('/',$path_list);
 
-                    if(is_file(LyApi . '/app/view/static/' . $file_path)){
-                        $file = file_get_contents(LyApi . '/app/view/static/' . $file_path);
+                    $config = new PConfig("OCore");
+                    $setting = $config->ReadConfig("setting");
+
+                    if(is_file($backval['map'] . $file_path)){
+
+                        $file = file_get_contents($backval['map'] . $file_path);
 
                         $suffix = pathinfo($file_path, PATHINFO_EXTENSION);
                         $headers = $this->Plugin_Config->ReadConfig("headers");
@@ -148,6 +182,19 @@ class OCore extends Core{
         // 这个函数会在数据正常输出前把结构和内容交给你做最后一次检查，你可以在这里进行处理。
 
         // $respnse_structure = [];
+
+        // var_dump($respnse_data);
+
+        // 进行关键词过滤（不需要注释，提高程序速度）
+        $config = new PConfig('OCore');
+        $words = explode(',',$config->ReadConfig("setting")['FilteWord']);
+        foreach($respnse_data as $key => $val){
+            foreach($words as $word){
+                $val = str_ireplace($word,'**',$val);
+            }
+            $respnse_data[$key] = $val;
+        }
+
 
         return [
             'structure' => $respnse_structure,

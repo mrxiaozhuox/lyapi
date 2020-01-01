@@ -28,6 +28,14 @@ class Demo extends API
     }
 
     /**
+     * service Demo.Parm
+     * introduce 简单的Get参数测试
+     */    
+    public function Parm(){
+        return 'Hello ' . Request::Get('Name');
+    }
+
+    /**
      * service Demo.Cache
      * introduce 设置缓存并读取
      */

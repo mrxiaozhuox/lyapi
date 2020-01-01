@@ -13,7 +13,7 @@ class LyApi
 {
 
     //LyAPI信息：
-    public static $version = "1.6.7";
+    public static $version = "1.7.0";
    
     //输出接口程序最终的数据
     private static function output($other_data = array(), $priority_output = "", $http_status_set = true)
@@ -88,6 +88,11 @@ class LyApi
                 if (isset($Target_Result['rewrite'])) {
                     $rewrite_func = $Target_Result['rewrite'];
                 }
+                if(isset($Target_Result['backval'])){
+                    $backval = $Target_Result['backval'];
+                }else{
+                    $backval = null;
+                }
             }
 
             if (class_exists($namespace)) {
@@ -116,7 +121,8 @@ class LyApi
                             if ($rewrite_func == null) {
                                 @$Func_Return = $class->$func('API', $_REQUEST);
                             } else {
-                                @$Func_Return = $rewrite_func('API', $_REQUEST);
+
+                                @$Func_Return = $rewrite_func('API', $_REQUEST,$backval);
                             }
 
                             if (true) {
@@ -297,7 +303,7 @@ class LyApi
                             if ($rewrite_func == null) {
                                 echo $class->$func('API', $_REQUEST);
                             } else {
-                                echo $rewrite_func('API', $_REQUEST);
+                                echo $rewrite_func('API', $_REQUEST,$backval);
                             }
                         } catch (ClientException $e) {
                             echo self::ShowError($e->ErrorCode());
