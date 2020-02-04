@@ -267,7 +267,7 @@ class LyApi
                         $RS['msg'] = $e->ErrorMsg();
                         $RS['data'] = array();
                     } catch (CustomException $e) {
-                        $this->httpStatus($e->getCode(),$http_status_set);
+                        self::httpStatus($e->getCode(),$http_status_set);
                         echo $e->getMessage();
                         return 200;
                     }
