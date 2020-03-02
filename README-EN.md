@@ -1,9 +1,11 @@
 # LyAPI FrameWork
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.7.0-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.7.0.5-orange.svg)](http://lyapi.wwsg18.com)
 
 Lyapi is a PHP Web Development Framework, which can quickly develop an easy to maintain, high-performance API System. Built in cache, logger, database operation, internationalization and other functions.
+
+> We have Tutorial Video in BiliBili : [Video Link](https://space.bilibili.com/40867466)。
 
 ## README Version
 

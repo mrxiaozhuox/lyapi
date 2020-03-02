@@ -1,4 +1,4 @@
-FrameWork Version : 1.7.0
+FrameWork Version : 1.7.0.5
 FrameWork Log :
 1.2.3 :
     1. 修复了Debug配置Whoops关闭无效的问题。
@@ -73,3 +73,9 @@ FrameWork Log :
     5. 修复 返回 False 时结果为 Null 问题。
     6. 最新内置插件: PConfig, OCore。
     7. 对 ECore -> TargetFinding 增加 "backval" 用于回调数据
+
+    V1.7.0.5 (BUG 修复版本):
+        1. OCore路径解析查询修复，防止解析错误。
+        2. 修复 CustomException 使用报错。
+        3. 修复 官方文档 中部分错误信息。
+        4. 修复 Return 自定义的部分BUG。

@@ -1,9 +1,11 @@
 # LyAPI FrameWork
 [![Travis](https://img.shields.io/badge/Language-PHP-blue.svg)](http://php.net)
 [![Travis](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://mit-license.org)
-[![Travis](https://img.shields.io/badge/Version-V1.7.0-orange.svg)](http://lyapi.wwsg18.com)
+[![Travis](https://img.shields.io/badge/Version-V1.7.0.5-orange.svg)](http://lyapi.wwsg18.com)
 
 LyAPI是一款轻量级的PHP 接口开发框架，可快速开发出易维护、高性能的API接口。内置缓存、日志、数据库操作、国际化等功能。
+
+> 框架已在 B站 更新 [教程视频](https://space.bilibili.com/40867466)。
 
 ## README 版本
 
@@ -79,6 +81,8 @@ LyAPI是一款轻量级的PHP 接口开发框架，可快速开发出易维护�
 ## 在线文档
 
 想深入了解LyAPI？快来看看[在线文档][4]吧！
+
+文档看不懂？来看看作者录制的教程吧：[官方教程视频](https://space.bilibili.com/40867466)。
 
 ## 最近更新
 

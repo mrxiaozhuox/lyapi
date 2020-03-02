@@ -129,6 +129,7 @@ class LyApi
 
                                 $Cust_Code = array_search('$code', $RESPONSE);
                                 $Cust_Message = array_search('$msg', $RESPONSE);
+                                $Cust_Data = array_search('$data', $RESPONSE);
 
                                 //处理自定义函数数据
                                 if (array_key_exists('FUNCITON_SET_DATA', $Func_Config)) {
@@ -225,6 +226,11 @@ class LyApi
                                         unset($Func_Return['#' . $Cust_Message]);
                                     }
 
+                                    if (array_key_exists('#' . $Cust_Data, $Func_Return)) {
+                                        $RS['data'] = $Func_Return['#' . $Cust_Data];
+                                        unset($Func_Return['#' . $Cust_Data]);
+                                    }
+
                                     foreach ($Func_Return as $Return_Key => $Return_Val) {
                                         if (substr($Return_Key, 0, 1) == '#') {
                                             $Custom_DValue = '$' . substr($Return_Key, 1);
@@ -239,7 +245,7 @@ class LyApi
                             }
 
                             //处理返回值为NULL的情况 优先级 (0)
-                            if (! is_null($Func_Return)) {
+                            if (! is_null($Func_Return) && $Func_Return != []) {
                                 $RS['data'] = $Func_Return;
                             }
                         } else {
@@ -269,7 +275,7 @@ class LyApi
                     } catch (CustomException $e) {
                         self::httpStatus($e->getCode(),$http_status_set);
                         echo $e->getMessage();
-                        return 200;
+                        return $e->ErrorCode();
                     }
 
                     if ($Using_ECore) {
@@ -312,9 +318,9 @@ class LyApi
                         } catch (OtherException $e) {
                             echo self::ShowError($e->ErrorCode());
                         } catch (CustomException $e) {
-                            self::httpStatus($e->getCode(), $http_status_set);
+                            self::httpStatus($e->ErrorCode(), $http_status_set);
                             echo self::CreateRs($RESPONSE, [
-                                'code' => 200,
+                                'code' => $e->ErrorCode(),
                                 'data' => $e->getMessage(),
                                 'msg' => ''
                             ], $other_data);

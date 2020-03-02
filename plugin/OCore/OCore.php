@@ -114,7 +114,9 @@ class OCore extends Core{
         $first_path = $all_path[2];
         $maps = $this->Plugin_Config->ReadConfig('maps');
         // 判断当前访问对是不是静态资源页面
-        if(array_key_exists($using_function,$maps) || array_key_exists($first_path,$maps)){
+        
+        if((array_key_exists($using_function,$maps) && $first_path == '') || 
+        array_key_exists($first_path,$maps)){
 
             if(array_key_exists($using_function,$maps)){
                 $nowmap = $maps[$using_function];
