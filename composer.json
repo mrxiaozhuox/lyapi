@@ -1,0 +1,30 @@
+{
+    "name": "wanstudio/lyapi",
+    "description": "LyApi V2.0",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mrxiaozhuox",
+            "email": "mrxzx@wwsg18.top"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "twig/twig": "3.0",
+        "filp/whoops": "^2.9",
+        "predis/predis": "^1.1",
+        "catfan/medoo": "^1.7",
+        "particle/validator": "^2.3",
+        "rmccue/requests": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "application/",
+            "LyApi\\": "system/",
+            "Common\\": "application/Common",
+            "Extend\\": "extend/"
+        }
+    }
+}

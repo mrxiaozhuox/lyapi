@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #212529;">
+
+    <div class="container-xl"><br/>
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping" style="background-color: #212529; color: white">Dorea :></span>
+            <input type="text"  style="background-color: #212529;color: white" class="form-control"  autocomplete="off" id="inbox" placeholder="Press enter to execute command." aria-describedby="addon-wrapping">
+        </div>
+        <br/ >
+        <div>
+            <table class="table table-dark table-hover">
+                <tbody id="reply-box">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            let server = localStorage.getItem("@dorea-server");
+
+            if (server === undefined) {
+                $("#reply-box").html("<tr><th>请使用 CONN IP:Port Password 连接数据库！</th></tr>");
+            } else {
+                $("#reply-box").html("<tr><th>您当前连接至服务器：" + server + "</th></tr>");
+            }
+
+        })
+
+        $("#inbox").keydown(function(e) {
+            if (e.keyCode === 13) {
+
+                let query = $("#inbox").val();
+
+                if (query === "") { return; }
+
+                if (query.substr(0, 4).toUpperCase() === "CONN") {
+                    let conn_info = query.split(" ");
+                    if (conn_info.length !== 3) {
+                        reply("LyDev", query, "ERR", "请输入合法的连接参数！");
+                    } else {
+                        localStorage.setItem("@dorea-server", conn_info[1]);
+                        localStorage.setItem("@dorea-password", conn_info[2]);
+                        reply("LyDev", query, "OK", "您的连接信息已更新：" + conn_info[1]);
+                        $("#inbox").val("");
+                        return;
+                    }
+                }
+
+                $.ajax("/@dorea/api/execute",{
+                    method: "post",
+                    data: {
+                        query: query,
+                        server: localStorage.getItem("@dorea-server"),
+                        password: localStorage.getItem("@dorea-password"),
+                    },
+                    success: function(data) {
+                        let resp = data['data'];
+                        if (resp === "") {
+                            resp = "Successful";
+                        }
+                        reply(localStorage.getItem("@dorea-server"), query, "OK", resp);
+                    },
+                    error: function (info) {
+                        let data = info.responseJSON;
+                        console.log(data);
+                        reply(localStorage.getItem("@dorea-server"), query, "ERR", data['msg']);
+                    }
+                });
+
+                $("#inbox").val("");
+            }
+        });
+
+        function reply(from, cmd, status, info) {
+
+            let app = $("#reply-box");
+            let ori = app.html();
+
+            let news = "";
+            news += "<tr><th>" + from + ":>&nbsp;" + cmd + "</th></tr>";
+            news += "<tr><th>[" + status + "]:&nbsp;" + info + "</th></tr>";
+
+            app.html(news + ori);
+
+        }
+
+    </script>
+
+</body>
+</html>

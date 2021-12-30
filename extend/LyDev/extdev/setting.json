@@ -1,0 +1,9 @@
+{
+    "app-loader": {
+        "Manager": "controller.Manager"
+    },
+    "panel-setting": {
+        "panel-url": "https://mrxzx.gitee.io/lyapi/#/extends/index",
+        "default-file": "panel.xml"
+    }
+}

@@ -1,0 +1,14 @@
+/vendor/
+/runtime/cache/
+/runtime/template/
+/runtime/log/
+
+!/runtime/cache/.gitkeep
+!/runtime/template/.gitkeep
+!/runtime/log/.gitkeep
+
+extend/LyDev/data/
+
+extend/LyDev/data/.gitkeep
+
+/.idea/
