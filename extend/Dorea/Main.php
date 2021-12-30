@@ -7,6 +7,7 @@
 namespace Extend\Dorea;
 
 use Extend\Dorea\library\Controller;
+use Extend\Dorea\library\Database;
 use Extend\LyDev\controller\Dev;
 use LyApi\Core\Route;
 use LyApi\Foundation\FoExt;
@@ -42,7 +43,11 @@ class Main extends FoExt
      */
     public function event_helper_register(): array
     {
-        return [];
+        return [
+            "dorea_connect" => function ($url, $password, $default_group = "default") {
+                return new Database($url, $password, $default_group);
+            }
+        ];
     }
 
     /**

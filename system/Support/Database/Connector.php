@@ -58,7 +58,10 @@ class Connector
 
             }
 
-            $temp = new Database($url, $config["password"], $config["default_db"]);
+            $temp = \ExtFunc::dorea_connect($url, $config["password"], $config["default_db"]);
+            if ($temp == null) {
+                throw new ConnException("[" . strtoupper($name) . "] 数据库驱动不存在！");
+            }
         }
 
         return $temp;

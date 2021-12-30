@@ -14,10 +14,11 @@ return [
         'charset' => 'utf8',
         'database_type' => 'mysql'
     ],
+    // DoreaDB 的一个演示连接
     "dorea" => [
         "server" => "127.0.0.1",
         "port" => 3451,
-        "tls" => true,
+        "tls" => false,
         "password" => "DOREA@SERVICE",
         "default_db" => "default"
     ]
