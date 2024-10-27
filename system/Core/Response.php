@@ -13,7 +13,6 @@ use LyApi\Support\Log;
 
 class Response
 {
-
     public static function httpCodeSet($http_code)
     {
         $http = array(
@@ -116,8 +115,12 @@ class Response
     public static function downloadFile($file_path, $save_name = null)
     {
         $path = '';
-        if (is_file($file_path)) $path = $file_path;
-        if (is_file(ROOT_PATH . $file_path)) $path = $file_path;
+        if (is_file($file_path)) {
+            $path = $file_path;
+        }
+        if (is_file(ROOT_PATH . $file_path)) {
+            $path = $file_path;
+        }
 
         if ($path != "") {
 

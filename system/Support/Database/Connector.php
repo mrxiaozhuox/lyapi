@@ -14,7 +14,6 @@ use Medoo\Medoo;
 
 class Connector
 {
-
     private static $conntype = "medoo";
 
     public function __construct($type = "medoo")
@@ -34,7 +33,7 @@ class Connector
 
         if (self::$conntype == "medoo") {
             $temp = new Medoo($conf[$name]);
-        } else if (self::$conntype == "dorea") {
+        } elseif (self::$conntype == "dorea") {
 
             $config = $conf[$name];
 
@@ -73,7 +72,8 @@ class Connector
         return $temp->$name;
     }
 
-    public static function dorea($name){
+    public static function dorea($name)
+    {
         return self::connect($name, "dorea");
     }
 

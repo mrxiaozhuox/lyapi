@@ -7,10 +7,8 @@
 
 namespace LyApi\Core;
 
-
 class Request
 {
-
     public $options = [];
     public $variable = [];
 
@@ -48,7 +46,7 @@ class Request
         }
     }
 
-    
+
     /**
      * LyApi 1.X Request 函数兼容
      */

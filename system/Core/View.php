@@ -12,9 +12,10 @@ use LyApi\Support\Cache\FileCache;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
+use const Application\Config\API_STRUCTURE_INFO;
+
 class View
 {
-
     private static $viewLoader = null;
     private static $viewTwig = null;
     private static $isLoading = false;
@@ -49,7 +50,9 @@ class View
             return $pch->get($file);
         }
 
-        if (!self::$isLoading) self::__loader();
+        if (!self::$isLoading) {
+            self::__loader();
+        }
 
         if (is_file($file)) {
             if (is_array($data)) {
@@ -98,7 +101,7 @@ class View
 
         if (is_string($data)) {
             $result[$structure['info_item']] = $data;
-        } else if (is_array($data)) {
+        } elseif (is_array($data)) {
 
             // ~ 基本结构设定符
             if (array_key_exists($structure['struct_symbol'], $data)) {
@@ -120,9 +123,9 @@ class View
                     foreach ($val as $key => $value) {
                         unset($result[$value]);
                     }
-                } else if ($val == "*") {
+                } elseif ($val == "*") {
                     $result = [];
-                } else if (is_string($val)) {
+                } elseif (is_string($val)) {
                     unset($result[$val]);
                 }
 

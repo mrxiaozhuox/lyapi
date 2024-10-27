@@ -16,14 +16,14 @@ define("LYAPI_VERSION", "V2.0");
 
 if (is_file(ROOT_PATH . "/vendor/autoload.php")) {
     require ROOT_PATH . "/vendor/autoload.php";
-}else{
+} else {
     exit("plese execute `composer install` first.");
 }
 
 
 if (Config::dotConfig('app.open_debug')) {
     $whoops = new \Whoops\Run();
-    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
     $whoops->register();
 }
 

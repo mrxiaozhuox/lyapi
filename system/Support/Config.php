@@ -7,10 +7,8 @@
 
 namespace LyApi\Support;
 
-
 class Config
 {
-
     /**
      * 读取配置文件
      */
@@ -39,8 +37,11 @@ class Config
             $info = self::getConfig($pathStr);
             array_shift($pathArr);
 
-            if ($info != null) break;
-            else $pathStr .= '/';
+            if ($info != null) {
+                break;
+            } else {
+                $pathStr .= '/';
+            }
         }
 
 

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace LyApi\Support\Cache;
 
 use LyApi\Exception\CacheException;
@@ -21,7 +20,9 @@ class Cache
     public static function __loader()
     {
         $system = strtoupper(Config::dotConfig('cache.cache_system'));
-        if ($system != null) self::$system = $system;
+        if ($system != null) {
+            self::$system = $system;
+        }
         switch (self::$system) {
             case 'REDIS':
                 $server = Config::dotConfig('cache.redis');

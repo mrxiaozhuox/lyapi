@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Common;
 
 class Encryption
@@ -49,7 +48,7 @@ class Encryption
     public static function uuid($prefix = "")
     {
         $chars = md5(uniqid(mt_rand(), true));
-        
+
         $uuid = substr($chars, 0, 8) . '-'
             . substr($chars, 8, 4) . '-'
             . substr($chars, 12, 4) . '-'

@@ -14,7 +14,6 @@ use LyApi\Core\View;
 
 class Main extends ViewCon
 {
-
     /**
      * 主页面渲染程序
      */

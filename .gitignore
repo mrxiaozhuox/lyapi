@@ -12,3 +12,5 @@ extend/LyDev/data/
 extend/LyDev/data/.gitkeep
 
 /.idea/
+
+.DS_Store

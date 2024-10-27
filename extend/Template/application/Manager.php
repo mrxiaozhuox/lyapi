@@ -1,6 +1,6 @@
 <?php
 
-namespace Extend\Template\application;
+namespace Extend\Template\Application;
 
 use Application\Foundation\ApiCon;
 use LyApi\Core\Request;

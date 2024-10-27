@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Common;
 
 use const Application\Config\API_STRUCTURE_INFO;
 
 class Api
 {
-
     public static $_struct = API_STRUCTURE_INFO;
 
 

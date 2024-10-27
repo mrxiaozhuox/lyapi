@@ -7,10 +7,8 @@
 
 namespace LyApi\Support;
 
-
 class Log
 {
-
     private static $log_path = '';
     private static $buffers = [];
 
@@ -31,7 +29,9 @@ class Log
         self::__loader();
 
         $maxn = Config::dotConfig("log.file.buffer_max");
-        if (sizeof(self::$buffers) >= $maxn) self::bflush(); // 自动冲刷缓冲区
+        if (sizeof(self::$buffers) >= $maxn) {
+            self::bflush();
+        } // 自动冲刷缓冲区
 
         array_push(self::$buffers, [
             "level" => $level,
@@ -64,7 +64,9 @@ class Log
             $add = "[" . $value["level"] . "] " . $value["time"] . ": " . $value['data'] . PHP_EOL;
 
             if ($isolation) {
-                if (!array_key_exists($value['level'], $data)) $data[$value['level']] = "";
+                if (!array_key_exists($value['level'], $data)) {
+                    $data[$value['level']] = "";
+                }
                 $data[$value['level']] .= $add;
             } else {
                 $data .= $add;
@@ -76,7 +78,9 @@ class Log
         if ($isolation) {
 
             if (self::$buffers != []) {
-                if (!is_dir($path . date("Ymd") . '/')) mkdir($path . date("Ymd") . '');
+                if (!is_dir($path . date("Ymd") . '/')) {
+                    mkdir($path . date("Ymd") . '');
+                }
                 foreach ($data as $key => $value) {
                     $name = date('Ymd') . "/" . $key . '.log';
                     if (is_file($path . $name)) {

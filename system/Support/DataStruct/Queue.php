@@ -10,10 +10,8 @@
 
 namespace LyApi\Support\DataStruct;
 
-
 class Queue
 {
-
     private $queueArr = [];
     private $queueIdx = -1;
 
@@ -27,7 +25,9 @@ class Queue
 
     public function pop()
     {
-        if ($this->queueIdx < 0) return false;
+        if ($this->queueIdx < 0) {
+            return false;
+        }
 
         array_shift($this->queueArr);
         $this->queueIdx--;

@@ -1,12 +1,11 @@
 <?php
 
-
 namespace Application\Foundation;
 
-
-use const Application\Config\API_STRUCTURE_INFO;
 use LyApi\Core\View;
 use LyApi\Foundation\Bcontrol;
+
+use const Application\Config\API_STRUCTURE_INFO;
 
 class ApiCon extends Bcontrol
 {

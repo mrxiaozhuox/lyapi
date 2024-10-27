@@ -15,7 +15,6 @@ use LyApi\Support\Storage\Session;
 
 class App
 {
-
     public static $startTimer = 0;
 
     /**
@@ -61,7 +60,9 @@ class App
         // 静态文件路径检测
         foreach ($resources as $key => $value) {
 
-            if (substr($key, -1) != '/') $key .= '/';
+            if (substr($key, -1) != '/') {
+                $key .= '/';
+            }
             $pattern = "/^" . preg_quote($key, "/") . "(.*)$/i";
 
             if (preg_match($pattern, $accessUri, $tester)) {
@@ -117,7 +118,7 @@ class App
                     if (!$value['filter']['value']) {
                         if ($value['filter']['abort'] == null) {
                             break;
-                        } else if (is_integer($value['filter']['abort'])) {
+                        } elseif (is_integer($value['filter']['abort'])) {
                             abort($value['filter']['abort']);
                         } else {
                             redirect($value['filter']['abort']);
@@ -127,7 +128,9 @@ class App
 
                 $controller = $value;
 
-                if ($tester == null) $tester = [""];
+                if ($tester == null) {
+                    $tester = [""];
+                }
                 array_shift($tester);
 
                 if (is_string($controller['controller'])) {
@@ -157,7 +160,7 @@ class App
 
             if (is_string($result) || is_numeric($result)) {
                 echo $result; // 输出程序结果
-            } else if ($result != null) {
+            } elseif ($result != null) {
                 echo View::api($result);
             }
         } else {
@@ -179,12 +182,18 @@ class App
             $controller = $options["controller"];
         }
 
-        if (array_key_exists("default", $options)) $default = $options['default'];
-        if (array_key_exists("abort", $options)) $abort = $options['abort'];
-        if (array_key_exists("parms", $options)) $parms = array_merge($options['parms'], $parms);
+        if (array_key_exists("default", $options)) {
+            $default = $options['default'];
+        }
+        if (array_key_exists("abort", $options)) {
+            $abort = $options['abort'];
+        }
+        if (array_key_exists("parms", $options)) {
+            $parms = array_merge($options['parms'], $parms);
+        }
 
         if (is_object($controller)) {
-            return $controller(new Request($parms), new Response);
+            return $controller(new Request($parms), new Response());
         }
 
         $target_path = explode(".", $controller);
@@ -194,30 +203,34 @@ class App
         $target_path = "Application\\Controller\\" . join("\\", $target_path);
 
         if (class_exists($target_path)) {
-            $object = new $target_path;
+            $object = new $target_path();
 
             $base = get_parent_class($object);
-            $base = new $base;
+            $base = new $base();
 
             $methods = get_class_methods($target_path);
             if (in_array($function, $methods)) {
                 $function = $function;
-            } else if (in_array($default, $methods) || $default == null) {
+            } elseif (in_array($default, $methods) || $default == null) {
                 if ($default != null) {
                     $function = $default;
                 } else {
-                    if (!$abort) abort(404);
+                    if (!$abort) {
+                        abort(404);
+                    }
                 }
             } else {
                 $function = null;
             }
 
             if ($function != null) {
-                $ret = $object->$function(new Request($parms), new Response);
+                $ret = $object->$function(new Request($parms), new Response());
                 return $object->_export($ret, $parms);
             }
         }
 
-        if (!$abort) Response::abort(404);
+        if (!$abort) {
+            Response::abort(404);
+        }
     }
 }

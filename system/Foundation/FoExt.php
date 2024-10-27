@@ -13,7 +13,6 @@ use Twig\Loader\FilesystemLoader;
 
 class FoExt
 {
-
     public const EXTEND_NAME = "FoExt";
     public const EXTEND_VERSION = "V1.0";
     public const EXTEND_DESCRIBLE = "拓展程序基类 FoExt";
@@ -26,7 +25,7 @@ class FoExt
 
     final public static function render_template($file, $data = [])
     {
-        $ext = explode("\\",get_called_class());
+        $ext = explode("\\", get_called_class());
         $ext = $ext[length($ext) - 2];
         $path = ROOT_PATH . '/extend/' . $ext . '/template/';
         $viewLoader = new FilesystemLoader($path);
@@ -41,7 +40,8 @@ class FoExt
         return $res;
     }
 
-    final public static function ext_filecache(){
+    final public static function ext_filecache()
+    {
         return new FileCache('_' . str_replace("\\", '.', get_called_class()));
     }
 

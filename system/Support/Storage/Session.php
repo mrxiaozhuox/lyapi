@@ -7,7 +7,6 @@
 
 namespace LyApi\Support\Storage;
 
-
 class Session
 {
     public static function __loader()

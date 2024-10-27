@@ -15,7 +15,7 @@ class ConnException extends Exception
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
 
-        if($message == ""){
+        if ($message == "") {
             $message = "数据库系统连接失败！";
         }
 

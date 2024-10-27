@@ -15,7 +15,6 @@ use ExtFunc;
 
 class Extend
 {
-
     private static $_exts    = [];
     private static $_extinfo = [
         "_route" => [],
@@ -68,7 +67,7 @@ class Extend
                 require_once($path . '/Main.php');
                 $tar = "Extend\\" . $ext . "\\Main";
                 if (class_exists($tar)) {
-                    Extend::$_exts[$ext] = new $tar;
+                    Extend::$_exts[$ext] = new $tar();
 
                     try {
                         Extend::$_exts[$ext]->event_trigger_register();
@@ -91,10 +90,10 @@ class Extend
                 if (in_array("event_route_register", $methods)) {
 
                     // try {
-                        Extend::$_exts[$val]->event_route_register();
+                    Extend::$_exts[$val]->event_route_register();
                     // } catch (Exception $e) {
-                        // echo $e;
-                        // Log::bwrite("")
+                    // echo $e;
+                    // Log::bwrite("")
                     // }
                 }
             }

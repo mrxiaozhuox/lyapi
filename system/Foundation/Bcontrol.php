@@ -12,7 +12,6 @@ use LyApi\Support\Event;
 
 class Bcontrol
 {
-
     private static $__cacheInfo = false;
 
     /**
@@ -41,11 +40,11 @@ class Bcontrol
     {
         $b = explode("\\", get_parent_class(get_called_class()))[2];
         $res = Event::trigger("Foundation_Export", $data, $b);
-        if($res != null && $res != []){
+        if ($res != null && $res != []) {
             foreach ($res as $key => $value) {
                 return $value;
             }
-        }else{
+        } else {
             return $data;
         }
     }

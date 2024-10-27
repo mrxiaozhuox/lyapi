@@ -2,10 +2,10 @@
 
 /**
  * LyApi Framework 接口演示
- * 
+ *
  * 关于：2.X 版本在优化了用户体验同时也在改进接口开发。
  * 下方是我为各位开发者整理的接口Demo（都是接口程序）
- * 
+ *
  * ⚠ 本文件的访问路径为：http://domain.com/Demo/[函数名]
  */
 
@@ -14,8 +14,6 @@ namespace Application\Controller;
 use Application\Foundation\ApiCon;
 use Common\Api;
 use ErrorException;
-use Extend\Dorea\library\Database;
-use Extend\Dorea\library\Tuple;
 
 class Demo extends ApiCon
 {
@@ -55,12 +53,4 @@ class Demo extends ApiCon
             "password" => "hello_lyapi"
         ], 200);
     }
-
-    // 请允许我夹带点私货：https://dorea.mrxzx.info/
-    public function dorea() {
-        $db = new Database("http://127.0.0.1:3451", "DOREA@SERVICE");
-        $db->set("foo", ["FOO","BAR","DOREA",Tuple::build("PI",3.14)]);
-        return $db->get("foo", false);
-    }
-
 }

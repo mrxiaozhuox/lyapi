@@ -64,10 +64,10 @@ function cache($key, $val = null, $expire = 0)
 function session($name = null, $value = null)
 {
     if ($name == null && $value == null) {
-        return new Session;
-    } else if ($name != null && $value == null) {
+        return new Session();
+    } elseif ($name != null && $value == null) {
         return Session::get($name);
-    } else if ($name != null && $value != null) {
+    } elseif ($name != null && $value != null) {
         return Session::set($name, $value);
     }
     return null;
@@ -75,12 +75,11 @@ function session($name = null, $value = null)
 
 function validator()
 {
-    return new Validator;
+    return new Validator();
 }
 
 class ExtFunc
 {
-
     private static $extfunc = [];
 
     public static function __callStatic($name, $arguments)

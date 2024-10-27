@@ -11,7 +11,6 @@
 
 namespace LyApi\Support\DataStruct;
 
-
 class Stack
 {
     private $stackArr = [];
@@ -30,11 +29,13 @@ class Stack
     public function pop()
     {
         // 如果为空栈则不做操作
-        if ($this->stackIdx < 0) return false;
+        if ($this->stackIdx < 0) {
+            return false;
+        }
 
         array_pop($this->stackArr); // 弹出数据
         $this->stackIdx--; // 栈顶减少一位
-        
+
         return true;
     }
 

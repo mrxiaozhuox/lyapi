@@ -48,7 +48,7 @@ class Event
                     $ret = @$closure(...$args);
 
                     if ($sign == null || $sign == "") {
-                        $sign = substr(md5(rand(11111, 99999) . uniqid()),3,8);
+                        $sign = substr(md5(rand(11111, 99999) . uniqid()), 3, 8);
                     }
                     $values[$sign] = $ret;
                 }

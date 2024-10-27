@@ -9,7 +9,6 @@ namespace LyApi\Core;
 
 class Route
 {
-
     private static $routes = [];
     private static $regexs = [];
     private static $resources = [];

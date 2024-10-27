@@ -9,10 +9,10 @@ namespace LyApi\Support;
 
 class CuteDB
 {
-    const CUTEDB_ENTRIES = 1048576;
-    const CUTEDB_VERSION = 2;
-    const CUTEDB_HEADER_SIZE = 20;
-    const CUTEDB_LINK_OFFSET = 12;
+    public const CUTEDB_ENTRIES = 1048576;
+    public const CUTEDB_VERSION = 2;
+    public const CUTEDB_HEADER_SIZE = 20;
+    public const CUTEDB_LINK_OFFSET = 12;
 
     private $_idxfile = null;
     private $_datfile = null;
@@ -30,24 +30,153 @@ class CuteDB
          * 4 bytes for link list head
          * 4 bytes for link list tail
          */
-        $header = pack('C4L4', 67, 85, 84, 69,
-                       CuteDB::CUTEDB_VERSION,
-                       CuteDB::CUTEDB_ENTRIES,
-                       0, 0);
+        $header = pack(
+            'C4L4',
+            67,
+            85,
+            84,
+            69,
+            CuteDB::CUTEDB_VERSION,
+            CuteDB::CUTEDB_ENTRIES,
+            0,
+            0
+        );
 
         if (fwrite($this->_idxfile, $header) != CuteDB::CUTEDB_HEADER_SIZE) {
             return false;
         }
 
-        $block = pack('L128',
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $block = pack(
+            'L128',
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        );
 
         $blockSize = strlen($block);
         $bucketSize = CuteDB::CUTEDB_ENTRIES * 4;
@@ -72,16 +201,14 @@ class CuteDB
         $sign = unpack('C4', substr($header, 0, 4));
 
         if ($sign[1] != 67 || $sign[2] != 85 ||
-            $sign[3] != 84 || $sign[4] != 69)
-        {
+            $sign[3] != 84 || $sign[4] != 69) {
             return false;
         }
 
         $sign = unpack('L4', substr($header, 4));
 
         if ($sign[1] != CuteDB::CUTEDB_VERSION ||
-            $sign[2] != CuteDB::CUTEDB_ENTRIES)
-        {
+            $sign[2] != CuteDB::CUTEDB_ENTRIES) {
             return false;
         }
 
@@ -178,11 +305,25 @@ class CuteDB
     }
 
     private function packItem(
-        $offset, $preoff, $nexoff, $datoff,
-        $datlen, $keylen, $delete, $keyval
+        $offset,
+        $preoff,
+        $nexoff,
+        $datoff,
+        $datlen,
+        $keylen,
+        $delete,
+        $keyval
     ) {
-        $keyItem = pack('L5C2', $offset, $preoff, $nexoff,
-                        $datoff, $datlen, $keylen, $delete);
+        $keyItem = pack(
+            'L5C2',
+            $offset,
+            $preoff,
+            $nexoff,
+            $datoff,
+            $datlen,
+            $keylen,
+            $delete
+        );
 
         $keyItem .= $keyval;
 
@@ -281,8 +422,16 @@ class CuteDB
 
         $keylen = strlen($key);
 
-        $keyItem = $this->packItem($offset, $preoff, $nexoff,
-                                   $datoff, $datlen, $keylen, 0, $key);
+        $keyItem = $this->packItem(
+            $offset,
+            $preoff,
+            $nexoff,
+            $datoff,
+            $datlen,
+            $keylen,
+            0,
+            $key
+        );
 
         if (!$keyItem) {
             return false;
@@ -343,9 +492,16 @@ class CuteDB
                 $keyval = $package[6];
                 $keylen = strlen($keyval);
 
-                $keyItem = $this->packItem($offset, $preoff, $this->_tailoff,
-                                           $datoff, $datlen, $keylen, $delete,
-                                           $keyval);
+                $keyItem = $this->packItem(
+                    $offset,
+                    $preoff,
+                    $this->_tailoff,
+                    $datoff,
+                    $datlen,
+                    $keylen,
+                    $delete,
+                    $keyval
+                );
 
                 if (!$keyItem) {
                     return false;
@@ -495,8 +651,16 @@ class CuteDB
         $keylen = strlen($key);
         $delete = 1;
 
-        $keyItem = $this->packItem($offset, $preoff, $nexoff, $datoff,
-                                   $datlen, $keylen, $delete, $key);
+        $keyItem = $this->packItem(
+            $offset,
+            $preoff,
+            $nexoff,
+            $datoff,
+            $datlen,
+            $keylen,
+            $delete,
+            $key
+        );
 
         if (!$keyItem) {
             return false;
