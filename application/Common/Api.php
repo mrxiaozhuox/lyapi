@@ -3,6 +3,8 @@
 
 namespace Common;
 
+use const Application\Config\API_STRUCTURE_INFO;
+
 class Api
 {
 

@@ -16,9 +16,6 @@ use Common\Api;
 use ErrorException;
 use Extend\Dorea\library\Database;
 use Extend\Dorea\library\Tuple;
-use Extend\Dorea\library\Value;
-use LyApi\Core\Request;
-use LyApi\Core\Response;
 
 class Demo extends ApiCon
 {
@@ -37,9 +34,8 @@ class Demo extends ApiCon
     public function error()
     {
         try {
-            $content = file_get_contents("/这是一个不存在的文件.txt");
-        } catch (ErrorException $e) {
-
+            file_get_contents("/这是一个不存在的文件.txt");
+        } catch (ErrorException) {
             // Simple 函数是 Api 提供的结构生成函数
             // 正常来说，访问数据需要复杂的数组组合，而本函数仅用几个简单参数就可以完成
             return Api::simple(null, 404, "File Not Found");

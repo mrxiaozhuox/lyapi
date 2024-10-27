@@ -17,8 +17,9 @@ define("LYAPI_VERSION", "V2.0");
 if (is_file(ROOT_PATH . "/vendor/autoload.php")) {
     require ROOT_PATH . "/vendor/autoload.php";
 }else{
-    exit("请先运行 Composer Install !");
+    exit("plese execute `composer install` first.");
 }
+
 
 if (Config::dotConfig('app.open_debug')) {
     $whoops = new \Whoops\Run();
@@ -31,7 +32,6 @@ if (Config::dotConfig('app.open_debug')) {
  * 如果不需要拓展功能，请注释本行代码。
  */
 Extend::__loader();
-
 
 require ROOT_PATH . '/public/helper.php';
 

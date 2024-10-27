@@ -1,16 +1,16 @@
 {
     "name": "wanstudio/lyapi",
-    "description": "LyApi V2.0",
+    "description": "LyApi V3.0",
     "type": "project",
     "license": "MIT",
     "authors": [
         {
-            "name": "mrxiaozhuox",
-            "email": "mrxzx@wwsg18.top"
+            "name": "YuKun Liu",
+            "email": "mrxzx.info@gmail.com"
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=8.3",
         "ext-json": "*",
         "twig/twig": "3.14.0",
         "filp/whoops": "^2.9",

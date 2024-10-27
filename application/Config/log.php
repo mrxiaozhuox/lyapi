@@ -4,6 +4,8 @@
  * 日志系统配置信息
  */
 
+namespace Application\Config;
+
 return array(
     "log_system" => "file",
     "file" => [

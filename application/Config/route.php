@@ -4,8 +4,9 @@
  * 开发者可在本文件中自定义路由规则：
  */
 
+namespace Application\Config;
+
 use LyApi\Core\Route;
-use LyApi\Support\Config;
 use LyApi\Support\Extend;
 
 // ----- 表达式注册程序

@@ -4,6 +4,8 @@
  * 事件监听器配置
  */
 
+namespace Application\Config;
+
 use LyApi\Support\Event;
 
 /**

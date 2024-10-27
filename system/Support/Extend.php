@@ -90,11 +90,12 @@ class Extend
                 $methods = get_class_methods("Extend\\" . $val . "\\Main");
                 if (in_array("event_route_register", $methods)) {
 
-                    try {
+                    // try {
                         Extend::$_exts[$val]->event_route_register();
-                    } catch (Exception $e) {
+                    // } catch (Exception $e) {
+                        // echo $e;
                         // Log::bwrite("")
-                    }
+                    // }
                 }
             }
         }

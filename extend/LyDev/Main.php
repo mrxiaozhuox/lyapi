@@ -14,7 +14,6 @@ use ExtFunc;
 use LyApi\Core\Route;
 use LyApi\Foundation\FoExt;
 use LyApi\Support\Config;
-use LyApi\Support\Event;
 use LyApi\Support\Storage\Session;
 
 class Main extends FoExt
@@ -62,7 +61,7 @@ class Main extends FoExt
 
                 $res = [];
 
-                foreach ($list as $k => $f) {
+                foreach ($list as $f) {
                     if (is_dir($path . $f) && $f != "." && $f != "..") {
                         array_push($res, $f);
                     }

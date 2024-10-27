@@ -3,7 +3,8 @@
 
 namespace Application\Foundation;
 
-use LyApi\Core\Response;
+
+use const Application\Config\API_STRUCTURE_INFO;
 use LyApi\Core\View;
 use LyApi\Foundation\Bcontrol;
 

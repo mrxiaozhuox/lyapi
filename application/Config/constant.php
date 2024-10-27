@@ -4,6 +4,8 @@
  * LyApi 常量定义文件
  */
 
+namespace Application\Config;
+
 // 接口常量
 const API_STRUCTURE_INFO = [
     "structure" => [

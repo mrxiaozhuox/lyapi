@@ -208,7 +208,7 @@ class Dev
                 $res['.MD5'] = md5(preg_filter("/\s+/", '', $context));
             }
 
-            return view::api($res);
+            return View::api($res);
         } else if ($enter == "repwd") {
             $pwd = $req::Get("pwd");
             $checker = $req::Get("checker");

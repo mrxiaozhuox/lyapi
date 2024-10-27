@@ -4,6 +4,8 @@
  * 缓存系统配置文件
  */
 
+namespace Application\Config;
+
 return [
     'cache_system' => "file",
     "file" => [
