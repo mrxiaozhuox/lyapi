@@ -8,8 +8,8 @@ use Predis\Client;
 use Predis\Connection\ConnectionException;
 
 /**
- * 本对象仅用于需要 Redis 缓存的情况下
- * 如若已确定使用文件缓存，请使用 FileCache 对象
+ * This object just use for `Redis` Cache
+ * If you prefer to use `File` Cache, please use `FileCache` object
  */
 class Cache
 {
@@ -31,7 +31,7 @@ class Cache
                 try {
                     self::$object->ping();
                 } catch (ConnectionException $e) {
-                    throw new CacheException("Redis 服务器连接失败！$e");
+                    throw new CacheException("connect Redis server failed! $e");
                 }
                 break;
             case 'FILE':
@@ -39,7 +39,7 @@ class Cache
                 self::$object = new FileCache(self::$group);
                 break;
             default:
-                throw new CacheException("dbtype error.Please check the cache profile!");
+                throw new CacheException("dbtype error. Please check the cache profile!");
         }
     }
 
@@ -51,14 +51,18 @@ class Cache
         } else {
         }
     }
-
-    // 读取缓存数据
+  
+    /*
+     * Get value
+     */
     public static function get($key)
     {
         return self::$object->get($key);
     }
 
-    // 设置缓存数据
+    /*
+     * Set value
+     */
     public static function set($key, $value, $expire = 0)
     {
         if ($expire == 0) {
@@ -68,13 +72,17 @@ class Cache
         }
     }
 
-    // 数据自增
+    /*
+     * Increase number 
+     */
     public static function inc($key, $add = 1)
     {
         return self::$object->incrby($key, $add);
     }
 
-    // 检查值是否存在
+    /*
+     * Check key exists
+     */
     public static function has($key)
     {
         switch (self::$system) {
@@ -85,7 +93,9 @@ class Cache
         }
     }
 
-    // 删除缓存数据
+    /*
+     * Delete a data
+     */
     public static function delete($key)
     {
         switch (self::$system) {
@@ -96,7 +106,9 @@ class Cache
         }
     }
 
-    // 清空所有数据信息
+    /*
+     * Clean all data
+     */
     public static function clean()
     {
         switch (self::$system) {
@@ -107,7 +119,9 @@ class Cache
         }
     }
 
-    // 切换数据库类型
+    /*
+     * Read current cache system
+     */
     public static function system($to)
     {
         $to = strtoupper($to);

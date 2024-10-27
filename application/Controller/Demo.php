@@ -25,32 +25,43 @@ class Demo extends ApiCon
     // 程序员写下的第一个代码便是这 Hello World 了，嘻嘻！
     public function hello(): string
     {
-        return "LyApi 2.X 全新启航！";
+        return "Hi, this is a simple demo for api";
     }
 
     // 程序出错了，来个 404 Not Found？
     public function error()
     {
         try {
-            file_get_contents("/这是一个不存在的文件.txt");
+            file_get_contents("/UndefinedFile.txt");
         } catch (ErrorException) {
             // Simple 函数是 Api 提供的结构生成函数
             // 正常来说，访问数据需要复杂的数组组合，而本函数仅用几个简单参数就可以完成
             return Api::simple(null, 404, "File Not Found");
         }
-        return "不可能到这里哦！";
+        return "Hello";
     }
 
     // 一个接口需要遵循其他规则？Custom 函数可以完全自定义结构哦！
-    public function custom(): array
+    public function override(): array
     {
         // Custom 需要三个参数：
         // 参数1：接口结构（默认不包含 code data msg）
         // 参数2：HTTP状态码，由于缺少了 code 则需要手动设置状态码
         // 参数3：需要删除的键，默认删除 code data msg，可以是数组和字符串
-        return Api::custom([
+        return Api::override([
             "username" => "mrxiaozhuox",
             "password" => "hello_lyapi"
         ], 200);
+    }
+
+    public function custom()
+    {
+      return [
+          "~" => ["custom" => "a new field"],
+          
+          "hello" => "something in data",
+
+          "^" => ["msg"]
+      ];
     }
 }

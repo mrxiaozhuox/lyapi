@@ -1,8 +1,7 @@
 <?php
 
 // -+----------------------------+-
-// LyApi [ V2.0 ] - 全新开121`发版本
-// 结果处理程序 - Response
+// Response handler - Response
 // -+----------------------------+-
 
 namespace LyApi\Core;
@@ -70,7 +69,7 @@ class Response
 
         $setting = Config::getConfig("app");
 
-        // 查找错误处理程序路径
+        // search error handler
         if (array_key_exists("error_controller", $setting)) {
             $controller = $setting["error_controller"];
         } else {
@@ -94,7 +93,7 @@ class Response
 
         $dislist = Event::trigger("Abort_Trigger", $display);
         if ($dislist != [] && $dislist != "") {
-            foreach ($dislist as $key => $value) {
+            foreach ($dislist as $value) {
                 $display = $value;
             }
         }
@@ -112,6 +111,9 @@ class Response
         exit();
     }
 
+    /*
+     * return a file-download to browser
+     */
     public static function downloadFile($file_path, $save_name = null)
     {
         $path = '';
@@ -144,7 +146,9 @@ class Response
         }
     }
 
-    // 允许跨域请求
+    /*
+     * allow cors access 
+     */ 
     public static function corsAccessor($domain = '*', $type = '*')
     {
         if (is_array($domain)) {
@@ -161,7 +165,7 @@ class Response
         if (is_array($type)) {
             $tlist = $type;
             $type = '';
-            foreach ($tlist as $key => $value) {
+            foreach ($tlist as $value) {
                 $type .= $value . ',';
             }
             $type = substr($type, 0, strlen($type) - 1);

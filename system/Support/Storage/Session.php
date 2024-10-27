@@ -1,8 +1,7 @@
 <?php
 
 // -+----------------------------+-
-// LyApi [ V2.0 ] - 全新开发版本
-// Session 管理对象 - Session
+// Session Management - Session
 // -+----------------------------+-
 
 namespace LyApi\Support\Storage;

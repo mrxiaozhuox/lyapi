@@ -1,8 +1,7 @@
 <?php
 
 // -+----------------------------+-
-// LyApi [ V2.0 ] - 全新开发版本
-// 核心代码程序 - App
+// Framework Core - App
 // -+----------------------------+-
 
 namespace LyApi\Core;
@@ -13,12 +12,14 @@ use LyApi\Support\Config;
 use LyApi\Support\Log;
 use LyApi\Support\Storage\Session;
 
+use const Application\Config\HTTP_INTERNAL_SERVER_ERROR;
+
 class App
 {
     public static $startTimer = 0;
 
     /**
-     * 框架运行主程序
+     * Start main program
      */
     public function run($debug = false)
     {
@@ -27,12 +28,15 @@ class App
         } else {
             try {
                 $this->processor();
-            } catch (Exception $e) {
+            } catch (Exception) {
                 Response::abort(HTTP_INTERNAL_SERVER_ERROR);
             }
         }
     }
 
+    /**
+     * init cache and session
+     */
     public function relyInit()
     {
         Session::__loader();
@@ -86,7 +90,9 @@ class App
                     if (array_key_exists($suffix, $headers)) {
                         header($headers[$suffix]);
                     }
+                    
 
+                    // render static file content
                     echo file_get_contents($value . '/' . $tester[1]);
 
                     Log::bflush();
@@ -105,8 +111,6 @@ class App
             foreach ($regexs as $sign => $patt) {
                 $pattern = str_replace("\{" . $sign . "\}", "(" . $patt . ")", $pattern);
             }
-
-            // var_dump($pattern);
 
             if (!($value['method'] == 'ANY' || $_SERVER['REQUEST_METHOD'] == $value['method'])) {
                 continue;

@@ -1,18 +1,16 @@
 <?php
 
 // -+----------------------------+-
-// LyApi [ V2.0 ] - 全新开发版本
-// 视图操作对象 - View
+// View Management - View
 // -+----------------------------+-
 
 namespace LyApi\Core;
 
 use LyApi\Foundation\Bcontrol;
 use LyApi\Support\Cache\FileCache;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
 use const Application\Config\API_STRUCTURE_INFO;
+use const Application\Config\HTTP_INTERNAL_SERVER_ERROR;
 
 class View
 {
@@ -23,10 +21,10 @@ class View
 
     private static function __loader($path = ROOT_PATH . '/resource/view')
     {
-        self::$viewLoader = new FilesystemLoader($path);
+        self::$viewLoader = new \Twig\Loader\FilesystemLoader($path);
         self::$filePath =  $path;
 
-        self::$viewTwig = new Environment(self::$viewLoader, [
+        self::$viewTwig = new \Twig\Environment(self::$viewLoader, [
             'cache' => ROOT_PATH . '/runtime/template',
             'auto_reload' => true
         ]);
@@ -103,7 +101,7 @@ class View
             $result[$structure['info_item']] = $data;
         } elseif (is_array($data)) {
 
-            // ~ 基本结构设定符
+            // ~ add new field
             if (array_key_exists($structure['struct_symbol'], $data)) {
                 $val = $data[$structure['struct_symbol']];
                 foreach ($val as $key => $value) {
@@ -116,7 +114,7 @@ class View
                 $result[$structure['info_item']] = $data;
             }
 
-            // ^ 基本结构删除符
+            // ^ delete field
             if (array_key_exists($structure['deltem_symbol'], $data)) {
                 $val = $data[$structure['deltem_symbol']];
                 if (is_array($val)) {
@@ -150,7 +148,7 @@ class View
         } else {
             $res = json_encode($result, JSON_PRETTY_PRINT);
 
-            // 转换乱码为汉字
+            // handle broken char
             $res = preg_replace_callback(
                 "#\\\u([0-9a-f]{4})#i",
                 function ($r) {

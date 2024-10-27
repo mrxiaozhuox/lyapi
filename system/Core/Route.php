@@ -1,8 +1,7 @@
 <?php
 
 // -+----------------------------+-
-// LyApi [ V2.0 ] - 全新开发版本
-// 路由处理程序 - Route
+// Routing handler - Route
 // -+----------------------------+-
 
 namespace LyApi\Core;
@@ -15,7 +14,7 @@ class Route
     private static $lastset = '';
 
     /**
-     * 注册路由函数
+     * register a new router
      */
     public static function rule($path, $controller, $method = "any")
     {
@@ -32,7 +31,7 @@ class Route
     }
 
     /**
-     * 处理器表达式注册函数
+     * bind a dynamic regex 
      */
     public static function regex($sign, $pattern, $info = "i")
     {
@@ -41,7 +40,7 @@ class Route
     }
 
     /**
-     * 静态访问路径注册函数
+     * static resource bind 
      */
     public static function resource($path, $dir)
     {
@@ -58,8 +57,9 @@ class Route
         );
     }
 
-    // 辅助函数程序
-
+    /*
+     * make a filter for router
+     */
     public static function filter($val = true, $abort = null)
     {
         if (self::$lastset != '') {
@@ -75,7 +75,10 @@ class Route
         }
         return new self();
     }
-
+    
+    /*
+     * custom router handler
+     */
     public static function afterDefine($function)
     {
         if (self::$lastset != '') {
@@ -85,4 +88,5 @@ class Route
         }
         return new self();
     }
+
 }

@@ -42,7 +42,7 @@ class Api
         return $res;
     }
 
-    public static function custom($values, $httpCode = 200, $remove = self::CLEAN_ALL_STRUCT)
+    public static function override($values, $httpCode = 200, $remove = self::CLEAN_ALL_STRUCT)
     {
         $struct = self::$_struct;
 

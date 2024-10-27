@@ -1,8 +1,7 @@
 <?php
 
 // -+----------------------------+-
-// LyApi [ V2.0 ] - 全新开发版本
-// 请求处理程序 - Request
+// Reauest handler - Request
 // -+----------------------------+-
 
 namespace LyApi\Core;
@@ -12,7 +11,9 @@ class Request
     public $options = [];
     public $variable = [];
 
-    // 对象构造函数，将在程序生成 Request 对象时用到
+    /*
+     * this object will be generate when program got a new request
+     */
     public function __construct($options)
     {
         if (is_array($options)) {
@@ -25,6 +26,9 @@ class Request
         }
     }
 
+    /*
+     * data by query
+     */
     public function args($name)
     {
         if (array_key_exists($name, $_GET)) {
@@ -32,14 +36,24 @@ class Request
         }
     }
 
-    public function form($name)
+    /*
+     * data by form
+     */
+    public function form(string $name)
     {
         if (array_key_exists($name, $_POST)) {
             return $_POST[$name];
         }
     }
 
-    public function __get($name)
+    public function file(string $name)
+    {
+        if(array_key_exists($name, $_FILES)) {
+          return $_FILES[$name];
+        }
+    }
+
+    public function __get(string $name)
     {
         if ($name == "uri") {
             return $_SERVER["REQUEST_URI"];
