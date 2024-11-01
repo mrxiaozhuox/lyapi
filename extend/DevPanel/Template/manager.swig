@@ -1,4 +1,4 @@
-{% extends "block/main.html" %}
+{% extends "block/main.swig" %}
 
 {% block title %} Extend Index {% endblock %}
 

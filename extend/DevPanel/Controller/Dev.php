@@ -50,7 +50,7 @@ class Dev
             $exts[$key]['EXTDEV_STD'] = Panel::standard($value['EXTEND_NAME']);
         }
 
-        return Main::render_template("index.html", [
+        return Main::render_template("index.swig", [
             "extList" => $exts,
             "routeli" => $rots,
             "page" => "info"
@@ -59,7 +59,7 @@ class Dev
 
     public static function manager(Request $req, Response $resp)
     {
-        return Main::render_template("manager.html", [
+        return Main::render_template("manager.swig", [
             'page' => 'manager',
             "checker" => "@dev" . md5(date("Ymd") . "@DEVCHECKER")
         ]);
@@ -113,7 +113,7 @@ class Dev
                     $redirect = null;
                 }
 
-                return Main::render_template("panel.html", [
+                return Main::render_template("panel.swig", [
                     "body" => $body,
                     "forms" => $forms['struct'],
                     "extname" => $ext,
@@ -125,7 +125,7 @@ class Dev
                 if (is_file($path . $loader)) {
                     return file_get_contents($path . $loader);
                 } else {
-                    return Main::render_template("panel.html", [
+                    return Main::render_template("panel.swig", [
                         "body" => [],
                         "forms" => [],
                         "extname" => $ext
@@ -528,7 +528,7 @@ class Dev
     public static function login(Request $req, Response $resp)
     {
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
-            return Main::render_template("login.html");
+            return Main::render_template("login.swig");
         } else {
             $pwd = Request::Post("password");
 

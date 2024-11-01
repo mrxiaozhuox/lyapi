@@ -1,4 +1,4 @@
-{% extends "block/main.html" %}
+{% extends "block/main.swig" %}
 
 {% block title %} Extend Index {% endblock %}
 
@@ -9,7 +9,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">插件加载列表</h5>
+        <h5 class="card-title">Loaded Extends</h5>
         <div class="list-group">
             {% for ext in extList %}
             <a href="javascript:panel('{{ext.EXTEND_NAME}}');" class="list-group-item list-group-item-action"
@@ -22,7 +22,7 @@
                 </div>
                 <p class="mb-1">{{ext.EXTEND_DESCRIBLE}}</p>
                 <small>
-                    拓展类型：{{ext.EXTEND_TYPE}}&nbsp;
+                    ExtraType：{{ext.EXTEND_TYPE}}&nbsp;
                     {% if ext.EXTDEV_STD %}
                     <span class="badge badge-success">standard</span>
                     {% else %}
@@ -51,14 +51,6 @@
         </ul>
     </div>
 </div>
-
-<!-- <br />
-<div class="card">
-    <div class="card-body">
-        LyDev 最新版本为：
-        <span id="extdev-nv">NAN</span>
-    </div>
-</div> -->
 
 <!-- Modal -->
 <div class="modal fade" id="panelModal" tabindex="-1" aria-labelledby="panelModalLabel" aria-hidden="true">

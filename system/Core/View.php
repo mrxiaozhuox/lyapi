@@ -37,7 +37,7 @@ class View
         self::__loader($path);
     }
 
-    public static function render($path, $data, $type = "html")
+    public static function render($path, $data, $type = "swig")
     {
         $path = str_replace(".", '/', $path);
 
