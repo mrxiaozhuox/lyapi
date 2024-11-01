@@ -5,12 +5,12 @@
 // 控制器基类 - Bcontrol
 // -+----------------------------+-
 
-namespace LyApi\Foundation;
+namespace LyApi\Interface;
 
 use LyApi\Support\Cache\FileCache;
 use LyApi\Support\Event;
 
-class Bcontrol
+class Controller
 {
     private static $__cacheInfo = false;
 
@@ -41,7 +41,7 @@ class Bcontrol
         $b = explode("\\", get_parent_class(get_called_class()))[2];
         $res = Event::trigger("Foundation_Export", $data, $b);
         if ($res != null && $res != []) {
-            foreach ($res as $key => $value) {
+            foreach ($res as $value) {
                 return $value;
             }
         } else {

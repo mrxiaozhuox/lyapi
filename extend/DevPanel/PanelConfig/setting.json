@@ -1,9 +1,0 @@
-{
-    "app-loader": {
-        "Manager": "controller.Manager"
-    },
-    "panel-setting": {
-        "panel-url": "https://mrxzx.info/",
-        "default-file": "panel.xml"
-    }
-}

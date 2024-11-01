@@ -11,11 +11,11 @@
 
 namespace Application\Controller;
 
-use Application\Foundation\ApiCon;
+use Application\Interface\Api as ApiController;
 use Common\Api;
 use ErrorException;
 
-class Demo extends ApiCon
+class Demo extends ApiController
 {
     // 要开发一个接口，最重要的就是继承 ApiCon 这个对象
     // 当然你可以再 ViewCon 下调用 view::api 来实现接口生成

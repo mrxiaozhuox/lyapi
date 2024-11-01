@@ -1,10 +1,10 @@
 <?php
 
-namespace Application\Foundation;
+namespace Application\Interface;
 
-use LyApi\Foundation\Bcontrol;
+use LyApi\Interface\Controller;
 
-class ViewCon extends Bcontrol
+class View extends Controller
 {
     public function _export($data)
     {

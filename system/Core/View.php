@@ -6,7 +6,7 @@
 
 namespace LyApi\Core;
 
-use LyApi\Foundation\Bcontrol;
+use LyApi\Interface\Controller;
 use LyApi\Support\Cache\FileCache;
 
 use const Application\Config\API_STRUCTURE_INFO;
@@ -60,7 +60,7 @@ class View
                 $res = file_get_contents($file);
             }
 
-            $cinf = Bcontrol::pageCache("CACHEINFO");
+            $cinf = Controller::pageCache("CACHEINFO");
             if ($cinf) {
                 $cache = $cinf['FileCache'];
                 $cache->set($file, $res, $cinf["Refresh"]);

@@ -1,6 +1,6 @@
 {
-    "name": "wanstudio/lyapi",
-    "description": "LyApi V3.0",
+    "name": "mrxiaozhuox/lyapi",
+    "description": "LyApi",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -23,8 +23,7 @@
         "psr-4": {
             "Application\\": "application/",
             "LyApi\\": "system/",
-            "Common\\": "application/Common",
-            "Extend\\": "extend/"
+            "Common\\": "application/Common"
         }
     },
     "require-dev": {

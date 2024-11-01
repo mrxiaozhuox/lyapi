@@ -4,7 +4,6 @@ use LyApi\Core\Response;
 use LyApi\Core\View;
 use LyApi\Support\Cache\Cache;
 use LyApi\Support\Config;
-use LyApi\Support\Extend;
 use LyApi\Support\Storage\Session;
 use Particle\Validator\Validator;
 
@@ -103,4 +102,3 @@ class ExtFunc
     }
 }
 
-Extend::_helper();

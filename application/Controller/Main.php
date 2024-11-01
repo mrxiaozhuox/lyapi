@@ -6,13 +6,12 @@
 
 namespace Application\Controller;
 
-use Application\Foundation\ViewCon;
-use Common\Encryption;
+use Application\Interface\View as ViewController;
 use LyApi\Core\Request;
 use LyApi\Core\Response;
 use LyApi\Core\View;
 
-class Main extends ViewCon
+class Main extends ViewController
 {
     /**
      * 主页面渲染程序

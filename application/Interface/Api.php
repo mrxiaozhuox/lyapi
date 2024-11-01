@@ -1,13 +1,13 @@
 <?php
 
-namespace Application\Foundation;
+namespace Application\Interface;
 
 use LyApi\Core\View;
-use LyApi\Foundation\Bcontrol;
+use LyApi\Foundation\Controller;
 
 use const Application\Config\API_STRUCTURE_INFO;
 
-class ApiCon extends Bcontrol
+class Api extends Controller
 {
     public function _export($data)
     {

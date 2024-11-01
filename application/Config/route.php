@@ -47,13 +47,6 @@ Route::rule("/", "Main.index", 'any');
 Route::rule("/demo/{letter}", "Demo.{1}", "any");
 
 
-/**
- * 插件注册路由
- * 注释此行可禁止所有插件注册
- * 参数1为数组，选择性禁用插件注册
- */
-Extend::_router();
-
 // 这种方法可以动态调用不同的控制器
 // Route::rule("/{letter}", "Main.{1}", 'any');
 

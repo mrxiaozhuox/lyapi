@@ -33,7 +33,7 @@ class Route
     /**
      * bind a dynamic regex 
      */
-    public static function regex($sign, $pattern, $info = "i")
+    public static function regex($sign, $pattern)
     {
         self::$regexs[$sign] = $pattern;
         return new self();
