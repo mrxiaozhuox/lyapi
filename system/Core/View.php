@@ -43,11 +43,6 @@ class View
 
         $file = ROOT_PATH . '/resource/view/' . $path . '.' . $type;
 
-        $pch = new FileCache("PageCache");
-        if ($pch->has($file)) {
-            return $pch->get($file);
-        }
-
         if (!self::$isLoading) {
             self::__loader();
         }
@@ -59,13 +54,6 @@ class View
             } else {
                 $res = file_get_contents($file);
             }
-
-            $cinf = Controller::pageCache("CACHEINFO");
-            if ($cinf) {
-                $cache = $cinf['FileCache'];
-                $cache->set($file, $res, $cinf["Refresh"]);
-            }
-
             return $res;
         } else {
             Response::abort(404);

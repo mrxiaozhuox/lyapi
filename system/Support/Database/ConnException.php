@@ -16,7 +16,7 @@ class ConnException extends Exception
     {
 
         if ($message == "") {
-            $message = "数据库系统连接失败！";
+            $message = "database connect field.";
         }
 
         parent::__construct($message, $code, $previous);
