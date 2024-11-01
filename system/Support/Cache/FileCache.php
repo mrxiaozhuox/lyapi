@@ -11,11 +11,8 @@ class FileCache
     /**
      * 初始化缓存设置.
      */
-    public function __construct($group = null)
+    public function __construct(string $group = "default")
     {
-        if (is_null($group)) {
-            $group = 'defualt';
-        }
         $dir = ROOT_PATH . '/runtime/cache/' . $group;
 
         if (!is_dir($dir)) {

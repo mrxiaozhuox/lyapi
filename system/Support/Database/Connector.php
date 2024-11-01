@@ -7,8 +7,6 @@
 
 namespace LyApi\Support\Database;
 
-use Exception;
-use Extend\Dorea\library\Database;
 use LyApi\Support\Config;
 use Medoo\Medoo;
 
@@ -66,7 +64,7 @@ class Connector
         return $temp;
     }
 
-    public static function connect($name, $type = "medoo")
+    public static function connect($name)
     {
         $temp = new self(self::$conntype);
         return $temp->$name;
